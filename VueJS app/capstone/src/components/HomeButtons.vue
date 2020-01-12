@@ -1,5 +1,5 @@
 <template>
-    <div id='HomeButton'>
+    <div class='HomeButton'>
         <span>
         <h1>Click Here</h1>
         </span>
@@ -25,23 +25,29 @@ border-color: black;
 text-align: center;
 }
 
-#HomeButton {
+.HomeButton {
 
 
-width: 30%;
-height: 100px;
+width: 600px;
+height: 150px;
+
 background-image: url(../assets/main-background.jpeg);
 background-size: 100%;
 
-border-width: 2px;
-border-left: 20px;
+border-style: solid;
+border-width: 1px;
+border-radius: 20px;
+border-color: black;
+
+
+
 }
 
 
 
 span{
 
-left: 20%;
+
 width: 30%;
 background-color: aqua;
 

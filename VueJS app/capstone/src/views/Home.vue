@@ -1,8 +1,19 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-   
-    <HomeButtons />
+    <div id="top-buffer">
+    </div>
+   <div id="top-row-button"><HomeButtons class="middle"/></div>
+    
+    <div id="left-side-buttons">
+     <HomeButtons class="left"/>
+     <HomeButtons class="left"/>
+    </div>
+    
+    <div id="right-side-buttons">
+      <HomeButtons class="right"/>
+      <HomeButtons class="right"/>
+    </div>
+    
     
   </div>
 </template>
@@ -26,11 +37,50 @@ export default {
 <style>
 
 .home {
-
 background-image: url(../assets/main-background.jpeg);
-background-size: 100%;
+background-size: cover;
 height: 100%;
+overflow: hidden;
 text-align: center;
+
+}
+
+
+#top-buffer {
+height: 200px;
+
+}
+
+.middle {
+margin-left: 20%;
+margin-bottom: 1.5%;
+
+}
+
+
+.left {
+margin-left: 5%;
+margin-bottom: 5%;
+
+}
+
+.right {
+margin-bottom: 5%;
+  
+}
+
+
+#left-side-buttons {
+width: 30%;
+float:left;
+
+}
+
+#right-side-buttons {
+  width: 30%;
+  float:right;
+  margin-right: 35%;
+  
 }
 
 
