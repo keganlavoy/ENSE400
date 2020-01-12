@@ -1,7 +1,7 @@
 <template>
     <div class='HomeButton'>
         <span>
-        <h1>Click Here</h1>
+        <h1>{{ msg }}</h1>
         </span>
     </div>
 
@@ -9,7 +9,8 @@
 
 <script>
 export default {
-    name: "HomeButtons"
+    name: "HomeButtons",
+    props: ["msg"]
 }
 </script>
 
@@ -19,14 +20,12 @@ export default {
 h1 {
 
 color: rgb(11, 11, 14);
-border: 2px;
-border-width: 20px;
-border-color: black;
-text-align: center;
+text-align: left;
+margin-top: 10%;
+margin-left: 5%;
 }
 
 .HomeButton {
-
 
 width: 600px;
 height: 150px;
@@ -43,16 +42,6 @@ border-color: black;
 
 }
 
-
-
-span{
-
-
-width: 30%;
-background-color: aqua;
-
-
-}
 
 
 </style>

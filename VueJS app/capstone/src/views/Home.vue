@@ -2,16 +2,16 @@
   <div class="home">
     <div id="top-buffer">
     </div>
-   <div id="top-row-button"><HomeButtons class="middle"/></div>
+   <div id="top-row-button"><HomeButtons msg='Package deal' class="middle"/></div>
     
     <div id="left-side-buttons">
-     <HomeButtons class="left"/>
-     <HomeButtons class="left"/>
+     <HomeButtons msg='Health Insurance' class="left"/>
+     <HomeButtons msg='Presciption drugs insurance' class="left"/>
     </div>
     
     <div id="right-side-buttons">
-      <HomeButtons class="right"/>
-      <HomeButtons class="right"/>
+      <HomeButtons msg='Dental insurance' class="right"/>
+      <HomeButtons msg='vision insurance' class="right"/>
     </div>
     
     
@@ -29,6 +29,16 @@ export default {
   components: {
     
     HomeButtons
+  },
+
+  data() {
+
+    return {
+
+      msg: ''
+
+    }
+
   }
 }
 </script>
