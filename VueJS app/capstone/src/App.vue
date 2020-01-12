@@ -12,7 +12,7 @@
 
 
 #app {
-
+height: 100%;
 background-image: url(/assets/main-background.jpeg);
 background-size: 100%;
 

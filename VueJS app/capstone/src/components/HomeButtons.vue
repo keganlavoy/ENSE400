@@ -10,7 +10,13 @@
 <script>
 export default {
     name: "HomeButtons",
-    props: ["msg"]
+    props: ["msg"],
+
+    data()  {
+        return {
+            hover: false,
+        };
+    }
 }
 </script>
 
@@ -21,16 +27,14 @@ h1 {
 
 color: rgb(11, 11, 14);
 text-align: left;
-margin-top: 10%;
+margin-top: 5%;
 margin-left: 5%;
 }
 
 .HomeButton {
 
 width: 80%;
-height: 10%;
-
-background-image: url(../assets/main-background.jpeg);
+height: 100%;
 background-size: 100%;
 
 border-style: solid;
