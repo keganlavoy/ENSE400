@@ -39,7 +39,7 @@ background-size: 100%;
 
 border-style: solid;
 border-width: 1px;
-border-radius: 20px;
+border-radius: 40px;
 border-color: black;
 
 

@@ -5,7 +5,7 @@
    <div id="top-row-button" >
 
      <HomeButtons 
-     msg='Package deal' 
+     msg='Package Deal' 
      class="middle"
      background='packageDealBG.jpg'
      @mouseover.native="hover = true" 
@@ -17,12 +17,12 @@
     
     <div id="left-side-buttons">
      <HomeButtons msg='Health Insurance' class="left" id="Health-Insurance"/>
-     <HomeButtons msg='Presciption drugs insurance' class="left" id="Prescription"/>
+     <HomeButtons msg='Presciption Drugs Insurance' class="left" id="Prescription"/>
     </div>
     
     <div id="right-side-buttons">
-      <HomeButtons msg='Dental insurance' class="right" id="Dental-Insurance"/>
-      <HomeButtons msg='vision insurance' class="right" id="Vision-Insurance"/>
+      <HomeButtons msg='Dental Insurance' class="right" id="Dental-Insurance"/>
+      <HomeButtons msg='Vision Insurance' class="right" id="Vision-Insurance"/>
     </div>
    
 
@@ -48,7 +48,6 @@ export default {
     return {
 
       msg: '',
-      background: '',
       hover: false
     }
 

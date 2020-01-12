@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
+    <div id="nav" >
+      <router-link to="/">Home</router-link> 
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
@@ -13,13 +13,15 @@
 
 #app {
 height: 100%;
-background-image: url(/assets/main-background.jpeg);
-background-size: 100%;
-
 text-align: center;
 }
 
+
 #nav {
+  height: 7%;
+  background-image: url(assets/croppedBanner.png);
+  background-size: cover;
+  overflow: hidden;
   padding: 15px;
 }
 
