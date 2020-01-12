@@ -62,21 +62,28 @@ height: 200px;
 }
 
 .middle {
-margin-left: 20%;
-margin-bottom: 1.5%;
+margin-left: 25%;
+margin-bottom: 3%;
 
 }
 
 
 .left {
-margin-left: 5%;
-margin-bottom: 5%;
+margin-left: 13%;
+margin-bottom: 3%;
 
 }
 
 .right {
-margin-bottom: 5%;
+margin-bottom: 3%;
   
+}
+
+
+#top-row-button {
+width: 30%;
+margin-left: 10%;
+
 }
 
 
@@ -89,7 +96,7 @@ float:left;
 #right-side-buttons {
   width: 30%;
   float:right;
-  margin-right: 35%;
+  margin-right: 40%;
   
 }
 

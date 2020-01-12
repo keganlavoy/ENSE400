@@ -27,8 +27,8 @@ margin-left: 5%;
 
 .HomeButton {
 
-width: 600px;
-height: 150px;
+width: 80%;
+height: 10%;
 
 background-image: url(../assets/main-background.jpeg);
 background-size: 100%;
