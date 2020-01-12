@@ -1,12 +1,36 @@
 <template>
   <div id="app">
     <div id="nav" >
+      <ProfileButton />
       <router-link to="/">Home</router-link> 
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
   </div>
 </template>
+
+
+
+<script>
+
+import ProfileButton from '@/components/ProfileButton.vue'
+
+
+export default {
+  name: 'app',
+  components: {
+
+    ProfileButton
+  }
+
+}
+</script>
+
+
+
+
+
+
 
 <style>
 
@@ -18,11 +42,11 @@ text-align: center;
 
 
 #nav {
-  height: 7%;
+  height: 10%;
   background-image: url(assets/croppedBanner.png);
   background-size: cover;
   overflow: hidden;
-  padding: 15px;
+  padding: 0px;
 }
 
 #nav a {
