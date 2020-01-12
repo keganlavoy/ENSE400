@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="I changed the prop"/>
+   
     <HomeButtons />
     
   </div>
@@ -9,15 +9,29 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+//import HelloWorld from '@/components/HelloWorld.vue'
 import HomeButtons from '@/components/HomeButtons.vue'
 
 
 export default {
   name: 'home',
   components: {
-    HelloWorld,
+    
     HomeButtons
   }
 }
 </script>
+
+
+<style>
+
+.home {
+
+background-image: url(../assets/main-background.jpeg);
+background-size: 100%;
+height: 100%;
+text-align: center;
+}
+
+
+</style>
