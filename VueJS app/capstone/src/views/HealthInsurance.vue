@@ -121,7 +121,7 @@ margin-top: 0.8%;
 
 p {
 
-font-size: 2.75em;
+font-size: 2.1vw;
 text-align: center;
 }
 

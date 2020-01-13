@@ -25,9 +25,10 @@ export default {
 
 h1 {
 
+font-size: 1.5vw;
 color: rgb(11, 11, 14);
 text-align: left;
-margin-top: 5%;
+margin-top: 12%;
 margin-left: 5%;
 }
 
