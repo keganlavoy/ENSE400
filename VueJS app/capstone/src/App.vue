@@ -3,7 +3,7 @@
     <div id="nav" >
       <ProfileButton />
       <router-link to="/">Home</router-link> 
-      <router-link to="/about">About</router-link>
+      <router-link to="/HealthInsurance">HealthInsurance</router-link>
       <router-link to="/login">Login</router-link>
       <h3>Care Compare</h3>
     </div>

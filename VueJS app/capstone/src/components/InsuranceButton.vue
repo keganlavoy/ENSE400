@@ -1,24 +1,36 @@
 <template>
-    <div class='HomeButton'>
+
+
+    <div class="InsuranceButton">
+    
         <span>
         <h1>{{ msg }}</h1>
-        </span>
-    </div>
+        </span>  
+    
+    </div>    
+
 
 </template>
 
+
 <script>
 export default {
-    name: "HomeButtons",
-    props: ["msg"],
+   
+   name: 'InsuranceButton',
+   props: ["msg"],
 
     data()  {
         return {
             hover: false,
         };
     }
+
 }
 </script>
+
+
+
+
 
 
 <style scoped>
@@ -26,26 +38,25 @@ export default {
 h1 {
 
 color: rgb(11, 11, 14);
-text-align: left;
-margin-top: 5%;
-margin-left: 5%;
+text-align: center;
+margin-top: 10%;
+
 }
 
-.HomeButton {
+.InsuranceButton {
 
-width: 80%;
-height: 100%;
-background-size: 100%;
-
+width: 50%;
+height: 25%;
+margin: auto;
+margin-bottom: 10%;
 border-style: solid;
 border-width: 1px;
 border-radius: 3vh;
 border-color: black;
-
+background-color: white;
 
 
 }
-
 
 
 </style>

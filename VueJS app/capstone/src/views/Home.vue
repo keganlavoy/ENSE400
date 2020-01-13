@@ -11,7 +11,7 @@
      @mouseover.native="hover = true" 
      @mouseleave.native="hover = false" 
      id="packageDeal"
-     @click.native="$router.push('/about')"/>
+     @click.native="$router.push('/HealthInsurance')"/>
 
    </div>
     
