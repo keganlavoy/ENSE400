@@ -5,6 +5,7 @@
       <router-link to="/">Home</router-link> 
       <router-link to="/about">About</router-link>
       <router-link to="/login">Login</router-link>
+      <h3>Care Compare</h3>
     </div>
     <router-view/>
   </div>
