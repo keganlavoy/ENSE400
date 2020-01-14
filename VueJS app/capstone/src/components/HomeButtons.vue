@@ -10,11 +10,15 @@
 <script>
 export default {
     name: "HomeButtons",
-    props: ["msg"],
+    props: {
 
+        msg: String,
+        hover: Boolean
+        
+    },
     data()  {
         return {
-            hover: false,
+            
         };
     }
 }
@@ -42,11 +46,15 @@ border-style: solid;
 border-width: 1px;
 border-radius: 3vh;
 border-color: black;
-
-
-
+opacity: 0.7;
 }
 
+
+div:hover {
+
+border: 5px solid rgb(0, 255, 0);
+opacity: 1;
+}
 
 
 </style>

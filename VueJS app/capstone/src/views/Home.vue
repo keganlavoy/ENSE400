@@ -4,19 +4,12 @@
     </div>
    <div id="top-row-button" >
 
-     <HomeButtons 
-     msg='Package Deal' 
-     class="middle"
-     background='packageDealBG.jpg'
-     @mouseover.native="hover = true" 
-     @mouseleave.native="hover = false" 
-     id="packageDeal"
-     @click.native="$router.push('/HealthInsurance')"/>
+     <HomeButtons msg='Package Deal' class="middle" background='packageDealBG.jpg' @mouseover.native="hover = true" @mouseleave.native="hover = false" id="packageDeal"/>
 
    </div>
     
     <div id="left-side-buttons">
-     <HomeButtons msg='Health Insurance' class="left" id="Health-Insurance"/>
+     <HomeButtons msg='Health Insurance' class="left" id="Health-Insurance" @click.native="$router.push('/HealthInsurance')"/>
      <HomeButtons msg='Presciption Drugs Insurance' class="left" id="Prescription"/>
     </div>
     
@@ -144,5 +137,12 @@ float:left;
   background-image: url(../assets/visionBG.jpg);
   background-size: 100%;
 }
+
+HomeButton:hover {
+
+border: 1px solid green;
+
+}
+
 
 </style>
