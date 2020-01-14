@@ -45,7 +45,31 @@ text-align: center;
 }
 
 #login-button {
-width:15%;
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  width: 15%;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#login-button:hover {
+background-color: black;
+color: white;
+}
+
+#signUp-button {
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  width: 15%;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#signUp-button:hover {
+background-color: black;
+color: white;
 }
 
 #forgot-pass {
