@@ -5,7 +5,7 @@
       <router-link to="/">Home</router-link> 
       <router-link to="/HealthInsurance">HealthInsurance</router-link>
       <router-link to="/login">Login</router-link>
-      <h3>Care Compare</h3>
+      <h3 @click="$router.push('/')">Care Compare</h3>
     </div>
     <router-view/>
   </div>
@@ -49,6 +49,7 @@ text-align: center;
   background-size: cover;
   overflow: hidden;
   padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #nav a {
@@ -59,4 +60,12 @@ text-align: center;
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+h3 {
+
+font-size: 1.8vw;
+cursor: pointer;
+}
+
+
 </style>

@@ -58,6 +58,7 @@ height: 100%;
 overflow: hidden;
 text-align: center;
 
+
 }
 
 
@@ -138,11 +139,7 @@ float:left;
   background-size: 100%;
 }
 
-HomeButton:hover {
 
-border: 1px solid green;
-
-}
 
 
 </style>
