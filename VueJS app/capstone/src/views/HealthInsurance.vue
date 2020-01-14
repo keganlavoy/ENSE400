@@ -116,7 +116,7 @@ border: 1px solid black;
 .divider {
 
 width: 1px;
-height: 80%;
+height: 60%;
 border-left: 3px solid black;
 float: left;
 margin-left: 4.5%;
