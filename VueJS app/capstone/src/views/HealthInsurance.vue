@@ -3,9 +3,11 @@
    
     <div class="center">
 
+      <h1>Health Insurance Plans</h1>
+    
      <div class="left-side">
-
-       <InsuranceButton msg="Basic Plans"/>
+      
+       <InsuranceButton msg="Basic Plans" @mouseover.native="hover = true" @mouseleave.native="hover = false"/>
        <p>
          View basic plans that cover common health benefits
        </p>
@@ -71,7 +73,11 @@ text-align: center;
 
 }
 
+h1 {
 
+  text-align: center;
+  text-decoration: underline;
+}
 .left-side {
 
 width: 40%;
@@ -95,7 +101,7 @@ float: right;
 .center {
 
 width: 80%;
-height: 40%;
+height: 50%;
 margin-left: 10%;
 margin-right: 10%;
 margin-top: 4%;
@@ -110,7 +116,7 @@ border: 1px solid black;
 .divider {
 
 width: 1px;
-height: 95%;
+height: 80%;
 border-left: 3px solid black;
 float: left;
 margin-left: 4.5%;

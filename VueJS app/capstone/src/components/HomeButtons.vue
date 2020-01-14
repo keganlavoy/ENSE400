@@ -54,6 +54,7 @@ div:hover {
 
 border: 5px solid rgb(0, 255, 0);
 opacity: 1;
+cursor: pointer;
 }
 
 

@@ -60,9 +60,8 @@ background-color: white;
 
 div:hover {
 
-
 background-color: rgb(0, 255, 0);
-
+cursor: pointer;
 }
 
 
