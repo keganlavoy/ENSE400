@@ -3,18 +3,18 @@
       
    <div class="top-buffer">
    </div>
-        <input type="text" id="emailInput" name="email" v-model="input.email" placeholder="Email" />
+        <input type="text" class="input" name="email" v-model="input.email" placeholder="Email" />
         <br>
         <br>
-        <input type="password" id="passInput" name="password" v-model="input.password" placeholder="Password" />
+        <input type="password" class="input" name="password" v-model="input.password" placeholder="Password" />
         <br>
         <router-link to="/" id="forgot-pass">Forgot password?</router-link>
         <br>
         <br>
-        <button type="button" id="login-button" @click="$router.push('/')">Login</button>
+        <button type="button" class="button" @click="$router.push('/')">Login</button>
         <br>
         <br>
-        <button type="button" id="signUp-button" @click="$router.push('/')">Dont have an account? Sign-up</button>
+        <button type="button" class="button" @click="$router.push('/')">Dont have an account? Sign-up</button>
     </div>
   </template>
 
@@ -35,25 +35,14 @@ export default {
 
 <style>
 
-#emailInput {
+.input {
   border-radius: 7px;
   padding: 5px;
   outline: none;
   width: 20%;
 }
 
-#emailInput:focus {
-  border: 3px solid #555;
-}
-
-#passInput {
-  border-radius: 7px;
-  padding: 5px;
-  outline: none;
-  width: 20%;
-}
-
-#passInput:focus {
+.input:focus {
   border: 3px solid #555;
 }
 
@@ -65,7 +54,7 @@ export default {
   text-align: center;
 }
 
-#login-button {
+.button {
   background-color: #f1f1f1;
   color: black;
   font-size: 16px;
@@ -74,21 +63,7 @@ export default {
   border-radius: 7px;
 }
 
-#login-button:hover {
-  background-color: black;
-  color: white;
-}
-
-#signUp-button {
-  background-color: #f1f1f1;
-  color: black;
-  font-size: 16px;
-  width: 20%;
-  cursor: pointer;
-  border-radius: 7px;
-}
-
-#signUp-button:hover {
+.button:hover {
   background-color: black;
   color: white;
 }
