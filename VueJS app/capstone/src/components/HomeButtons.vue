@@ -52,7 +52,7 @@ opacity: 0.7;
 
 div:hover {
 
-border: 5px solid rgb(0, 255, 0);
+border: 5px solid black;;
 opacity: 1;
 cursor: pointer;
 }

@@ -3,18 +3,18 @@
       
    <div class="top-buffer">
    </div>
-        <input type="text" name="email" v-model="input.email" placeholder="Email" />
+        <input type="text" class="input" name="email" v-model="input.email" placeholder="Email" />
         <br>
         <br>
-        <input type="password" name="password" v-model="input.password" placeholder="Password" />
+        <input type="password" class="input" name="password" v-model="input.password" placeholder="Password" />
         <br>
-        <router-link to="/" id="forgot-pass">Forgot your password?</router-link>
-        <br>
-        <br>
-        <button type="button" id="login-button" @click="$router.push('/')">Login</button>
+        <router-link to="/" id="forgot-pass">Forgot password?</router-link>
         <br>
         <br>
-        <button type="button" id="signUp-button" @click="$router.push('/')">Dont have an account? Sign-up</button>
+        <button type="button" class="button" @click="$router.push('/')">Login</button>
+        <br>
+        <br>
+        <button type="button" class="button" @click="$router.push('/')">Dont have an account? Sign-up</button>
     </div>
   </template>
 
@@ -35,21 +35,46 @@ export default {
 
 <style>
 
-.login {
-background-image: url(../assets/main-background.jpeg);
-background-size: cover;
-height: 100%;
-overflow: hidden;
-text-align: center;
-
+.input {
+  border-radius: 7px;
+  padding: 5px;
+  outline: none;
+  width: 20%;
 }
 
-#login-button {
-width:15%;
+.input:focus {
+  border: 3px solid #555;
+}
+
+.login {
+  background-image: url(../assets/main-background.jpeg);
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+.button {
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  width: 20%;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.button:hover {
+  background-color: black;
+  color: white;
 }
 
 #forgot-pass {
-font-size: 70%;
+  font-size: 100%;
+  position: absolute;
+  left: 40%;
+}
 
+#forgot-pass:hover {
+  font-size: 120%;
 }
 </style>

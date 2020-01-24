@@ -43,6 +43,7 @@ margin-top: 10%;
 
 }
 
+
 .InsuranceButton {
 
 width: 50%;
@@ -57,10 +58,8 @@ background-color: white;
 
 }
 
-
-div:hover {
-
-background-color: rgb(0, 255, 0);
+.InsuranceButton:hover {
+background-color: rgb(59, 255, 52);
 cursor: pointer;
 }
 
