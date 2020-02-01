@@ -8,9 +8,13 @@
       <h3 @click="$router.push('/')">Care Compare</h3>
     </div>
     <router-view/>
+    <div id="mySidenav" class="sidenav">
+      
+    <ProfileButton @click.native ="toggleRightSideNav"/>
+    <h3>hi</h3>
+    </div>
   </div>
 </template>
-
 
 
 <script>
@@ -20,28 +24,47 @@ import ProfileButton from '@/components/ProfileButton.vue'
 
 export default {
   name: 'app',
-  components: {
-
-    ProfileButton
-  }
+  components: {      
+      ProfileButton
+  },
+   data()  {
+        return {
+              sidenav: false            
+        };
+    },
+     methods: {
+      toggleRightSideNav() {
+        this.sidenav = !this.sidenav;
+      }
+     }
 
 }
 </script>
 
 
-
-
-
-
-
 <style>
 
+.sidenav:active {
+  width: 0%;
+}
+.sidenav {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 100%;
+  border: 10px solid green;
+}
 
 #app {
 height: 100%;
 text-align: center;
 }
-
 
 #nav {
   height: 10%;

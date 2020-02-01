@@ -11,7 +11,17 @@
 
 <script>
 export default {
-      name: "ProfileButton"
+      name: "ProfileButton",
+        props: {
+
+        sidenav: Boolean
+        
+    },
+      data()  {
+        return {
+                         
+        };
+    }
 }
 </script>
 
@@ -29,9 +39,8 @@ background-size: cover;
 background-color: white;
 float: right;
 border-left: 2px solid black;
+cursor: pointer;
 }
-
-
 
 
 </style>
