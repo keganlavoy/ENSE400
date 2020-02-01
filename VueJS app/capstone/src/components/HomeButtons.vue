@@ -52,7 +52,7 @@ opacity: 0.7;
 
 div:hover {
 
-border: 5px solid black;;
+border: 5px solid black;
 opacity: 1;
 cursor: pointer;
 }

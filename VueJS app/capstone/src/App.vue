@@ -1,18 +1,14 @@
 <template>
   <div id="app">
-    <div id="nav" >
-      <ProfileButton />
+    <div id="nav">
+      <ProfileButton class="sidenav"/>
       <router-link to="/">Home</router-link> 
       <router-link to="/HealthInsurance">HealthInsurance</router-link>
       <router-link to="/login">Login</router-link>
       <h3 @click="$router.push('/')">Care Compare</h3>
     </div>
     <router-view/>
-    <div id="mySidenav" class="sidenav">
-      
-    <ProfileButton @click.native ="toggleRightSideNav"/>
-    <h3>hi</h3>
-    </div>
+    
   </div>
 </template>
 
@@ -29,26 +25,16 @@ export default {
   },
    data()  {
         return {
-              sidenav: false            
+                         
         };
-    },
-     methods: {
-      toggleRightSideNav() {
-        this.sidenav = !this.sidenav;
-      }
-     }
-
+    }
 }
 </script>
 
 
 <style>
 
-.sidenav:active {
-  width: 0%;
-}
-.sidenav {
-  height: 100%;
+.sidenav:hover {
   width: 50%;
   position: fixed;
   z-index: 1;
@@ -58,7 +44,7 @@ export default {
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 100%;
-  border: 10px solid green;
+  
 }
 
 #app {
@@ -73,6 +59,7 @@ text-align: center;
   overflow: hidden;
   padding: 0px;
   font-family: Arial, Helvetica, sans-serif;
+  
 }
 
 #nav a {
@@ -85,7 +72,8 @@ text-align: center;
 }
 
 h3 {
-
+position: relative;
+left: 0%;
 font-size: 1.8vw;
 cursor: pointer;
 }
