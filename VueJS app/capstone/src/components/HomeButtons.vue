@@ -38,7 +38,7 @@ margin-left: 5%;
 
 .HomeButton {
 
-width: 80%;
+width: 100%;
 height: 100%;
 background-size: 100%;
 
@@ -46,7 +46,7 @@ border-style: solid;
 border-width: 1px;
 border-radius: 3vh;
 border-color: black;
-opacity: 0.7;
+opacity: 1;
 }
 
 

@@ -1,21 +1,27 @@
 <template>
   <div class="home">
-    <div class="top-buffer">
-    </div>
+
+
+
+
+    <div class="left-gray"></div>
+    <div class="right-gray"></div>
+
+
    <div id="top-row-button" >
 
-     <HomeButtons msg='Package Deal' class="middle" background='packageDealBG.jpg' @mouseover.native="hover = true" @mouseleave.native="hover = false" id="packageDeal"/>
+     <HomeButtons msg='Package Deal' class="middle"  @mouseover.native="hover = true" @mouseleave.native="hover = false" id="packageDeal" @click.native="$router.push('/PackageInsurance')"/>
 
    </div>
     
     <div id="left-side-buttons">
      <HomeButtons msg='Health Insurance' class="left" id="Health-Insurance" @click.native="$router.push('/HealthInsurance')"/>
-     <HomeButtons msg='Presciption Drugs Insurance' class="left" id="Prescription"/>
+     <HomeButtons msg='Presciption Drugs Insurance' class="left" id="Prescription" @click.native="$router.push('/PrescriptionInsurance')"/>
     </div>
     
     <div id="right-side-buttons">
-      <HomeButtons msg='Dental Insurance' class="right" id="Dental-Insurance"/>
-      <HomeButtons msg='Vision Insurance' class="right" id="Vision-Insurance"/>
+      <HomeButtons msg='Dental Insurance' class="right" id="Dental-Insurance" @click.native="$router.push('/DentalInsurance')"/>
+      <HomeButtons msg='Vision Insurance' class="right" id="Vision-Insurance" @click.native="$router.push('/VisionInsurance')"/>
     </div>
    
 
@@ -52,7 +58,7 @@ export default {
 <style>
 
 .home {
-background-image: url(../assets/main-background.jpeg);
+
 background-size: cover;
 height: 100%;
 overflow: hidden;
@@ -68,14 +74,14 @@ height: 20%;
 }
 
 .middle {
-margin-left: 25%;
+
 margin-bottom: 3%;
 
 }
 
 
 .left {
-margin-left: 13%;
+
 margin-bottom: 3%;
 
 }
@@ -87,30 +93,51 @@ margin-bottom: 3%;
 
 
 #top-row-button {
-width: 30%;
+width: 24%;
 height: 15%;
-margin-left: 10%;
+margin-left: 38%;
+margin-top: 8%;
 margin-bottom: 1%;
 
 }
 
 
 #left-side-buttons {
-width: 30%;
+width: 24%;
 height: 15%;
+margin-left: 7%;
 float:left;
 
 
 }
 
 #right-side-buttons {
-  width: 30%;
+  width: 24%;
   height: 15%;
   float:right;
-  margin-right: 40%;
-  
+  margin-right: 7%;
+ 
   
 }
+
+.left-gray {
+
+width: 18%;
+height: 100%;
+float: left;
+background-color: rgb(243, 243, 243);
+
+}
+
+.right-gray {
+
+width: 18%;
+height: 100%;
+float: right;
+background-color: rgb(243, 243, 243);
+}
+
+
 
 
 #packageDeal {
