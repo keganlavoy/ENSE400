@@ -34,6 +34,7 @@ color: rgb(11, 11, 14);
 text-align: left;
 margin-top: 12%;
 margin-left: 5%;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .HomeButton {

@@ -1,7 +1,7 @@
 <template>
 
 
-    <div class="QuoteButton">
+    <div class="CommunityButton">
     
         <span>
         <h1>{{ msg }}</h1>
@@ -16,7 +16,7 @@
 <script>
 export default {
    
-   name: 'QuoteButton',
+   name: 'CommunityButton',
    props: ["msg"],
 
     data()  {
@@ -39,18 +39,18 @@ h1 {
 
 color: rgb(11, 11, 14);
 text-align: center;
-margin-top: 5%;
+font-size: 2.0vw;
+margin-top: 2.5%;
 font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-font-size: 2vw;
 }
 
 
-.QuoteButton {
+.CommunityButton {
 
-width: 50%;
-height: 15%;
+width: 55%;
+height: 10%;
 margin: auto;
-margin-top: 30%;
+margin-top: 42%;
 border-style: solid;
 border-width: 1px;
 border-color: black;
@@ -58,7 +58,7 @@ background-color: white;
 
 }
 
-.QuoteButton:hover {
+.CommunityButton:hover {
 background-color: rgb(123, 169, 255);
 cursor: pointer;
 }

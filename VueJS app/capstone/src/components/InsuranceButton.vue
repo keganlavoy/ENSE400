@@ -40,14 +40,14 @@ h1 {
 color: rgb(11, 11, 14);
 text-align: center;
 margin-top: 10%;
-
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 
 .InsuranceButton {
 
 width: 50%;
-height: 25%;
+height: 18%;
 margin: auto;
 margin-bottom: 10%;
 border-style: solid;
