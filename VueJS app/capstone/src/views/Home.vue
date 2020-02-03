@@ -1,45 +1,50 @@
 <template>
-  <div class="home">
+  <div class="quotes">
 
-
-
-
-    <div class="left-gray"></div>
-    <div class="right-gray"></div>
-
-
-   <div id="top-row-button" >
-
-     <HomeButtons msg='Package Deal' class="middle"  @mouseover.native="hover = true" @mouseleave.native="hover = false" id="packageDeal" @click.native="$router.push('/PackageInsurance')"/>
-
-   </div>
-    
-    <div id="left-side-buttons">
-     <HomeButtons msg='Health Insurance' class="left" id="Health-Insurance" @click.native="$router.push('/HealthInsurance')"/>
-     <HomeButtons msg='Presciption Drugs Insurance' class="left" id="Prescription" @click.native="$router.push('/PrescriptionInsurance')"/>
+    <div class="title">
+      <h1 class="Home-H1">Get quotes fast for the insurance you need.</h1>
     </div>
     
-    <div id="right-side-buttons">
-      <HomeButtons msg='Dental Insurance' class="right" id="Dental-Insurance" @click.native="$router.push('/DentalInsurance')"/>
-      <HomeButtons msg='Vision Insurance' class="right" id="Vision-Insurance" @click.native="$router.push('/VisionInsurance')"/>
+    <div class="left-home">
+      <div class="left-text">
+        <h2>1. Select</h2>
+        <p>Choose which insurance plan is the best fit for you, or even choose a package deal.</p>
+        <h2>2. Compare</h2>
+        <p>Choose the options you want, and compare quotes side by side to find the best option for you.</p>
+        <h2>3. Insure</h2>
+        <p>Select the right insurance plan for you - easy as that.</p>
+        
+      </div>
     </div>
-   
+  
+    <div class="right-home">
+      
+      <div class="InsurancePicture"></div>
+      <div class="ComparePicture"></div>
+      <QuoteButton msg="Get Quotes" @click.native="$router.push('/InsuranceSelection')"/>
 
+    </div>
     
   </div>
+
+
+
+
+
+
+
 </template>
 
 <script>
 // @ is an alias to /src
 //import HelloWorld from '@/components/HelloWorld.vue'
-import HomeButtons from '@/components/HomeButtons.vue'
-
+import QuoteButton from '@/components/getQuotesButton.vue'
 
 export default {
   name: 'home',
   components: {
-    
-    HomeButtons
+      QuoteButton,
+ 
   },
 
   data() {
@@ -57,113 +62,101 @@ export default {
 
 <style>
 
-.home {
+.quotes {
 
 background-size: cover;
-height: 100%;
+background-color: white;
+height: 75%;
+width: 100%;
 overflow: hidden;
-text-align: center;
+margin-top:0%;
 
 
 }
 
+.title {
 
+  height: 10%;
+  width: 44%;
+  margin-left: 28%;
+
+}
+
+
+
+
+.Home-H1 {
+
+  text-align: center;
+  font-size: 2.8vw;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+p {
+  font-size: 1vw;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+ font-size: 1.4vw;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
 .top-buffer {
 height: 20%;
 
 }
 
-.middle {
-
-margin-bottom: 3%;
-
-}
 
 
-.left {
+.left-home {
 
-margin-bottom: 3%;
-
-}
-
-.right {
-margin-bottom: 3%;
-  
-}
-
-
-#top-row-button {
-width: 24%;
-height: 15%;
-margin-left: 38%;
-margin-top: 8%;
-margin-bottom: 1%;
-
-}
-
-
-#left-side-buttons {
-width: 24%;
-height: 15%;
-margin-left: 7%;
-float:left;
-
-
-}
-
-#right-side-buttons {
-  width: 24%;
-  height: 15%;
-  float:right;
-  margin-right: 7%;
- 
-  
-}
-
-.left-gray {
-
-width: 18%;
-height: 100%;
 float: left;
-background-color: rgb(243, 243, 243);
-
-}
-
-.right-gray {
-
-width: 18%;
+width: 30%;
 height: 100%;
-float: right;
-background-color: rgb(243, 243, 243);
+margin-top: 5%;
+
+}
+
+.left-text {
+
+  width: 44%;
+  text-align: left;
+  margin-left: 30%;
 }
 
 
+.right-home {
+float: right;
+width: 65%;
+height: 100%;
+margin-top: 5%;
+overflow: hidden;
+
+}
 
 
-#packageDeal {
-  background-image: url(../assets/packageDealBG.jpg);
-  background-size: 100%;
+.InsurancePicture {
+
+  width: 48%;
+  height: 50%;
+  float: left;
+  background-image: url(../assets/InsurancePicture.jpg);
+  background-size: cover;
   
 }
 
-#Health-Insurance {
-  background-image: url(../assets/healthInsuranceBG.jpg);
-  background-size: 100%;
-}
+.ComparePicture {
+  width: 48%;
+  height: 50%;
+  float: right;
+  
+  margin-right: 0%;
+  background-image: url(../assets/InsurancePicture.jpg);
+  background-size: cover;
+  
 
-#Prescription {
-  background-image: url(../assets/drugsBG.png);
-  background-size: 100%;
-}
-
-#Dental-Insurance {
-  background-image: url(../assets/dentalBG.png);
-  background-size: 100%;
-}
-
-#Vision-Insurance {
-  background-image: url(../assets/visionBG.jpg);
-  background-size: 100%;
 }
 
 

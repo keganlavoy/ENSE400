@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <div id="nav">
-      <ProfileButton class="sidenav"/>
+      <ProfileButton class="profileButton"/>
       <router-link to="/">Home</router-link> 
       <router-link to="/HealthInsurance">HealthInsurance</router-link>
       <router-link to="/login">Login</router-link>
+      <router-link to="/InsuranceSelection">InsuranceSelection</router-link>
       <h3 @click="$router.push('/')">Care Compare</h3>
     </div>
     <router-view/>
@@ -34,6 +35,7 @@ export default {
 
 <style>
 
+/*
 .sidenav:hover {
   width: 50%;
   position: fixed;
@@ -46,6 +48,8 @@ export default {
   padding-top: 100%;
   
 }
+*/
+
 
 #app {
 height: 100%;
@@ -59,12 +63,14 @@ text-align: center;
   overflow: hidden;
   padding: 0px;
   font-family: Arial, Helvetica, sans-serif;
-  
+  text-align: center;
+ 
 }
 
 #nav a {
   font-weight: bold;
   color: #1e5fa0;
+  
 }
 
 #nav a.router-link-exact-active {
@@ -72,10 +78,12 @@ text-align: center;
 }
 
 h3 {
-position: relative;
+
 left: 0%;
 font-size: 1.8vw;
 cursor: pointer;
+text-align: center;
+margin-left: 5%;
 }
 
 

@@ -42,11 +42,13 @@ border-left: 2px solid black;
 cursor: pointer;
 }
 
+/*
 .ProfileButton:hover {
 
 width: 50%;
 border: 5px solid black;
 cursor: pointer;
 }
+*/
 
 </style>
