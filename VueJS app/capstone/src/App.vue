@@ -6,6 +6,8 @@
       <router-link to="/HealthInsurance">HealthInsurance</router-link>
       <router-link to="/login">Login</router-link>
       <router-link to="/InsuranceSelection">InsuranceSelection</router-link>
+      <router-link to="/SignUp">SignUp  </router-link>
+      <router-link to="/ForgotPass">ForgotPass  </router-link>
       <h3 @click="$router.push('/')">Care Compare</h3>
     </div>
     <router-view/>
@@ -57,8 +59,8 @@ text-align: center;
 }
 
 #nav {
-  height: 10%;
-  background-image: url(assets/croppedBanner.png);
+  height: 12%;
+  background-image: url(assets/CareCompareBanner3.png);
   background-size: cover;
   overflow: hidden;
   padding: 0px;

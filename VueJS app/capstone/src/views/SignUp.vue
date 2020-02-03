@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <div class="signup">
       
    <div class="top-buffer">
    </div>
@@ -8,25 +8,27 @@
         <br>
         <input type="password" class="input" name="password" v-model="input.password" placeholder="Password" />
         <br>
-        <router-link to="/ForgotPass" id="forgot-pass">Forgot password?</router-link>
+        <br>
+        <input type="password" class="input" name="password" v-model="input.password" placeholder="Confirm Password" />
         <br>
         <br>
-        <button type="button" class="button" @click="$router.push('/')">Login</button>
+         <button type="button" class="button" @click="$router.push('/Login')">Sign Up</button>
         <br>
         <br>
-        <button type="button" class="button" @click="$router.push('/SignUp')">Dont have an account? Sign-up</button>
+        <button type="button" class="button" @click="$router.push('/Login')">Already have an account</button>
     </div>
   </template>
 
 <script>
 
 export default {
-   name: 'Login',
+   name: 'Signup',
         data() {
             return {
                 input: {
                     email: "",
-                    password: ""
+                    password: "",
+                    confirmPass:""
                 }
             }
     }
@@ -46,7 +48,7 @@ export default {
   border: 3px solid #555;
 }
 
-.login {
+.signup {
   background-image: url(../assets/main-background.jpeg);
   background-size: cover;
   height: 100%;
@@ -68,13 +70,4 @@ export default {
   color: white;
 }
 
-#forgot-pass {
-  font-size: 100%;
-  position: absolute;
-  left: 40%;
-}
-
-#forgot-pass:hover {
-  font-size: 120%;
-}
 </style>
