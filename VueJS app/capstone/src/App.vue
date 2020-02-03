@@ -8,7 +8,8 @@
     </div>
     <router-link to="/">Home</router-link> 
       <router-link to="/HealthInsurance">HealthInsurance</router-link>
-      <router-link to="/login">Login</router-link>
+      <router-link to="/Login">Login</router-link>
+      <router-link to="/SignUp">SignUp</router-link>
     <router-view/>
     
   </div>
