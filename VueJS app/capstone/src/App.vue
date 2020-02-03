@@ -2,11 +2,13 @@
   <div id="app">
     <div id="nav">
       <ProfileButton class="sidenav"/>
-      <router-link to="/">Home</router-link> 
+      
+      <!--<h3 @click="$router.push('/')">Care Compare</h3>-->
+      
+    </div>
+    <router-link to="/">Home</router-link> 
       <router-link to="/HealthInsurance">HealthInsurance</router-link>
       <router-link to="/login">Login</router-link>
-      <h3 @click="$router.push('/')">Care Compare</h3>
-    </div>
     <router-view/>
     
   </div>
@@ -53,8 +55,8 @@ text-align: center;
 }
 
 #nav {
-  height: 10%;
-  background-image: url(assets/croppedBanner.png);
+  height: 12%;
+  background-image: url(assets/CareCompareBanner3.png);
   background-size: cover;
   overflow: hidden;
   padding: 0px;
