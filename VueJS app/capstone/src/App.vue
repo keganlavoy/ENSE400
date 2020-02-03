@@ -6,10 +6,11 @@
       <!--<h3 @click="$router.push('/')">Care Compare</h3>-->
       
     </div>
-    <router-link to="/">Home</router-link> 
-      <router-link to="/HealthInsurance">HealthInsurance</router-link>
-      <router-link to="/Login">Login</router-link>
-      <router-link to="/SignUp">SignUp</router-link>
+    <router-link to="/">Home  </router-link> 
+      <router-link to="/HealthInsurance">HealthInsurance  </router-link>
+      <router-link to="/Login">Login  </router-link>
+      <router-link to="/SignUp">SignUp  </router-link>
+      <router-link to="/ForgotPass">ForgotPass  </router-link>
     <router-view/>
     
   </div>

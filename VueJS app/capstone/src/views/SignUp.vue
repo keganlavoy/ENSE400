@@ -12,10 +12,10 @@
         <input type="password" class="input" name="password" v-model="input.password" placeholder="Confirm Password" />
         <br>
         <br>
-         <button type="button" class="button" @click="$router.push('/')">Sign Up</button>
+         <button type="button" class="button" @click="$router.push('/Login')">Sign Up</button>
         <br>
         <br>
-        <button type="button" class="button" @click="$router.push('/Login')">Already have an account.</button>
+        <button type="button" class="button" @click="$router.push('/Login')">Already have an account</button>
     </div>
   </template>
 
@@ -70,13 +70,4 @@ export default {
   color: white;
 }
 
-#forgot-pass {
-  font-size: 100%;
-  position: absolute;
-  left: 40%;
-}
-
-#forgot-pass:hover {
-  font-size: 120%;
-}
 </style>
