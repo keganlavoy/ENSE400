@@ -38,7 +38,7 @@
       <div class="left-text">
         <h2>Community</h2>
         <p>Become part of our community and help us grow and reach others.</p>
-        <h2>experiences</h2>
+        <h2>Experiences</h2>
         <p>See what others have said about their experiences and add your own into the mix.</p>
 
         
