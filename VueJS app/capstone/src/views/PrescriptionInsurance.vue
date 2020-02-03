@@ -77,6 +77,7 @@ h1 {
 
   text-align: center;
   text-decoration: underline;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .left-side {
 
@@ -129,6 +130,7 @@ p {
 
 font-size: 2.1vw;
 text-align: center;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 
