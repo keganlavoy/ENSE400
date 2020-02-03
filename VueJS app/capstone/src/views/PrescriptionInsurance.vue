@@ -101,7 +101,7 @@ float: right;
 .center {
 
 width: 80%;
-height: 50%;
+height: 60%;
 margin-left: 10%;
 margin-right: 10%;
 margin-top: 4%;
