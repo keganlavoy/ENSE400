@@ -88,5 +88,29 @@ text-align: center;
 margin-left: 5%;
 }
 
+.input {
+  border-radius: 7px;
+  padding: 5px;
+  outline: none;
+  width: 20%;
+}
+
+.input:focus {
+  border: 3px solid #555;
+}
+
+.button {
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  width: 20%;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.button:hover {
+  background-color: black;
+  color: white;
+}
 
 </style>
