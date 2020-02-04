@@ -94,6 +94,7 @@ margin-left: 5%;
   padding: 5px;
   outline: none;
   width: 20%;
+  margin: 1%;
 }
 
 .input:focus {
