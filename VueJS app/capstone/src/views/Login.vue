@@ -35,37 +35,12 @@ export default {
 
 <style>
 
-.input {
-  border-radius: 7px;
-  padding: 5px;
-  outline: none;
-  width: 20%;
-}
-
-.input:focus {
-  border: 3px solid #555;
-}
-
 .login {
   background-image: url(../assets/main-background.jpeg);
   background-size: cover;
   height: 100%;
   overflow: hidden;
   text-align: center;
-}
-
-.button {
-  background-color: #f1f1f1;
-  color: black;
-  font-size: 16px;
-  width: 20%;
-  cursor: pointer;
-  border-radius: 7px;
-}
-
-.button:hover {
-  background-color: black;
-  color: white;
 }
 
 #forgot-pass {

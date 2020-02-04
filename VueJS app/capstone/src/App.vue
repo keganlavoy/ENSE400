@@ -1,13 +1,14 @@
 <template>
   <div id="app">
     <div id="nav">
-      <ProfileButton class="profileButton"/>
+      <ProfileButton class="profileButton" @click.native="$router.push('/ProfilePage')"/>
       <router-link to="/">Home  </router-link> 
       <router-link to="/HealthInsurance">HealthInsurance  </router-link>
       <router-link to="/login">Login  </router-link>
       <router-link to="/InsuranceSelection">InsuranceSelection  </router-link>
       <router-link to="/SignUp">SignUp  </router-link>
       <router-link to="/ForgotPass">ForgotPass  </router-link>
+      <router-link to="/ProfilePage">Profile Page  </router-link>
       <!--<h3 @click="$router.push('/')">Care Compare</h3>-->
     </div>
     <router-view/>
@@ -88,5 +89,44 @@ text-align: center;
 margin-left: 5%;
 }
 
+.input {
+  border-radius: 7px;
+  padding: 5px;
+  outline: none;
+  width: 20%;
+}
+
+.input:focus {
+  border: 3px solid #555;
+}
+
+.button {
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  width: 20%;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.button:hover {
+  background-color: black;
+  color: white;
+}
+
+.dropdown {
+  background-color: white;
+  color: black;
+  padding: 5px;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.dropdown:hover {
+  background-color: black;
+  color: white;
+}
 
 </style>
