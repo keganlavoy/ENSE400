@@ -114,4 +114,19 @@ margin-left: 5%;
   color: white;
 }
 
+.dropdown {
+  background-color: white;
+  color: black;
+  padding: 5px;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.dropdown:hover {
+  background-color: black;
+  color: white;
+}
+
 </style>
