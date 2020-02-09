@@ -3,6 +3,8 @@
       
    <div class="top-buffer">
    </div>
+
+    <form @submit="getUserInfo">
         <input type="text" class="input" name="firstName" v-model="input.firstName" placeholder="First Name" />
         
         <input type="text" class="input" name="lastName" v-model="input.lastName" placeholder="Last Name" />
@@ -35,14 +37,21 @@
          </select>
         <input type="text" class="input" id="children" name="children" v-model="input.children" placeholder="How many children?" />
         <br><br>
-        <button type="button" class="button" @click="$router.push('/ProfilePage')">Save</button>
+        <input type="submit" value="Submit" class="button">
+    </form>
         <br>
         <br>
         <button type="button" class="button" @click="$router.push('/')">Back to home</button>
+        <br>
+        <button type="button" class="button" @click="getUserInfo">function test</button>
     </div>
   </template>
 
 <script>
+
+import axios from 'axios'
+
+
 
 export default {
    name: 'ProfilePage',
@@ -50,6 +59,7 @@ export default {
             return {
                 input: {
                     firstName: "",
+                    lastname: "",
                     password: "",
                     DOBmonth: "",
                     DOBday: "",
@@ -63,7 +73,29 @@ export default {
                     children: ""
                 }
             }
+    },
+
+    methods: {
+
+        getUserInfo(e) {
+            e.preventDefault();
+            axios.get('http://localhost:3000/getSingleUser/2')
+            .then(res => this.input = res.data[0])
+            .catch(err => {
+                throw err;
+            })
+
+        }
+
+
+    },
+
+    created() {
+         axios.get('http://localhost:3000/getSingleUser/1')
+         .then(res => this.input = res.data[0])
+         .catch(err => (err));
     }
+  
 }
 </script>
 
