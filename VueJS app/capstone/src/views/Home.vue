@@ -158,10 +158,12 @@ height: 100%;
 width: 100%;
 overflow: auto;
 -ms-overflow-style: none;
+scrollbar-width: none;
 }
 
 .homepage::-webkit-scrollbar {
   display: none;
+  scrollbar-width: none;
 }
 
 

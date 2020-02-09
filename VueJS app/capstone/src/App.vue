@@ -38,25 +38,12 @@ export default {
 
 <style>
 
-/*
-.sidenav:hover {
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 100%;
-  
-}
-*/
 
 
 #app {
 height: 100%;
 text-align: center;
+
 }
 
 #nav {

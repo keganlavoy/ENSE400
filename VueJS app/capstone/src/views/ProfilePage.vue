@@ -13,7 +13,7 @@
             <input type="text" class="input" id="DOBmonth" name="DOBmonth" v-model="input.DOBmonth" placeholder="Month" />
             <input type="text" class="input" id="DOBday" name="DOBday" v-model="input.DOBday" placeholder="Day" />
             <input type="text" class="input" id="DOByear" name="DOByear" v-model="input.DOByear" placeholder="Year" />
-            <select name="gender" class="dropdown">
+            <select name="gender" class="dropdown" v-model="input.gender">
              <option value="null">Gender</option>
              <option value="male">Male</option>
              <option value="female">Female</option>
@@ -29,11 +29,11 @@
         <input type="text" class="input" name="email" v-model="input.email" placeholder="Email Address" />
         <input type="text" class="input" name="phoneNum" v-model="input.phoneNum" placeholder="Phone Number" />
         <br><br>
-        <select name="maritalStatus" class="dropdown">
+        <select name="maritalStatus" class="dropdown" v-model="input.maritalStatus">
              <option value="null">Marital Status</option>
-             <option value="notMarried">Not married</option>
+             <option value="Not married">Not married</option>
              <option value="married">Married</option>
-             <option value="married">Common Law</option>
+             <option value="common Law">Common Law</option>
          </select>
         <input type="text" class="input" id="children" name="children" v-model="input.children" placeholder="How many children?" />
         <br><br>
@@ -57,6 +57,9 @@ export default {
    name: 'ProfilePage',
         data() {
             return {
+            
+                responses: [],
+
                 input: {
                     firstName: "",
                     lastname: "",
@@ -64,14 +67,19 @@ export default {
                     DOBmonth: "",
                     DOBday: "",
                     DOByear: "",
+                    gender: "",
                     homeAddress: "",
                     city: "",
                     province: "",
                     postalCode: "",
                     email: "",
                     phoneNum: "",
+                    maritalStatus: "",
                     children: ""
-                }
+                    
+                },
+
+                
             }
     },
 
@@ -81,11 +89,10 @@ export default {
             e.preventDefault();
             axios.get('http://localhost:3000/getSingleUser/2')
             .then(res => this.input = res.data[0])
-            .catch(err => {
-                throw err;
-            })
+            .catch(err => {throw err;})
+            
 
-        }
+        },
 
 
     },
@@ -137,8 +144,15 @@ width: 4%;
   background-image: url(../assets/main-background.jpeg);
   background-size: cover;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
   text-align: center;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.profilePage::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
 }
 
 </style>
