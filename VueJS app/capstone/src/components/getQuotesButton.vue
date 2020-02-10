@@ -55,6 +55,7 @@ border-style: solid;
 border-width: 1px;
 border-color: black;
 background-color: white;
+border-radius: 3vh;
 
 }
 

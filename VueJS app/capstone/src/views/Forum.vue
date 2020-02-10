@@ -16,11 +16,27 @@
         <p>Become part of our community and help us grow and reach others.</p>
         <h2>Experiences</h2>
         <p>See what others have said about their experiences and add your own into the mix.</p>
-
-        
+       
       </div>
     </div>
-  
+
+    <div class="center-community">
+        <h2>General Discussion</h2>
+    </div>
+
+    <div class="center-community" id="center-community-subheader">
+        <h3>Forum Topics Posts Last-Post</h3>
+    </div>
+    <!--This is where we would do v-for-->
+    <div class="center-community" id="center-community-tabs">
+
+    </div>
+    <div class="center-community" id="center-community-tabs">
+
+    </div>
+    <div class="center-community" id="center-community-tabs">
+
+    </div>
   
   </div>
 
@@ -178,6 +194,16 @@ h2 {
 
 }
 
+h3 {
+ font-size: 1.2vw;
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ color: white;
+ position: relative;
+ bottom: 30%;
+ text-align: left;
+ word-spacing: 10em;
+}
+
 
 ul.aboutUsText {
   font-size: 1vw;
@@ -200,6 +226,35 @@ float: left;
 width: 30%;
 height: 100%;
 margin-top: 9%;
+
+}
+
+.center-community {
+
+float: left;
+width: 65%;
+height: 10%;
+margin-top: 7%;
+background-color: rgb(29, 134, 219);
+border-radius: 1vh 1vh 0vh 0vh;
+
+}
+
+#center-community-subheader {
+
+height: 6%;
+margin-top: 0%;
+background-color: rgb(30, 35, 39);
+border-radius: 0vh;
+
+}
+
+#center-community-tabs {
+
+height: 15%;
+margin-top: 0.5%;
+background-color: white;
+border-radius: 0vh;
 
 }
 
