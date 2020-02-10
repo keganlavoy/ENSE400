@@ -28,7 +28,7 @@
         <pre><h3>Forum                                                                               Topics        Posts         Last Post</h3></pre>
     </div>
     <!--This is where we would do v-for-->
-    <div class="center-community" id="center-community-tabs">
+    <div class="center-community" id="center-community-tabs" >
         <pre><h3 class="forumRouting" @click="$router.push('/ForumGeneralDiscussions')" >General Discussion        1  1  Let's talk about...</h3></pre>
         <pre><h3 class="forumRouting" @click="$router.push('/ForumGeneralDiscussions')" >                      By: Mike Hunt</h3></pre>
     </div>
