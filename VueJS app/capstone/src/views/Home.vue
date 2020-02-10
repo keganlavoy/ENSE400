@@ -142,24 +142,6 @@ export default {
 
 <style>
 
-.mainDiv {
-
-background-size: cover;
-background-color: white;
-height: 100%;
-width: 100%;
-overflow: auto;
--ms-overflow-style: none;
-scrollbar-width: none;
-}
-
-.mainDiv::-webkit-scrollbar {
-  display: none;
-  scrollbar-width: none;
-}
-
-
-
 .quotes {
 
 background-size: cover;

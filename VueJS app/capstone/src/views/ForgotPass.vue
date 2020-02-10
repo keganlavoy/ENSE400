@@ -1,5 +1,8 @@
 <template>
   <div class="mainDiv">
+
+    <div class="left-gray"></div>
+    <div class="right-gray"></div>
       
    <div class="top-buffer">
    </div>

@@ -84,6 +84,23 @@ scrollbar-width: none;
   scrollbar-width: none;
 }
 
+.left-gray {
+
+width: 18%;
+height: 100%;
+float: left;
+background-color: rgb(243, 243, 243);
+
+}
+
+.right-gray {
+
+width: 18%;
+height: 100%;
+float: right;
+background-color: rgb(243, 243, 243);
+}
+
 h3 {
 
 left: 0%;
