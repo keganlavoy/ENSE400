@@ -21,20 +21,18 @@
     </div>
 
     <div class="center-community">
-        <h2>General Discussion</h2>
+        <h2>Topics</h2>
     </div>
 
     <div class="center-community" id="center-community-subheader">
-        <pre><h3>Forum                                                                               Topics        Posts         Last Post</h3></pre>
+        <pre><h3>Topic Name                                                                         Replies    Views         Last Post</h3></pre>
     </div>
     <!--This is where we would do v-for-->
     <div class="center-community" id="center-community-tabs">
-        <pre><h3 class="forumRouting" @click="$router.push('/ForumGeneralDiscussions')" >General Discussion        1  1  Let's talk about...</h3></pre>
-        <pre><h3 class="forumRouting" @click="$router.push('/ForumGeneralDiscussions')" >                      By: Mike Hunt</h3></pre>
+        <pre><h3 class="forumRouting"  >Topic Name  <button type="button" class="button" @click="$router.push('/Forum')">New Topic</button>   0  3  By: Mike Hunt</h3></pre>
     </div>
     <div class="center-community" id="center-community-tabs">
-         <pre><h3 class="forumRouting" @click="$router.push('/')" >News & Announcements     1  1  Site Updates</h3></pre>
-         <pre><h3 class="forumRouting" @click="$router.push('/')" >                      By: Daris</h3></pre>
+         <pre><h3 class="forumRouting" @click="$router.push('/')" >Topic Name           1  1  By: Daris</h3></pre>
     </div>
     <div class="center-community" id="center-community-tabs">
 
