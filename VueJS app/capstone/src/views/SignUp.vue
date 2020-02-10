@@ -1,5 +1,5 @@
 <template>
-  <div class="signup">
+  <div class="mainDiv">
       
    <div class="top-buffer">
    </div>
@@ -36,17 +36,6 @@ export default {
 </script>
 
 <style>
-
-
-
-.signup {
-  background-image: url(../assets/main-background.jpeg);
-  background-size: cover;
-  height: 100%;
-  overflow: hidden;
-  text-align: center;
-}
-
 
 
 </style>

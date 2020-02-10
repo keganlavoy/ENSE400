@@ -1,5 +1,5 @@
 <template>
-  <div class="profilePage">
+  <div class="mainDiv">
       
    <div class="top-buffer">
    </div>
@@ -138,21 +138,6 @@ width: 3%;
 
 #DOByear {
 width: 4%;
-}
-
-.profilePage {
-  background-image: url(../assets/main-background.jpeg);
-  background-size: cover;
-  height: 100%;
-  overflow: auto;
-  text-align: center;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.profilePage::-webkit-scrollbar {
-  display: none;
-  scrollbar-width: none;
 }
 
 </style>

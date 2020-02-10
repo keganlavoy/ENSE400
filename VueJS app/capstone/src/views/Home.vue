@@ -1,6 +1,6 @@
 <template>
 
-<div class="homepage">
+<div class="mainDiv">
   <div class="quotes">
 
         <div class="title">
@@ -112,13 +112,6 @@
 </div>
 
 
-    
-    
-  
-
-
-
-
 </template>
 
 <script>
@@ -149,7 +142,7 @@ export default {
 
 <style>
 
-.homepage {
+.mainDiv {
 
 background-size: cover;
 background-color: white;
@@ -160,7 +153,7 @@ overflow: auto;
 scrollbar-width: none;
 }
 
-.homepage::-webkit-scrollbar {
+.mainDiv::-webkit-scrollbar {
   display: none;
   scrollbar-width: none;
 }

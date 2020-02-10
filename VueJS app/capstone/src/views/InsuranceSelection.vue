@@ -1,8 +1,5 @@
 <template>
-  <div class="InsuranceSelection">
-
-
-
+  <div class="mainDiv">
 
     <div class="left-gray"></div>
     <div class="right-gray"></div>
@@ -56,16 +53,6 @@ export default {
 
 
 <style>
-
-.InsuranceSelection {
-
-background-size: cover;
-height: 100%;
-overflow: hidden;
-text-align: center;
-
-
-}
 
 
 .top-buffer {

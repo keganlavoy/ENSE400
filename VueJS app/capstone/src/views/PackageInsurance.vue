@@ -1,5 +1,5 @@
 <template>
-  <div class="PackageInsurance">
+  <div class="mainDiv">
    
     <div class="center">
 
@@ -64,14 +64,6 @@ export default {
 
 <style scoped>
 
-.PackageInsurance {
-background-image: url(../assets/main-background.jpeg);
-background-size: cover;
-height: 100%;
-overflow: hidden;
-text-align: center;
-
-}
 
 h1 {
 

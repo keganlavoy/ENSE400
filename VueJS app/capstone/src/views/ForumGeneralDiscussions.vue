@@ -1,8 +1,6 @@
 <template>
 
-<div class="forum">
-  
-
+<div class="mainDiv">
 
   <div class="Community">
 
@@ -126,22 +124,6 @@ export default {
 
 
 <style>
-
-.forum {
-
-background-size: cover;
-background-color: white;
-height: 100%;
-width: 100%;
-overflow: auto;
--ms-overflow-style: none;
-scrollbar-width: none;
-}
-
-.forum::-webkit-scrollbar {
-  display: none;
-  scrollbar-width: none;
-}
 
 .Community {
 background-size: cover;
