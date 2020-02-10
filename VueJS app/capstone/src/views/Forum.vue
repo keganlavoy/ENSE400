@@ -1,37 +1,13 @@
 <template>
 
-<div class="homepage">
-  <div class="quotes">
-
-        <div class="title">
-         <h1 class="Home-H1">Get quotes fast for the insurance you need.</h1>
-        </div>
-    
-        <div class="left-quotes">
-         <div class="left-text">
-            <h2>1. Select</h2>
-            <p>Choose which insurance plan is the best fit for you, or even choose a package deal.</p>
-            <h2>2. Compare</h2>
-            <p>Choose the options you want, and compare quotes side by side to find the best option for you.</p>
-           <h2>3. Share</h2>
-            <p>Feel free to share your experience with us, along with others.</p>
-        
-         </div>
-       </div>
+<div class="forum">
   
-    <div class="right-quotes">
-      
-      <div class="InsurancePicture"></div>
-      <div class="ComparePicture"></div>
-      <QuoteButton msg="Get Quotes" @click.native="$router.push('/InsuranceSelection')"/>
 
-    </div>
-  </div>
 
   <div class="Community">
 
     <div class="title">
-      <h1 class="Home-H1">Share your experiences.</h1>
+      <h1 class="Home-H1">Share your experiences & search for help.</h1>
     </div>
     
     <div class="left-community">
@@ -45,12 +21,7 @@
       </div>
     </div>
   
-    <div class="right-community">
-      
-      <div class="CommunityPicture"></div>
-      <CommunityButton msg="Share your experiences" @click.native="$router.push('/Forum')"/>
-
-    </div>
+  
   </div>
 
 
@@ -103,6 +74,7 @@
       </div>
 
 
+
     </div>
   
   </div>
@@ -112,26 +84,16 @@
 </div>
 
 
-    
-    
-  
-
-
-
-
 </template>
 
 <script>
-// @ is an alias to /src
-//import HelloWorld from '@/components/HelloWorld.vue'
-import QuoteButton from '@/components/getQuotesButton.vue'
-import CommunityButton from '@/components/CommunityButton.vue'
+
+
 
 export default {
   name: 'home',
   components: {
-      QuoteButton,
-      CommunityButton,
+      
   },
 
   data() {
@@ -149,7 +111,7 @@ export default {
 
 <style>
 
-.homepage {
+.forum {
 
 background-size: cover;
 background-color: white;
@@ -160,23 +122,9 @@ overflow: auto;
 scrollbar-width: none;
 }
 
-.homepage::-webkit-scrollbar {
+.forum::-webkit-scrollbar {
   display: none;
   scrollbar-width: none;
-}
-
-
-
-.quotes {
-
-background-size: cover;
-background-color: white;
-height: 75%;
-width: 100%;
-overflow: hidden;
-
-
-
 }
 
 .Community {
@@ -231,8 +179,6 @@ h2 {
 }
 
 
-
-
 ul.aboutUsText {
   font-size: 1vw;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -241,34 +187,11 @@ ul.aboutUsText {
 }
 
 
-.top-buffer {
-height: 20%;
-
-}
-
-.left-quotes {
-
-float: left;
-width: 30%;
-height: 100%;
-margin-top: 5%;
-
-}
-
 .left-text {
 
   width: 44%;
   text-align: left;
   margin-left: 30%;
-}
-
-.right-quotes {
-float: right;
-width: 65%;
-height: 100%;
-margin-top: 5%;
-overflow: hidden;
-
 }
 
 .left-community {
@@ -310,37 +233,6 @@ border: 1px solid black;
   margin-top: -1.9%;
   background-color: white;
   height: auto;
-}
-
-.InsurancePicture {
-
-  width: 48%;
-  height: 50%;
-  float: left;
-  background-image: url(../assets/InsurancePicture.jpg);
-  background-size: cover;
-  
-}
-
-.ComparePicture {
-  width: 48%;
-  height: 50%;
-  float: right;
-  
-  margin-right: 0%;
-  background-image: url(../assets/InsurancePicture.jpg);
-  background-size: cover;
-  
-}
-
-.CommunityPicture {
-  width: 40%;
-  height: 58%;
-  float: right;
-  margin-right: 30%;
-  background-image: url(../assets/community.png);
-  background-size: cover;
-  
 }
 
 

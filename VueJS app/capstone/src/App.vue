@@ -9,6 +9,7 @@
       <router-link to="/SignUp">SignUp  </router-link>
       <router-link to="/ForgotPass">ForgotPass  </router-link>
       <router-link to="/ProfilePage">Profile Page  </router-link>
+      <router-link to="/Forum">Forum  </router-link>
       <!--<h3 @click="$router.push('/')">Care Compare</h3>-->
     </div>
     <router-view/>
@@ -116,5 +117,6 @@ margin-left: 5%;
   background-color: black;
   color: white;
 }
+
 
 </style>
