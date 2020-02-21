@@ -6,7 +6,9 @@
       
    <div class="top-buffer">
    </div>
-        <input type="text" class="input" name="email" v-model="input.email" placeholder="Email" />
+
+        <div v-bind:class="{ noError: isUser, error: noUser }">The username and password dont match or they don't exist.</div>
+        <input type="text" class="input" name="userName" v-model="input.userName" placeholder="Username" />
         <br>
         <br>
         <input type="password" class="input" name="password" v-model="input.password" placeholder="Password" />
@@ -14,7 +16,7 @@
         <router-link to="/ForgotPass" id="forgot-pass">Forgot password?</router-link>
         <br>
         <br>
-        <button type="button" class="button" @click="$router.push('/')">Login</button>
+        <button type="button" class="button" @click="login(input.userName, input.password)">Login</button>
         <br>
         <br>
         <button type="button" class="button" @click="$router.push('/SignUp')">Dont have an account? Sign-up</button>
@@ -23,16 +25,46 @@
 
 <script>
 
+import axios from 'axios'
+
+
+
 export default {
    name: 'Login',
         data() {
             return {
                 input: {
-                    email: "",
+                    userName: "",
                     password: ""
-                }
+                },
+                gotten_id: 0,
+                noUser: false,
+                isUser: true
+                
             }
-    }
+    },
+
+  methods: {
+
+    login(userName, password) {
+        axios.post(`http://localhost:3000/login/${userName}/${password}`)
+        .then((res) => {
+          this.gotten_id = res.data[0]
+
+          if(this.gotten_id == [] || this.gotten_id == "" || this.gotten_id == null) {
+            this.noUser = true;
+            this.isUser = false;
+          }
+          else{
+            this.noUser = false;
+            this.isUser = true;
+            this.$router.push('/')
+          }
+        }) 
+        .catch(err => {throw err;});
+
+   }
+  }
 }
 </script>
 
@@ -46,5 +78,17 @@ export default {
 
 #forgot-pass:hover {
   font-size: 120%;
+
 }
+
+.noError {
+visibility: hidden;
+
+}
+
+.error {
+  visibility: visible;
+  color: red;
+}
+
 </style>
