@@ -65,8 +65,7 @@ export default {
 
                 input: {
                     firstName: "",
-                    lastname: "",
-                    password: "",
+                    lastName: "",
                     DOBmonth: "",
                     DOBday: "",
                     DOByear: "",
