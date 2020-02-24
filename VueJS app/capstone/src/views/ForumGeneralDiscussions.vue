@@ -27,7 +27,7 @@
         <div id="numDislikesHeading"><h3>1</h3></div>
         <div id="numRepliesHeading"><h3>0</h3></div>
         <div id="lastPostNameHeading"><h3>By: Daris</h3></div>
-        <div id="forumPost"><input type="text" class="input" id="forumPost" name="forumPost" v-model="input.forumPost" placeholder="Start writting your forum post here..." /></div>
+        <div id="forumPost"><textarea input type="text" row="5" col="15" class="input" id="forumPostInput" name="forumPost" v-model="input.forumPost" placeholder="Start writting your forum post here..." ></textarea></div>
     </div>
   
   </div>
@@ -116,11 +116,18 @@ export default {
   float: left;
   margin-right: 11%;
 }
-
+textarea {
+  resize: none;
+}
 #forumPost {
   width: 85%;
-  height: 55%;  
-  float: left;
+  height: 40%; 
+  
+}
+
+#forumPostInput {
+  width: 100%;
+  height: 100%; 
 }
 .Community {
 background-size: cover;
