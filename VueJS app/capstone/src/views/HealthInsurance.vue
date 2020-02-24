@@ -3,30 +3,49 @@
    
     <div class="center">
 
-      <h1>Health Insurance Plans</h1>
+      <h1>Select Coverage</h1>
     
-     <div class="left-side">
-      
-       <InsuranceButton msg="Basic Plans" @mouseover.native="hover = true" @mouseleave.native="hover = false"/>
-       <p>
-         View basic plans that cover common health benefits
-       </p>
-
-     </div>
-
-      <div class="divider">
-
-      </div>
-
-     <div class="right-side">
-       <InsuranceButton msg="Custom Plans"/>
-
-        <p>
-          Create a custom plan with a variety of options to fit your needs
-        </p>
-
-     </div>
-  
+      <label class="container" for="coreHealth">Core Health Benifits
+        <input type="checkbox" id="coreHealth" value="coreHealth" v-model="checkedNames">
+        <span class="checkmark"></span>
+      </label>
+      <br>
+      <label class="container" for="prescriptionDrugs">Prescription Drugs
+        <input type="checkbox" id="prescriptionDrugs" value="prescriptionDrugs" v-model="checkedNames">
+        <span class="checkmark"></span>
+      </label>
+      <br>
+      <label class="container" for="dental">Dental
+        <input type="checkbox" id="dental" value="dental" v-model="checkedNames">
+        <span class="checkmark"></span>
+      </label>
+      <br>
+      <label class="container" for="studentAccident">Student Accident
+        <input type="checkbox" id="studentAccident" value="studentAccident" v-model="checkedNames">
+        <span class="checkmark"></span>
+      </label>
+      <br>
+      <label class="container" for="VIPtravel">VIP Travel
+        <input type="checkbox" id="VIPtravel" value="VIPtravel" v-model="checkedNames">
+        <span class="checkmark"></span>
+      </label>
+      <br>
+      <label class="container" for="hospitalCash">Hospital Cash
+        <input type="checkbox" id="hospitalCash" value="hospitalCash" v-model="checkedNames">
+        <span class="checkmark"></span>
+      </label>
+      <br>
+      <label class="container" for="criticalIllness">Critical Illness
+        <input type="checkbox" id="criticalIllness" value="criticalIllness" v-model="checkedNames">
+        <span class="checkmark"></span>
+      </label>
+      <br>
+      <label class="container" for="termLife">Term Life Insurance
+        <input type="checkbox" id="termLife" value="termLife" v-model="checkedNames">
+        <span class="checkmark"></span>
+      </label>
+      <br>
+      <button type="button" class="button" @click="$router.push('/')">Search Insurance Brokers</button>
     </div>
 
   </div>
@@ -36,7 +55,7 @@
 
 
 <script>
-import InsuranceButton from '@/components/InsuranceButton.vue'
+
 
 
 export default {
@@ -44,13 +63,13 @@ export default {
  name: 'HealthInsurance',
   components: {
     
-    InsuranceButton
+    
   },
 
   data() {
-
+    
     return {
-
+      checkedNames: [],
       msg: '',
       hover: false
     }
@@ -70,30 +89,11 @@ h1 {
   text-decoration: underline;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.left-side {
-
-width: 40%;
-height: 100%;
-margin-left: 6%;
-margin-top: 3%;
-float: left;
-
-}
-
-.right-side {
-
-width: 40%;
-height: 100%;
-margin-right: 6%;
-margin-top: 3%;
-float: right;
-
-}
 
 .center {
 
 width: 80%;
-height: 60%;
+height: 80%;
 margin-left: 10%;
 margin-right: 10%;
 margin-top: 4%;
@@ -101,30 +101,67 @@ background-image: url(../assets/InsureButtonBG.jpg);
 background-size: cover;
 border-radius: 5vh;
 border: 1px solid black;
-
-
 }
 
-.divider {
-
-width: 1px;
-height: 60%;
-border-left: 3px solid black;
-float: left;
-margin-left: 4.5%;
-margin-top: 0.8%;
-
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-
-p {
-
-font-size: 2.1vw;
-text-align: center;
-font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 40%;
+  height: 25px;
+  width: 25px;
+  background-color: rgb(54, 49, 49);
+  border-radius: 50%;
+}
 
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
 
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
 </style>
 
