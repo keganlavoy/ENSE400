@@ -24,6 +24,7 @@
     <!--This is where we would do v-for-->
     <div class="center-community" id="center-community-tabs" @click="$router.push('/')">
         <div id="topicHeading"><h3>General Discussion</h3></div>
+        <div id="replyButton"><button type="button" class="button" @click="$router.push('/')">Reply</button></div>
         <div id="numLikesHeading"><h3>1</h3></div>
         <div id="numDislikesHeading"><h3>1</h3></div>
         <div id="numRepliesHeading"><h3>0</h3></div>
@@ -90,10 +91,17 @@ export default {
 
 #topicHeading {
   float: left;
-  margin-right: 26%;
+  margin-right: 0%;
   margin-left: 3%;
   width: 15%;
 }
+
+#replyButton {
+  width: 25%;
+  margin-top: 1%;
+  float: left;
+}
+
 #numLikesHeading {
   float: left;
   margin-right: 11%;
