@@ -5,10 +5,7 @@
 
       <h1>Select Coverage</h1>
     
-      <label class="container" for="coreHealth">Core Health Benifits
-        <input type="checkbox" id="coreHealth" value="coreHealth" v-model="checkedNames">
-        <span class="checkmark"></span>
-      </label>
+      <h3 > Core Health Benefits (These are automatically included in all packages)</h3>
       <br>
       <label class="container" for="prescriptionDrugs">Prescription Drugs
         <input type="checkbox" id="prescriptionDrugs" value="prescriptionDrugs" v-model="checkedNames">
@@ -69,9 +66,7 @@ export default {
   data() {
     
     return {
-      checkedNames: [],
-      msg: '',
-      hover: false
+      checkedNames: []
     }
 
   }
@@ -93,7 +88,7 @@ h1 {
 .center {
 
 width: 80%;
-height: 80%;
+height: 90%;
 margin-left: 10%;
 margin-right: 10%;
 margin-top: 4%;

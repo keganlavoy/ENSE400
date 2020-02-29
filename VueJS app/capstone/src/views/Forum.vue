@@ -9,9 +9,11 @@
     <div class="title">
       <h1 class="Home-H1">Share your experiences & search for help.</h1>
     </div>
-    
+  
     <div class="center-community">
-        <h2>General Discussion</h2>
+        <button type="button" class="forumButton" @click="$router.push('/')">Back to home</button>
+        <button type="button" class="forumButton" @click="$router.push('/ForumGeneralDiscussions')">Post a forum</button>
+        <h2 id="generalDiscussion">General Discussion</h2>
     </div>
 
     <div class="center-community" id="center-community-subheader">
@@ -68,6 +70,22 @@ export default {
 
 <style>
 
+#generalDiscussion {
+  margin-right: 20%;
+}
+.forumButton {
+  float: left;
+  width: 10%;
+  margin-left: 1%;
+  margin-top: 1%;
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
 #forumHeading {
   width: 15%;
   float: left;
@@ -97,7 +115,7 @@ export default {
 }
 
 #replyButton {
-  width: 25%;
+  width: 100%;
   margin-top: 1%;
   float: left;
 }
