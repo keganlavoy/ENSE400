@@ -23,12 +23,11 @@
     <!--This is where we would do v-for-->
     <div class="center-community" id="center-community-tabs">
         <div id="topicHeading"><h3>General Discussion</h3></div>
-        <div id="postButton"><button type="button" class="button">Post</button></div>
+        <div id="replyButton"><button type="button" class="button">Reply</button></div>
         <div id="numLikesHeading"><h3>0</h3></div>
         <div id="numDislikesHeading"><h3>0</h3></div>
         <div id="numRepliesHeading"><h3>0</h3></div>
         <div id="lastPostNameHeading"><h3>By: Daris</h3></div>
-        <div id="forumPost"><textarea input type="text" row="5" col="15" class="input" id="forumPostInput" name="forumPost" v-model="input.forumPost" placeholder="Start writting your forum post here..." ></textarea></div>
     </div>
   
   </div>
@@ -55,7 +54,7 @@ export default {
        responses: [],
 
                 input: {
-                  forumPost: ""
+                  
                 },   
 
       msg: '',
@@ -100,7 +99,7 @@ export default {
   width: 15%;
 }
 
-#postButton {
+#replyButton {
   width: 25%;
   margin-top: 1%;
   float: left;
