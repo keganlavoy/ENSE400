@@ -47,7 +47,7 @@ export default {
   methods: {
 
     login(userName, password) {
-        axios.post(`http://localhost:3000/login/${userName}/${password}`)
+        axios.post(`http://162.253.11.179:3000/login/${userName}/${password}`)
         .then((res) => {
           this.gotten_id = res.data[0]
 

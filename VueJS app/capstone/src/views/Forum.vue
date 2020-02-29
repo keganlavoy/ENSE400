@@ -122,6 +122,7 @@ export default {
   float: left;
   margin-left: 3%;
   margin-right: 25%;
+  
 }
 
 .Community {

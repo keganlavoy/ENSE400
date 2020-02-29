@@ -12,7 +12,7 @@
         <input type="password" class="input" name="password" v-model="input.password" placeholder="Password" />
         <br>
         <br>
-        <input type="password" class="input" name="password" v-model="input.password" placeholder="Confirm Password" />
+        <input type="password" class="input" name="confirmPass" v-model="input.confirmPass" placeholder="Confirm Password" />
         <br>
         <br>
          <button type="button" class="button" @click="addUser(input.userName, input.password), $router.push('/Login')" >Sign Up</button>

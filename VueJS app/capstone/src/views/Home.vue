@@ -303,7 +303,7 @@ border: 1px solid black;
   float: right;
   
   margin-right: 0%;
-  background-image: url(../assets/InsurancePicture.jpg);
+  background-image: url(../assets/selection.jpg);
   background-size: cover;
   
 }

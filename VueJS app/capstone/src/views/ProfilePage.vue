@@ -100,7 +100,7 @@ export default {
     },
 
     created() {
-         axios.get('http://localhost:3000/getSingleUser/1')
+         axios.get('http://162.253.11.179:3000/getSingleUser/1')
          .then(res => this.input = res.data[0])
          .catch(err => {throw err;});
     }
