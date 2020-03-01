@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <ProfileButton class="profileButton" @click.native="$router.push('/ProfilePage')"/>
+      <!--ProfileButton class="profileButton" @click.native="$router.push('/ProfilePage')"/>-->
       <router-link to="Dashboard">Home  </router-link> 
       <router-link to="/HealthInsurance">HealthInsurance  </router-link>
       <router-link to="/">Login  </router-link>
@@ -20,13 +20,13 @@
 
 <script>
 
-import ProfileButton from '@/components/ProfileButton.vue'
+//import ProfileButton from '@/components/ProfileButton.vue'
 
 
 export default {
   name: 'app',
   components: {      
-      ProfileButton
+      //ProfileButton
   },
    data()  {
         return {
@@ -48,14 +48,20 @@ text-align: center;
 }
 
 #nav {
+ 
+  position: -ms-page;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   height: 12%;
+  width: 100%;
   background-image: url(assets/CareCompareBanner3.png);
   background-size: cover;
   overflow: hidden;
-  padding: 0px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
- 
+  z-index: 0;
+  
 }
 
 #nav a {

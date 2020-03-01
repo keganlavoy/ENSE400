@@ -2,7 +2,7 @@
 
 <div class="mainDiv">
   <div class="quotes">
-
+        
         <div class="title">
          <h1 class="Home-H1">Get quotes fast for the insurance you need.</h1>
         </div>
@@ -108,7 +108,9 @@
   </div>
 
 
-
+<div>
+<ProfileButton class="ProfileButton" @click.native="$router.push(`/ProfilePage/${user_id}`)"/>
+</div>
 </div>
 
 
@@ -119,13 +121,14 @@
 //import HelloWorld from '@/components/HelloWorld.vue'
 import QuoteButton from '@/components/getQuotesButton.vue'
 import CommunityButton from '@/components/CommunityButton.vue'
-
+import ProfileButton from '@/components/ProfileButton.vue'
 
 export default {
   name: 'home',
   components: {
       QuoteButton,
       CommunityButton,
+      ProfileButton,
   },
 
   data() {
@@ -157,8 +160,8 @@ background-color: white;
 height: 75%;
 width: 100%;
 overflow: hidden;
-
-
+position: relative;
+z-index: 2;
 
 }
 

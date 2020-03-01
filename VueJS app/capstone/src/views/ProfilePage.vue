@@ -7,7 +7,7 @@
    <div class="top-buffer">
    </div>
 
-    <form @submit="getUserInfo">
+    <form>
         <input type="text" class="input" name="firstName" v-model="input.firstName" placeholder="First Name" />
         
         <input type="text" class="input" name="lastName" v-model="input.lastName" placeholder="Last Name" />
@@ -40,13 +40,14 @@
          </select>
         <input type="text" class="input" id="children" name="children" v-model="input.children" placeholder="How many children?" />
         <br><br>
-        <input type="submit" value="Submit" class="button">
+        <input type="submit" value="Save" class="button" @click="updateUser(user_id, input.firstName, input.lastName, input.DOBmonth, input.DOBday, input.DOByear, input.gender,
+                                                                input.homeAddress, input.city, input.province, input.postalCode, input.email, input.phoneNum,
+                                                                input.maritalStatus, input.children,)">
     </form>
         <br>
         <br>
-        <button type="button" class="button" @click="$router.push('/')">Back to home</button>
-        <br>
-        <button type="button" class="button" @click="getUserInfo">function test</button>
+        <button type="button" class="button" @click="$router.push(`/Dashboard/${user_id}`)">Back to home</button>
+
     </div>
   </template>
 
@@ -81,18 +82,20 @@ export default {
                     
                 },
 
+                user_id: 0,
                 
             }
     },
 
     methods: {
 
-        getUserInfo(e) {
-            e.preventDefault();
-            axios.get('http://localhost:3000/getSingleUser/2')
-            .then(res => this.input = res.data[0])
-            .catch(err => {throw err;})
-            
+      
+        updateUser(user_id, firstName, lastName, DOBmonth, DOBday, DOByear, gender, homeAddress, city, province, postalCode, email, phoneNum, maritalStatus, children) {
+
+        axios.post(`http://162.253.11.179:3000/updateUser/${user_id}/${firstName}/${lastName}/${DOBmonth}/${DOBday}/${DOByear}/${gender}/${homeAddress}/${city}/${province}/${postalCode}/${email}/${phoneNum}/${maritalStatus}/${children}`)
+        .then(res => this.input = res.data[0])
+        .catch(err => {throw err;});
+
 
         },
 
@@ -100,7 +103,10 @@ export default {
     },
 
     created() {
-         axios.get('http://162.253.11.179:3000/getSingleUser/1')
+
+        this.user_id = this.$route.params.user_id;
+        var id = this.user_id;
+         axios.get(`http://162.253.11.179:3000/getSingleUser/${id}`)
          .then(res => this.input = res.data[0])
          .catch(err => {throw err;});
     }
