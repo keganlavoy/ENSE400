@@ -2,16 +2,16 @@
 
 <div class="mainDiv">
   
-
-
   <div class="Community">
 
     <div class="title">
       <h1 class="Home-H1">Share your experiences & search for help.</h1>
     </div>
-    
+  
     <div class="center-community">
-        <h2>General Discussion</h2>
+        <button type="button" class="forumButton" @click="$router.push('/')">Back to home</button>
+        <button type="button" class="forumButton" @click="$router.push('/ForumGeneralDiscussions')">Post a forum</button>
+        <h2 id="generalDiscussion">General Discussion</h2>
     </div>
 
     <div class="center-community" id="center-community-subheader">
@@ -25,10 +25,13 @@
     <div class="center-community" id="center-community-tabs">
         <div id="topicHeading"><h3>General Discussion</h3></div>
         <div id="replyButton"><button type="button" class="button" @click="$router.push('/ForumGeneralDiscussions')">Reply</button></div>
-        <div id="numLikesHeading"><h3>1</h3></div>
-        <div id="numDislikesHeading"><h3>1</h3></div>
+        <div id="numLikesHeading"><h3>1</h3></div>        
+        <div id="numDislikesHeading"><h3>1</h3></div>        
         <div id="numRepliesHeading"><h3>0</h3></div>
         <div id="lastPostNameHeading"><h3>By: Daris</h3></div>
+        <button type="button" id="numLikesButton" class="button" >Like</button>
+        <button type="button" id="numDislikesButton" class="button" >Dislike</button>
+        <button type="button" id="viewRepliesButton" class="button" @click="$router.push('/ForumReplies')">View Replies</button>
         <div id="forumPost"><h3>This is where the forum post will go. I can talk about anything I want in this area. We will pull this data from our database.</h3></div>
     </div>
    <!--  <div class="center-community" id="center-community-tabs">
@@ -68,6 +71,22 @@ export default {
 
 <style>
 
+#generalDiscussion {
+  margin-right: 23%;
+}
+.forumButton {
+  float: left;
+  width: 10%;
+  margin-left: 1%;
+  margin-top: 1%;
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
 #forumHeading {
   width: 15%;
   float: left;
@@ -91,7 +110,6 @@ export default {
 
 #topicHeading {
   float: left;
-  margin-right: 0%;
   margin-left: 3%;
   width: 15%;
 }
@@ -99,36 +117,61 @@ export default {
 #replyButton {
   width: 25%;
   margin-top: 1%;
+  margin-right: 1%;
   float: left;
 }
 
 #numLikesHeading {
   float: left;
-  margin-right: 11%;
+  margin-right: 1%;
 }
 
 #numDislikesHeading {
   float: left;
-  margin-right: 11%;
+  margin-right: 1%;
 }
 
+#numLikesButton {
+  float: left;
+  margin-left: 42%;
+  margin-right: 5%;
+  margin-top: 1%;
+  width: 5%;
+}
+
+#numDislikesButton {
+  float: left;
+  margin-left: 2%;
+  margin-right: 5%;
+  margin-top: 1%;
+  width: 5%;
+}
+
+#viewRepliesButton {
+  float: left;
+  margin-left: 1%;
+  margin-right: 5%;
+  margin-top: 1%;
+  width: 6%;
+}
 #numRepliesHeading {
   float: left;
   margin-right: 11%;
 }
 
 #forumPost {
-  width: 35%;
+  width: 100%;
   float: left;
+  margin-top: 1%;
   margin-left: 3%;
   margin-right: 25%;
-  
+ 
 }
 
 .Community {
 background-size: cover;
 background-color: rgb(243, 243, 243);
-height: 85%;
+height: 90%;
 width: 100%;
 overflow: hidden;
 
@@ -208,12 +251,13 @@ border-radius: 0vh;
 /* add v-for to this css */
 #center-community-tabs {
 
-height: 25%;
+height: 60%;
 margin-top: 0.5%;
 background-color: white;
 border-radius: 0vh;
 
 }
+
 
 
 </style>

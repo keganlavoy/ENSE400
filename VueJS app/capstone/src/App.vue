@@ -127,6 +127,7 @@ margin-left: 5%;
   color: black;
   font-size: 16px;
   width: 20%;
+  outline: none;
   cursor: pointer;
   border-radius: 7px;
 }
