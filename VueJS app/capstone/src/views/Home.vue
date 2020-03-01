@@ -49,7 +49,9 @@ export default {
     login(userName, password) {
         axios.post(`http://162.253.11.179:3000/login/${userName}/${password}`)
         .then((res) => {
-          this.gotten_id = res.data[0]
+          
+          var response = res.data[0];
+          this.gotten_id = response.user_id;
 
           if(this.gotten_id == [] || this.gotten_id == "" || this.gotten_id == null) {
             this.noUser = true;
@@ -58,7 +60,7 @@ export default {
           else{
             this.noUser = false;
             this.isUser = true;
-            this.$router.push('/')
+            this.$router.push(`/Dashboard/${this.gotten_id}`)
           }
         }) 
         .catch(err => {throw err;});
@@ -90,5 +92,11 @@ visibility: hidden;
   visibility: visible;
   color: red;
 }
+
+.top-buffer {
+height: 20%;
+
+}
+
 
 </style>

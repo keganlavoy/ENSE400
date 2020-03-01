@@ -87,7 +87,7 @@ const routes = [
   },
 
   {
-    path: '/Dashboard',
+    path: '/Dashboard/:user_id',
     name: 'Dashboard',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

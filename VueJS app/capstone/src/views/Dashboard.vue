@@ -120,6 +120,7 @@
 import QuoteButton from '@/components/getQuotesButton.vue'
 import CommunityButton from '@/components/CommunityButton.vue'
 
+
 export default {
   name: 'home',
   components: {
@@ -132,8 +133,15 @@ export default {
     return {
 
       msg: '',
-      hover: false
+      hover: false,
+      user_id: 0
     }
+
+  },
+
+  created() {
+
+    this.user_id = this.$route.params.user_id;
 
   }
 }
