@@ -2,9 +2,9 @@
   <div id="app">
     <div id="nav">
       <ProfileButton class="profileButton" @click.native="$router.push('/ProfilePage')"/>
-      <router-link to="/">Home  </router-link> 
+      <router-link to="Dashboard">Home  </router-link> 
       <router-link to="/HealthInsurance">HealthInsurance  </router-link>
-      <router-link to="/login">Login  </router-link>
+      <router-link to="/">Login  </router-link>
       <router-link to="/InsuranceSelection">InsuranceSelection  </router-link>
       <router-link to="/SignUp">SignUp  </router-link>
       <router-link to="/ForgotPass">ForgotPass  </router-link>
