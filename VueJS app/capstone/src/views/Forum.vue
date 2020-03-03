@@ -36,10 +36,6 @@
         <div id="forumPost"><h3>{{post.post_body}}</h3></div>
         </div>
     </div>
-   <!--  <div class="center-community" id="center-community-tabs">
-         <pre><h3 class="forumRouting" @click="$router.push('/')" >News & Announcements     1  1  Site Updates</h3></pre>
-         <pre><h3 class="forumRouting" @click="$router.push('/')" >                      By: Daris</h3></pre>
-    </div> -->
       
   </div>
 
