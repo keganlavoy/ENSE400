@@ -23,16 +23,18 @@
     </div>
     <!--This is where we would do v-for-->
     <div class="center-community" id="center-community-tabs">
-        <div id="topicHeading"><h3>General Discussion</h3></div>
+      <div v-bind:key="post.post_id" v-for="post in posts">
+        <div id="topicHeading"><h3>{{post.post_title}}</h3></div>
         <div id="replyButton"><button type="button" class="button" @click="$router.push(`/ForumAdd/${user_id}`)">Reply</button></div>
-        <div id="numLikesHeading"><h3>1</h3></div>        
-        <div id="numDislikesHeading"><h3>1</h3></div>        
-        <div id="numRepliesHeading"><h3>0</h3></div>
-        <div id="lastPostNameHeading"><h3>By: Daris</h3></div>
+        <div id="numLikesHeading"><h3>{{post.post_likes}}</h3></div>        
+        <div id="numDislikesHeading"><h3>{{post.post_dislikes}}</h3></div>        
+        <div id="numRepliesHeading"><h3>{{post.post_replies}}</h3></div>
+        <div id="lastPostNameHeading"><h3>{{post.username}}</h3></div>
         <button type="button" id="numLikesButton" class="button" >Like</button>
         <button type="button" id="numDislikesButton" class="button" >Dislike</button>
         <button type="button" id="viewRepliesButton" class="button" @click="$router.push('/ForumReplies')">View Replies</button>
-        <div id="forumPost"><h3>This is where the forum post will go. I can talk about anything I want in this area. We will pull this data from our database.</h3></div>
+        <div id="forumPost"><h3>{{post.post_body}}</h3></div>
+        </div>
     </div>
    <!--  <div class="center-community" id="center-community-tabs">
          <pre><h3 class="forumRouting" @click="$router.push('/')" >News & Announcements     1  1  Site Updates</h3></pre>
@@ -48,6 +50,7 @@
 
 <script>
 
+import axios from 'axios'
 
 
 export default {
@@ -72,7 +75,9 @@ export default {
   created() {
 
     this.user_id = this.$route.params.user_id;
-
+    axios.get(`http://162.253.11.179:3000/getBlogPosts`)
+    .then(res => this.posts = res.data)
+    .catch(err => {throw err;});
 
   }
 
@@ -134,12 +139,12 @@ export default {
 
 #numLikesHeading {
   float: left;
-  margin-right: 1%;
+  margin-left: 0%;
 }
 
 #numDislikesHeading {
   float: left;
-  margin-right: 1%;
+  margin-left: 11%;
 }
 
 #numLikesButton {
@@ -167,7 +172,13 @@ export default {
 }
 #numRepliesHeading {
   float: left;
-  margin-right: 11%;
+  margin-left: 11%;
+}
+
+#lastPostNameHeading {
+  float: left;
+  margin-left: 13%;
+
 }
 
 #forumPost {
@@ -176,7 +187,7 @@ export default {
   margin-top: 1%;
   margin-left: 3%;
   margin-right: 25%;
- 
+  margin-bottom: 5%;
 }
 
 .Community {
@@ -244,10 +255,11 @@ ul.aboutUsText {
 
 float: left;
 width: 100%;
-height: 10%;
+height: auto;
 margin-top: 7%;
 background-color: rgb(29, 134, 219);
 border-radius: 1vh 1vh 0vh 0vh;
+overflow: auto;
 
 }
 

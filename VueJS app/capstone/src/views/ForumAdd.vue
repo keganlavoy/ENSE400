@@ -51,6 +51,7 @@ export default {
       msg: '',
       hover: false,
       user_id: 0,
+      username: "",
       incompleteForm: false,
       completeForm: true
     }
@@ -59,7 +60,7 @@ export default {
 
   methods: {
 
-     addBlogPost(user_id, postTitle, postBody) {
+     addBlogPost(user_id, postTitle, postBody, username) {
 
         if(postTitle == "" || postBody == "") {
           this.incompleteForm = true;
@@ -70,7 +71,7 @@ export default {
           this.incompleteForm = false;
           this.completeForm = true;
 
-        axios.post(`http://162.253.11.179:3000/addBlogPost/${user_id}/${postTitle}/${postBody}`)
+        axios.post(`http://162.253.11.179:3000/addBlogPost/${user_id}/${postTitle}/${postBody}/${username}`)
         .then(res => this.input = res.data[0])
         .catch(err => {throw err;});
         this.$router.push(`/Forum/${this.user_id}`)
@@ -84,7 +85,9 @@ export default {
   created() {
 
     this.user_id = this.$route.params.user_id;
-
+    axios.get(`http://162.253.11.179:3000/getUsername/${this.user_id}`)
+    .then(res => this.username = res.data[0])
+    .catch(err => {throw err;});
   }
 }
 </script>
