@@ -9,12 +9,12 @@
     
         <div class="left-quotes">
          <div class="left-text">
-            <h2>1. Select</h2>
-            <p>Choose which insurance plan is the best fit for you, or even choose a package deal.</p>
-            <h2>2. Compare</h2>
-            <p>Choose the options you want, and compare quotes side by side to find the best option for you.</p>
-           <h2>3. Share</h2>
-            <p>Feel free to share your experience with us, along with others.</p>
+            <h2 class="sub-title">1. Select</h2>
+            <p class="paragraph-dashboard">Choose which insurance plan is the best fit for you, or even choose a package deal.</p>
+            <h2 class="sub-title">2. Compare</h2>
+            <p class="paragraph-dashboard">Choose the options you want, and compare quotes side by side to find the best option for you.</p>
+           <h2 class="sub-title">3. Share</h2>
+            <p class="paragraph-dashboard">Feel free to share your experience with us, along with others.</p>
         
          </div>
        </div>
@@ -36,10 +36,10 @@
     
     <div class="left-community">
       <div class="left-text">
-        <h2>Community</h2>
-        <p>Become part of our community and help us grow and reach others.</p>
-        <h2>Experiences</h2>
-        <p>See what others have said about their experiences and add your own into the mix.</p>
+        <h2 class="sub-title">Community</h2>
+        <p class="paragraph-dashboard">Become part of our community and help us grow and reach others.</p>
+        <h2 class="sub-title">Experiences</h2>
+        <p class="paragraph-dashboard">See what others have said about their experiences and add your own into the mix.</p>
 
         
       </div>
@@ -65,7 +65,7 @@
     <div class="CenterAboutUs">
       <div class="odd-paragraph">
 
-         <h2>What is our vision?</h2>
+         <h2 class="sub-title">What is our vision?</h2>
            <ul class="aboutUsText">
               <li>We want to create a place where people feel comfortable and confident that they are making the smartest decisions for them when it comes to their insurance.</li>
               <br>
@@ -79,7 +79,7 @@
 
       <div class="even-paragraph">
 
-         <h2>What makes us different?</h2>
+         <h2 class="sub-title">What makes us different?</h2>
 
           <ul class="aboutUsText">
               <li>Instead of comparing only final prices, we also display which options that you selected are covered by each inusrance provider. 
@@ -93,7 +93,7 @@
 
       <div class="odd-paragraph">
 
-         <h2>What is our motivation?</h2>
+         <h2 class="sub-title">What is our motivation?</h2>
 
           <ul class="aboutUsText">
               <li>We have seen and heard enough people struggle with finding the right insurance plan for them. The countless hours of web searching and manual 
@@ -204,20 +204,17 @@ overflow: hidden;
 
 }
 
-p {
+.paragraph-dashboard {
   font-size: 1vw;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: left;
 }
 
-h2 {
+.sub-title {
  font-size: 1.4vw;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
-
-
-
 
 ul.aboutUsText {
   font-size: 1vw;

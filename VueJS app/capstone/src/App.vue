@@ -107,15 +107,6 @@ float: right;
 background-color: rgb(243, 243, 243);
 }
 
-h3 {
-
-left: 0%;
-font-size: 1.8vw;
-cursor: pointer;
-text-align: center;
-margin-left: 5%;
-}
-
 .input {
   border-radius: 7px;
   padding: 5px;

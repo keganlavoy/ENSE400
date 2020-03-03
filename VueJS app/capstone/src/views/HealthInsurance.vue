@@ -3,9 +3,9 @@
    
     <div class="center">
 
-      <h1>Select Coverage</h1>
+      <h1 class="selectCoverage">Select Coverage</h1>
     
-      <h3 > Core Health Benefits (These are automatically included in all packages)</h3>
+      <h3 class="coreHealth"> Core Health Benefits (These are automatically included in all packages)</h3>
       <br>
       <label class="container" for="prescriptionDrugs">Prescription Drugs
         <input type="checkbox" id="prescriptionDrugs" value="prescriptionDrugs" v-model="checkedNames">
@@ -42,7 +42,7 @@
         <span class="checkmark"></span>
       </label>
       <br>
-      <button type="button" class="button" @click="$router.push('/')">Search Insurance Brokers</button>
+      <button type="button" class="button" >Search Insurance Brokers</button>
     </div>
 
   </div>
@@ -78,7 +78,14 @@ export default {
 
 <style scoped>
 
-h1 {
+.coreHealth {
+left: 0%;
+font-size: 1.8vw;
+text-align: center;
+margin-left: 5%;
+}
+
+.selectCoverage {
 
   text-align: center;
   text-decoration: underline;
