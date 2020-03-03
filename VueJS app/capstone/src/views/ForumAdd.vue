@@ -14,8 +14,8 @@
 
   <div class="center-community" id="center-community-subheader">
     </div>
-    <!--This is where we would do v-for-->
-    <div class="center-community" id="center-community-tabs">
+
+    <div class="center-community-forumAdd" id="center-community-tabs-forumAdd">
         <input type="text" class="input" id="postTitle" name="postTitle" v-model="input.postTitle" placeholder="Post Title" />
         <div id="forumPost"><textarea input type="text" row="5" col="15" class="input" id="forumPostInput" name="forumPost" v-model="input.forumPost" placeholder="Start writting your forum post here..." ></textarea></div>
         <div id="postButton"><button type="button" class="button" @click="addBlogPost(user_id, input.postTitle, input.forumPost)">Post</button></div>
@@ -84,10 +84,13 @@ export default {
 
   created() {
 
-    this.user_id = this.$route.params.user_id;
-    axios.get(`http://162.253.11.179:3000/getUsername/${this.user_id}`)
+    this.user_id = this.$route.params.user_id
+    var id = this.user_id
+    axios.get(`http://162.253.11.179:3000/getUsername/${id}`)
     .then(res => this.username = res.data[0])
     .catch(err => {throw err;});
+
+    
   }
 }
 </script>
@@ -100,9 +103,10 @@ export default {
 
 #postButton {
   width: 40%;
-  margin-top: 2%;
+  margin-top: -2%;
   float: right;
-  margin-right: -10.5%;
+  margin-right: 7.5%;
+  margin-top: -1%;
 }
 
 
@@ -120,7 +124,8 @@ textarea {
   width: 90%;
   height: 100%; 
   float: left;
-  margin-top: -1%;
+  margin-top: 3%;
+  
 }
 .Community {
 background-size: cover;
@@ -164,7 +169,7 @@ ul.aboutUsText {
   
 }
 
-.center-community {
+.center-community-forumAdd {
 
 float: left;
 width: 100%;
@@ -184,9 +189,9 @@ border-radius: 0vh;
 
 }
 /* add v-for to this css */
-#center-community-tabs {
+#center-community-tabs-forumAdd {
 
-height: 25%;
+height: 35%;
 margin-top: 0.5%;
 background-color: white;
 border-radius: 0vh;
@@ -197,6 +202,8 @@ border-radius: 0vh;
 
   float: left;
   margin-left: 4%;
+  margin-top: 2%;
+  
 }
 
 .noError {
