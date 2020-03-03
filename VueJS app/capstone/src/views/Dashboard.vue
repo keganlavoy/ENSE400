@@ -23,7 +23,7 @@
       
       <div class="InsurancePicture"></div>
       <div class="ComparePicture"></div>
-      <QuoteButton msg="Get Quotes" @click.native="$router.push('/InsuranceSelection')"/>
+      <QuoteButton msg="Get Quotes" @click.native="$router.push('/HealthInsurance')"/>
 
     </div>
   </div>
@@ -237,7 +237,7 @@ height: 20%;
 float: left;
 width: 30%;
 height: 100%;
-margin-top: 5%;
+margin-top: 3%;
 
 }
 
