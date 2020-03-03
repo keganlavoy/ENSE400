@@ -9,22 +9,22 @@
     </div>
   
     <div class="center-community">
-        <button type="button" class="forumButton" @click="$router.push('/')">Back to home</button>
-        <button type="button" class="forumButton" @click="$router.push('/ForumGeneralDiscussions')">Post a forum</button>
-        <h2 id="generalDiscussion">General Discussion</h2>
+        <button type="button" class="forumButton" @click="$router.push(`/Dashboard/${user_id}`)">Back to home</button>
+        <button type="button" class="forumButton" @click="$router.push(`/ForumAdd/${user_id}`)">Post a forum</button>
+        <h2 class="forum-H2" id="generalDiscussion">General Discussion</h2>
     </div>
 
     <div class="center-community" id="center-community-subheader">
-        <div id="forumHeading"><h2>Forum Discussion</h2></div>
-        <div id="likesHeading"><h2>Likes</h2></div>
-        <div id="dislikesHeading"><h2>Dislikes</h2></div>
-        <div id="repliesHeading"><h2>Replies</h2></div>
-        <div id="lastPostHeading"><h2>Last Post</h2></div>
+        <div id="forumHeading"><h2 class="forum-H2">Forum Discussion</h2></div>
+        <div id="likesHeading"><h2 class="forum-H2">Likes</h2></div>
+        <div id="dislikesHeading"><h2 class="forum-H2">Dislikes</h2></div>
+        <div id="repliesHeading"><h2 class="forum-H2">Replies</h2></div>
+        <div id="lastPostHeading"><h2 class="forum-H2">Last Post</h2></div>
     </div>
     <!--This is where we would do v-for-->
     <div class="center-community" id="center-community-tabs">
         <div id="topicHeading"><h3>General Discussion</h3></div>
-        <div id="replyButton"><button type="button" class="button" @click="$router.push('/ForumGeneralDiscussions')">Reply</button></div>
+        <div id="replyButton"><button type="button" class="button" @click="$router.push(`/ForumAdd/${user_id}`)">Reply</button></div>
         <div id="numLikesHeading"><h3>1</h3></div>        
         <div id="numDislikesHeading"><h3>1</h3></div>        
         <div id="numRepliesHeading"><h3>0</h3></div>
@@ -60,11 +60,22 @@ export default {
 
     return {
 
+      posts: [],
       msg: '',
-      hover: false
+      hover: false,
+      user_id: 0
+
     }
 
+  },
+
+  created() {
+
+    this.user_id = this.$route.params.user_id;
+
+
   }
+
 }
 </script>
 
@@ -200,7 +211,7 @@ p {
   text-align: left;
 }
 
-h2 {
+.forum-H2 {
  color: white;
  font-size: 1.4vw;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

@@ -105,7 +105,7 @@ const routes = [
   },
 
   {
-    path: '/Forum',
+    path: '/Forum/:user_id',
     name: 'Forum',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -114,12 +114,12 @@ const routes = [
   },
 
   {
-    path: '/ForumGeneralDiscussions',
-    name: 'ForumGeneralDiscussions',
+    path: '/ForumAdd/:user_id',
+    name: 'ForumAdd',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/ForumGeneralDiscussions.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/ForumAdd.vue')
   },
 
   {

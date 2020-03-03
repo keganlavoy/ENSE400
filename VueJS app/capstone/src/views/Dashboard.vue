@@ -48,7 +48,7 @@
     <div class="right-community">
       
       <div class="CommunityPicture"></div>
-      <CommunityButton msg="Share your experiences" @click.native="$router.push('/Forum')"/>
+      <CommunityButton msg="Share your experiences" @click.native="$router.push(`/Forum/${user_id}`)"/>
 
     </div>
   </div>
