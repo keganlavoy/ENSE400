@@ -24,16 +24,16 @@
     <!--This is where we would do v-for-->
     <div class="center-community" id="center-community-tabs">
       <div v-bind:key="post.post_id" v-for="post in posts">
-        <div id="topicHeading"><h3>{{post.post_title}}</h3></div>
+        <div id="topicHeading"><h3 class="forum-H3">{{post.post_title}}</h3></div>
         <div id="replyButton"><button type="button" class="button" @click="$router.push(`/ForumAdd/${user_id}`)">Reply</button></div>
-        <div id="numLikesHeading"><h3>{{post.post_likes}}</h3></div>        
-        <div id="numDislikesHeading"><h3>{{post.post_dislikes}}</h3></div>        
-        <div id="numRepliesHeading"><h3>{{post.post_replies}}</h3></div>
-        <div id="lastPostNameHeading"><h3>{{post.username}}</h3></div>
+        <div id="numLikesHeading"><h3 class="forum-H3">{{post.post_likes}}</h3></div>        
+        <div id="numDislikesHeading"><h3 class="forum-H3">{{post.post_dislikes}}</h3></div>        
+        <div id="numRepliesHeading"><h3 class="forum-H3">{{post.post_replies}}</h3></div>
+        <div id="lastPostNameHeading"><h3 class="forum-H3">{{post.username}}</h3></div>
         <button type="button" id="numLikesButton" class="button" >Like</button>
         <button type="button" id="numDislikesButton" class="button" >Dislike</button>
         <button type="button" id="viewRepliesButton" class="button" @click="$router.push('/ForumReplies')">View Replies</button>
-        <div id="forumPost"><h3>{{post.post_body}}</h3></div>
+        <div id="forumPost"><h3 class="forum-H3">{{post.post_body}}</h3></div>
         </div>
     </div>
       
@@ -212,12 +212,6 @@ overflow: hidden;
 
 }
 
-p {
-  font-size: 1vw;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: left;
-}
-
 .forum-H2 {
  color: white;
  font-size: 1.4vw;
@@ -225,7 +219,7 @@ p {
 
 }
 
-h3 {
+.forum-H3 {
  font-size: 1.2vw;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  color: black;
@@ -261,7 +255,7 @@ overflow: auto;
 
 #center-community-subheader {
 
-height: 7%;
+height: 10%;
 margin-top: 0%;
 background-color: rgb(30, 35, 39);
 border-radius: 0vh;
