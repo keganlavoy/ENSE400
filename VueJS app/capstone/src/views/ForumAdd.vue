@@ -18,7 +18,7 @@
     <div class="center-community-forumAdd" id="center-community-tabs-forumAdd">
         <input type="text" class="input" id="postTitle" name="postTitle" v-model="input.postTitle" placeholder="Post Title" />
         <div id="forumPost"><textarea input type="text" row="5" col="15" class="input" id="forumPostInput" name="forumPost" v-model="input.forumPost" placeholder="Start writting your forum post here..." ></textarea></div>
-        <div id="postButton"><button type="button" class="button" @click="addBlogPost(user_id, input.postTitle, input.forumPost)">Post</button></div>
+        <div id="postButton"><button type="button" class="button" @click="addBlogPost(user_id, input.postTitle, input.forumPost, userName)">Post</button></div>
         <div v-bind:class="{ noError: completeForm, error: incompleteForm }">One of the above fields is empty.</div>
     </div>
   
@@ -49,9 +49,8 @@ export default {
                 },   
 
       msg: '',
-      hover: false,
       user_id: 0,
-      username: "",
+      userName: "",
       incompleteForm: false,
       completeForm: true
     }
@@ -60,7 +59,7 @@ export default {
 
   methods: {
 
-     addBlogPost(user_id, postTitle, postBody, username) {
+     addBlogPost(user_id, postTitle, postBody, userName) {
 
         if(postTitle == "" || postBody == "") {
           this.incompleteForm = true;
@@ -71,7 +70,7 @@ export default {
           this.incompleteForm = false;
           this.completeForm = true;
 
-        axios.post(`http://162.253.11.179:3000/addBlogPost/${user_id}/${postTitle}/${postBody}/${username}`)
+        axios.post(`http://162.253.11.179:3000/addBlogPost/${user_id}/${postTitle}/${postBody}/${userName}`)
         .then(res => this.input = res.data[0])
         .catch(err => {throw err;});
         this.$router.push(`/Forum/${this.user_id}`)
@@ -87,7 +86,10 @@ export default {
     this.user_id = this.$route.params.user_id
     var id = this.user_id
     axios.get(`http://162.253.11.179:3000/getUsername/${id}`)
-    .then(res => this.username = res.data[0])
+    .then((res) => {
+    var response = res.data[0];
+    this.userName = response.userName;
+    })
     .catch(err => {throw err;});
 
     
