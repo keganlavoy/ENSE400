@@ -8,11 +8,13 @@
       <h1 class="Home-H1">Post your experience below</h1>
     </div>
     
-    <div class="center-community">
-       <button type="button" class="forumButton" @click="$router.push(`/Forum/${user_id}`)">Back to home</button>
+    <div class="center-community-forumAdd">
+       <button type="button" class="forumBackButton" @click="$router.push(`/Forum/${user_id}`)">Back to forum</button>
+       <h2 class="forum-H2" id="postAForum">Post a forum</h2>
     </div>
 
-  <div class="center-community" id="center-community-subheader">
+    <div class="center-community-forumAdd" id="center-community-subheader-forumAdd">
+        
     </div>
 
     <div class="center-community-forumAdd" id="center-community-tabs-forumAdd">
@@ -100,15 +102,36 @@ export default {
 
 <style>
 
+#postAForum {
+  margin-right: 16%;
+}
 
+.forum-H2 {
+ color: white;
+ font-size: 1.4vw;
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
+}
+
+.forumBackButton {
+  float: left;
+  width: 10%;
+  margin-left: 1%;
+  margin-top: 1%;
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 7px;
+  overflow: auto;
+}
 
 #postButton {
   width: 40%;
-  margin-top: -2%;
+  margin-top: 4%;
   float: right;
-  margin-right: 7.5%;
-  margin-top: -1%;
+  margin-right: 13%;
 }
 
 
@@ -116,7 +139,7 @@ textarea {
   resize: none;
 }
 
-#forumPost {
+#forumAddPost {
   width: 80%;
   height: 40%; 
   margin-top: -3%;
@@ -127,8 +150,17 @@ textarea {
   height: 100%; 
   float: left;
   margin-top: 3%;
+  border-radius: 7px;
+  padding: 5px;
+  outline: none;
+  margin: 1%;
   
 }
+
+#forumPostInput:focus {
+  border: 3px solid #555;
+}
+
 .Community {
 background-size: cover;
 background-color: rgb(243, 243, 243);
@@ -175,14 +207,14 @@ ul.aboutUsText {
 
 float: left;
 width: 100%;
-height: 15%;
+height: 10%;
 margin-top: 7%;
 background-color: rgb(29, 134, 219);
 border-radius: 1vh 1vh 0vh 0vh;
 
 }
 
-#center-community-subheader {
+#center-community-subheader-forumAdd {
 
 height: 7%;
 margin-top: 0%;
