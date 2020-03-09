@@ -12,7 +12,7 @@ const routes = [
   },
 
   {
-    path: '/HealthInsurance',
+    path: '/HealthInsurance/:user_id',
     name: 'HealthInsurance',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

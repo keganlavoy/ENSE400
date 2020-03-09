@@ -23,7 +23,7 @@
       
       <div class="InsurancePicture"></div>
       <div class="ComparePicture"></div>
-      <QuoteButton msg="Get Quotes" @click.native="$router.push('/HealthInsurance')"/>
+      <QuoteButton msg="Get Quotes" @click.native="$router.push(`/HealthInsurance/${user_id}`)"/>
 
     </div>
   </div>
