@@ -50,7 +50,7 @@ font-size: 2vw;
 width: 50%;
 height: 15%;
 margin: auto;
-margin-top: 30%;
+margin-top: 28%;
 border-style: solid;
 border-width: 1px;
 border-color: black;

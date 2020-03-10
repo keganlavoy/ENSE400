@@ -48,37 +48,37 @@
 
     <div class="insurerDivs" v-bind:key="insurer.insurer_id" v-bind:index="index" v-for="(insurer, index) in insurers"> 
 
-      <div class="insurerLogo"></div>
+      <div v-bind:class="{insurerLogo: index == 0, insurerLogo2: index == 1, insurerLogo3: index == 2, insurerLogo4: index == 3}"></div>
       <div class="insurerName"><h1>insurer: {{insurer.insurer_name}}</h1></div>
       <div class="checkedAttributes">
-        <p>Your Selected Coverage</p>
+        <h2>Your Selected Coverage</h2>
       </div>
       <div class="AttributePrescription">
-        <p>Prescription Drugs</p>
+        <h3>Prescription Drugs</h3>
         <div v-bind:class="{ noInsurance: insurerClassBinds[index].prescriptionNull == true, hasInsurance: insurerClassBinds[index].prescriptionNull == false, notSelected: input.prescriptionCheck == false}"></div>
       </div>
        <div class="AttributeDental">
-        <p>Dental</p>
+        <h3>Dental</h3>
         <div v-bind:class="{ noInsurance: insurerClassBinds[index].dentalNull == true, hasInsurance: insurerClassBinds[index].dentalNull == false, notSelected: input.dentalCheck == false}"></div>
       </div>
        <div class="AttributeStudent">
-        <p>Student Accident</p>
+        <h3>Student Accident</h3>
         <div v-bind:class="{ noInsurance: insurerClassBinds[index].studentNull == true, hasInsurance: insurerClassBinds[index].studentNull == false, notSelected: input.studentCheck == false}"></div>
       </div>
        <div class="AttributeTravel">
-        <p>VIP Travel</p>
+        <h3>VIP Travel</h3>
         <div v-bind:class="{ noInsurance: insurerClassBinds[index].travelNull == true, hasInsurance: insurerClassBinds[index].travelNull == false, notSelected: input.travelCheck == false}"></div>
       </div>
        <div class="AttributeHospital">
-        <p>Hospital Cash</p>
+        <h3>Hospital Cash</h3>
         <div v-bind:class="{ noInsurance: insurerClassBinds[index].hospitalNull == true, hasInsurance: insurerClassBinds[index].hospitalNull == false, notSelected: input.hospitalCheck == false}"></div>
       </div>
        <div class="AttributeIllness">
-        <p>Critical Illness</p>
+        <h3>Critical Illness</h3>
         <div v-bind:class="{ noInsurance: insurerClassBinds[index].illnessNull == true, hasInsurance: insurerClassBinds[index].illnessNull == false, notSelected: input.illnessCheck == false}"></div>
       </div>
        <div class="AttributeLife">
-        <p>Term Life Insurance</p>
+        <h3>Term Life Insurance</h3>
         <div v-bind:class="{ noInsurance: insurerClassBinds[index].lifeNull == true, hasInsurance: insurerClassBinds[index].lifeNull == false, notSelected: input.lifeCheck == false}"></div>
       </div>
 
@@ -541,10 +541,10 @@ export default {
 
 
 
-    this.quoteSums[0].sum = this.bluecross_sum;
-    this.quoteSums[1].sum = this.sunlife_sum;
-    this.quoteSums[2].sum = this.insurer3_sum;
-    this.quoteSums[3].sum = this.basic_insurance_sum;
+    this.quoteSums[0].sum = this.bluecross_sum.toFixed(2);
+    this.quoteSums[1].sum = this.sunlife_sum.toFixed(2);
+    this.quoteSums[2].sum = this.insurer3_sum.toFixed(2);
+    this.quoteSums[3].sum = this.basic_insurance_sum.toFixed(2);
     })
 
 
@@ -573,7 +573,7 @@ export default {
   width: 25%;
   height: 8%;
   float: right;
-  margin-top: -4%;
+  margin-top: -3.5%;
   margin-right: 9.3%;
   
 
@@ -595,7 +595,7 @@ export default {
   width: 25%;
   height: 8%;
   float: left;
-  margin-top: -0.5%;
+  margin-top: 0%;
   margin-left: 2%;
   
 
@@ -693,7 +693,7 @@ export default {
   float: right;
   margin-top: -27.5%;
   margin-right: 42%;
-  border: 1px solid black;
+ 
 
 }
 
@@ -704,7 +704,7 @@ export default {
   float: right;
   margin-top: -23.5%;
   margin-right: 42%;
-  border: 1px solid black;
+ 
 
 }
 
@@ -715,7 +715,7 @@ export default {
   float: right;
   margin-top: -19.5%;
   margin-right: 42%;
-  border: 1px solid black;
+  
 
 }
 
@@ -726,7 +726,7 @@ export default {
   float: right;
   margin-top: -15.5%;
   margin-right: 42%;
-  border: 1px solid black;
+  
 
 }
 
@@ -737,7 +737,7 @@ export default {
   float: right;
   margin-top: -11.5%;
   margin-right: 42%;
-  border: 1px solid black;
+  
 
 }
 
@@ -748,7 +748,7 @@ export default {
   float: right;
   margin-top: -7.5%;
   margin-right: 42%;
-  border: 1px solid black;
+  
 
 }
 
@@ -759,7 +759,7 @@ export default {
   float: right;
   margin-top: -3.5%;
   margin-right: 42%;
-  border: 1px solid black;
+  
 
 }
 
@@ -772,7 +772,7 @@ export default {
   float: right;
   margin-top: -31.5%;
   margin-right: 42%;
-  border: 1px solid black;
+  text-decoration:underline;
   
 
 
@@ -785,7 +785,7 @@ export default {
   height: 10%;
   margin-top: 2%;
   margin-left: 2%;
-  border: 1px solid black;
+  
   
 
 }
@@ -801,6 +801,41 @@ background-image: url(../assets/bluecross.png);
 background-size:contain;
 border: 1px solid black;
 }
+
+.insurerLogo2 {
+
+width: 25%;
+height: 50%;
+margin-top: 2%;
+margin-left: 2%;
+background-image: url(../assets/sunlife.jpg);
+background-size:contain;
+border: 1px solid black;
+}
+
+.insurerLogo3 {
+
+width: 25%;
+height: 50%;
+margin-top: 2%;
+margin-left: 2%;
+background-image: url(../assets/CAA.png);
+background-size:contain;
+border: 1px solid black;
+}
+
+.insurerLogo4 {
+
+width: 25%;
+height: 50%;
+margin-top: 2%;
+margin-left: 2%;
+background-image: url(../assets/surehealth.jpg);
+background-size:contain;
+border: 1px solid black;
+}
+
+
 
 
 .insurerDivs {
@@ -910,7 +945,7 @@ border: 1px solid black;
 	position: relative;
 	width: 6%;
 	height: 37.5%;
-  margin-top: -9%;
+  margin-top: -11%;
   margin-left: 2%;
 	border: 2px solid #eef5df;
 	background-color: #ff5248;
@@ -943,7 +978,7 @@ border: 1px solid black;
   transform: rotate(45deg);
   height: 40%;
   width: 3.1%;
-  margin-top: -10%;
+  margin-top: -11%;
   margin-left: 4%;
   border-bottom: 7px solid #78b13f;
   border-right: 7px solid #78b13f;
@@ -954,7 +989,7 @@ border: 1px solid black;
 	position: relative;
 	width: 6%;
 	height: 37.5%;
-  margin-top: -9%;
+  margin-top: -11%;
   margin-left: 2%;
 	border: 2px solid #979797;
 	background-color: #FFF;

@@ -15,10 +15,10 @@
         <input type="password" class="input" name="confirmPass" v-model="input.confirmPass" placeholder="Confirm Password" />
         <br>
         <br>
-         <button type="button" class="button" @click="addUser(input.userName, input.password), $router.push('/Login')" >Sign Up</button>
+         <button type="button" class="button" @click="addUser(input.userName, input.password), $router.push('/')" >Sign Up</button>
         <br>
         <br>
-        <button type="button" class="button" @click="$router.push('/Login')">Already have an account</button>
+        <button type="button" class="button" @click="$router.push('/')">Already have an account</button>
     </div>
   </template>
 

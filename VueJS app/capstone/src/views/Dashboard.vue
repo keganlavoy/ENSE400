@@ -236,6 +236,7 @@ width: 30%;
 height: 100%;
 margin-top: 3%;
 
+
 }
 
 .left-text {
@@ -247,7 +248,7 @@ margin-top: 3%;
 
 .right-quotes {
 float: right;
-width: 65%;
+width: 69%;
 height: 100%;
 margin-top: 5%;
 overflow: hidden;
@@ -297,16 +298,17 @@ border: 1px solid black;
 
 .InsurancePicture {
 
-  width: 48%;
+  width: 54.1%;
   height: 50%;
   float: left;
-  background-image: url(../assets/InsurancePicture.jpg);
+  background-image: url(../assets/sampleQuote.jpg);
   background-size: cover;
+  
   
 }
 
 .ComparePicture {
-  width: 48%;
+  width: 45%;
   height: 50%;
   float: right;
   
