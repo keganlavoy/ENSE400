@@ -1,7 +1,7 @@
 <template>
 
 
-    <div class="finalQuoteButton">
+    <div class="shareQuoteButton">
     
         <span>
         <h2>{{ msg }}</h2>
@@ -16,7 +16,7 @@
 <script>
 export default {
    
-   name: 'finalQuoteButton',
+   name: 'shareQuoteButton',
    props: ["msg"],
 
     data()  {
@@ -45,13 +45,13 @@ font-size: 1.2vw;
 }
 
 
-.finalQuoteButton {
+.shareQuoteButton {
 
 width: 25%;
 height: 15%;
 float: right;
 margin-top: -17%;
-margin-right: 12%;
+margin-right: 6%;
 border-style: solid;
 border-width: 1px;
 border-color: black;
@@ -60,7 +60,7 @@ border-radius: 3vh;
 
 }
 
-.finalQuoteButton:hover {
+.shareQuoteButton:hover {
 background-color: rgb(123, 169, 255);
 cursor: pointer;
 }

@@ -51,7 +51,7 @@ width: 25%;
 height: 15%;
 float: right;
 margin-top: -7.5%;
-margin-right: 12%;
+margin-right: 6%;
 border-style: solid;
 border-width: 1px;
 border-color: black;
