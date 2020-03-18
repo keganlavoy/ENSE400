@@ -608,8 +608,8 @@ export default {
   width: 25%;
   height: 8%;
   float: right;
-  margin-top: -4%;
-  margin-right: 8%;
+  margin-top: 5.4%;
+  margin-right: -58%;
   
 
 }
