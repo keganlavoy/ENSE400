@@ -19,7 +19,7 @@
 
     <div class="center-community-forumAdd" id="center-community-tabs-forumAdd">
         <input type="text" class="input" id="postTitle" name="postTitle" v-model="input.postTitle" placeholder="Post Title" />
-        <div id="forumPost"><textarea input type="text" row="5" col="15" class="input" id="forumPostInput" name="forumPost" v-model="input.forumPost" placeholder="Start writting your forum post here..." ></textarea></div>
+        <div id="forumAddPost"><textarea input type="text" row="5" col="15" class="input" id="forumPostInput" name="forumPost" v-model="input.forumPost" placeholder="Start writting your forum post here..." ></textarea></div>
         <div id="postButton"><button type="button" class="button" @click="addBlogPost(user_id, input.postTitle, input.forumPost, userName)">Post</button></div>
         <div v-bind:class="{ noError: completeForm, error: incompleteForm }">One of the above fields is empty.</div>
     </div>
@@ -129,9 +129,9 @@ export default {
 
 #postButton {
   width: 40%;
-  margin-top: 4%;
+  margin-top: 0%;
   float: right;
-  margin-right: 13%;
+  margin-right: 0.5%;
 }
 
 
@@ -140,9 +140,10 @@ textarea {
 }
 
 #forumAddPost {
-  width: 80%;
+  width: 90%;
   height: 40%; 
   margin-top: -3%;
+  margin-left: 1%;
 }
 
 #forumPostInput {
@@ -235,7 +236,7 @@ border-radius: 0vh;
 #postTitle {
 
   float: left;
-  margin-left: 4%;
+  margin-left: 2%;
   margin-top: 2%;
   
 }
