@@ -26,7 +26,7 @@
       <div v-bind:key="post.post_id" v-for="post in posts">
         
           <div id="topicHeading"><h3 class="forum-H3">{{post.post_title}}</h3></div>
-          <div id="replyButton"><button type="button" class="button" @click="$router.push(`/ForumAdd/${user_id}`)">Reply</button></div>
+          <div id="replyButton"><button type="button" class="button" @click="$router.push(`/ForumAddReply/${user_id}/${post.post_id}/${post.post_replies}`)">Reply</button></div>
           <div id="numLikesHeading"><h3 class="forum-H3">{{post.post_likes}}</h3></div>        
           <div id="numDislikesHeading"><h3 class="forum-H3">{{post.post_dislikes}}</h3></div>        
           <div id="numRepliesHeading"><h3 class="forum-H3">{{post.post_replies}}</h3></div>
@@ -159,6 +159,7 @@ export default {
 #generalDiscussion {
   margin-right: 23%;
 }
+
 .forumButton {
   float: left;
   width: 10%;
@@ -322,7 +323,7 @@ ul.aboutUsText {
 float: left;
 width: 100%;
 height: auto;
-margin-top: 7%;
+margin-top: 2%;
 background-color: rgb(29, 134, 219);
 border-radius: 1vh 1vh 0vh 0vh;
 overflow: auto;

@@ -1,20 +1,20 @@
 <template>
 
-<div class="mainDiv">
+<div class="mainDivForumAdd">
 
-  <div class="Community">
+  <div class="CommunityForumAdd">
 
-    <div class="title">
-      <h1 class="Home-H1">Post your experience below</h1>
+    <div class="titleForumAdd">
+      <h1 class="Home-H1ForumAdd">Post your experience below</h1>
     </div>
     
     <div class="center-community-forumAdd">
-       <button type="button" class="forumBackButton" @click="$router.push(`/Forum/${user_id}`)">Back to forum</button>
-       <h2 class="forum-H2" id="postAForum">Post a forum</h2>
+       <button type="button" class="forumAddBackButton" @click="$router.push(`/Forum/${user_id}`)">Back to forum</button>
+       <h2 class="forumAdd-H2" id="postAForum">Post a forum</h2>
     </div>
 
     <div class="center-community-forumAdd" id="center-community-subheader-forumAdd">
-        
+        <span class='invis'>hello</span>
     </div>
 
     <div class="center-community-forumAdd" id="center-community-tabs-forumAdd">
@@ -106,14 +106,14 @@ export default {
   margin-right: 16%;
 }
 
-.forum-H2 {
+.forumAdd-H2 {
  color: white;
  font-size: 1.4vw;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
 
-.forumBackButton {
+.forumAddBackButton {
   float: left;
   width: 10%;
   margin-left: 1%;
@@ -141,7 +141,7 @@ textarea {
 
 #forumAddPost {
   width: 90%;
-  height: 40%; 
+  height: 50%; 
   margin-top: -3%;
   margin-left: 1%;
 }
@@ -162,17 +162,17 @@ textarea {
   border: 3px solid #555;
 }
 
-.Community {
+.CommunityForumAdd {
 background-size: cover;
 background-color: rgb(243, 243, 243);
-height: 85%;
+height: 90%;
 width: 100%;
 overflow: hidden;
 
 
 }
 
-.title {
+.titleForumAdd {
 
   height: 10%;
   width: 44%;
@@ -180,7 +180,7 @@ overflow: hidden;
 
 }
 
-.Home-H1 {
+.Home-H1ForumAdd {
 
   text-align: center;
   font-size: 2.8vw;
@@ -189,27 +189,12 @@ overflow: hidden;
 }
 
 
-
-.forumRouting {
-    color:black;
-    font-size: 1.6vw;
-    bottom: 0%;
-    word-spacing: 1em;
-}
-
-ul.aboutUsText {
-  font-size: 1vw;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: left;
-  
-}
-
 .center-community-forumAdd {
 
 float: left;
 width: 100%;
 height: 10%;
-margin-top: 7%;
+margin-top: 2%;
 background-color: rgb(29, 134, 219);
 border-radius: 1vh 1vh 0vh 0vh;
 
@@ -225,11 +210,12 @@ border-radius: 0vh;
 }
 /* add v-for to this css */
 #center-community-tabs-forumAdd {
-
-height: 35%;
+width: 99.5%;
+height: 40%;
 margin-top: 0.5%;
 background-color: white;
-border-radius: 0vh;
+border: 2px solid rgb(30, 35, 39);
+border-radius: 1vh;
 
 }
 
@@ -253,6 +239,16 @@ visibility: hidden;
   font-size: 1.3vw;
   margin-left: 40%;
   margin-top: 1%;
+}
+
+.mainDivForumAdd {
+height: 100%;
+
+}
+
+.invis {
+  visibility: hidden;
+  
 }
 
 </style>
