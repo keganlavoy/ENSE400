@@ -2,7 +2,6 @@
   <div class="mainDiv">
    
     <div class="center">
-
       <h1 class="selectCoverage">Select Coverage</h1>
     
       <h3 class="coreHealth"> Core Health Benefits (These are automatically included in all packages)</h3>
@@ -43,13 +42,14 @@
       </label>
       <br>
       <button type="button" class="button" @click="getInsurers()">Search Insurance Brokers</button>
+      <button type="button" class="button" @click="$router.push(`/Dashboard/${user_id}`)">Back to dashboard</button>
     </div>
 
 
     <div class="insurerDivs" v-bind:key="insurer.insurer_id" v-bind:index="index" v-for="(insurer, index) in insurers"> 
 
       <div v-bind:class="{insurerLogo: index == 0, insurerLogo2: index == 1, insurerLogo3: index == 2, insurerLogo4: index == 3}"></div>
-      <div class="insurerName"><h1>insurer: {{insurer.insurer_name}}</h1></div>
+      <div class="insurerName"><h1>Insurer: {{insurer.insurer_name}}</h1></div>
       <div class="checkedAttributes">
         <h2>Your Selected Coverage</h2>
       </div>
