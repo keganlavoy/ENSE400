@@ -276,12 +276,14 @@ width: 60%;
 height: auto;
 margin-top: 1%;
 margin-left: 20%;
+border-radius: 7px;
 border: 1px solid black;
 
 }
 
 .odd-paragraph {
   margin-top: -1.9%;
+  border-radius: 1vh 1vh 0vh 0vh;
   background-color:rgb(246, 246, 246);
   height: auto;
 }
@@ -297,7 +299,8 @@ border: 1px solid black;
   width: 54.1%;
   height: 50%;
   float: left;
-  background-image: url(../assets/sampleQuote.jpg);
+  border-radius: 7px;
+  background-image: url(../assets/selection.jpg);
   background-size: cover;
   
   
@@ -307,9 +310,8 @@ border: 1px solid black;
   width: 45%;
   height: 50%;
   float: right;
-  
-  margin-right: 0%;
-  background-image: url(../assets/selection.jpg);
+  border-radius: 7px;
+  background-image: url(../assets/sampleQuoteBluecross.jpg);
   background-size: cover;
   
 }
