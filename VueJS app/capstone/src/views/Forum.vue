@@ -12,6 +12,7 @@
         <button type="button" class="forumButton" @click="$router.push(`/Dashboard/${user_id}`)">Back to home</button>
         <button type="button" class="forumButton" @click="$router.push(`/ForumAdd/${user_id}`)">Post a forum</button>
         <h2 class="forum-H2" id="generalDiscussion">Care Compare Forum</h2>
+        <button type="button" class="getQuotesForumButton" @click="$router.push(`/HealthInsurance/${user_id}`)">Get quotes</button>
     </div>
 
     <div class="center-community" id="center-community-subheader">
@@ -176,6 +177,19 @@ export default {
   width: 10%;
   margin-left: 1%;
   margin-top: 1%;
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.getQuotesForumButton {
+  float: right;
+  width: 10%;
+  margin-right: 1%;
+  margin-top: -3%;
   background-color: #f1f1f1;
   color: black;
   font-size: 16px;
