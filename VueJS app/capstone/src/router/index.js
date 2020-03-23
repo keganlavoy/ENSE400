@@ -132,7 +132,7 @@ const routes = [
   },
 
   {
-    path: '/ForumReplies',
+    path: '/ForumReplies/:user_id/:post_id',
     name: 'ForumReplies',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

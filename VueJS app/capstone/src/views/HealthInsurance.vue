@@ -1,5 +1,5 @@
 <template>
-  <div class="mainDiv">
+  <div class="mainDivHealth">
    
     <div class="center">
 
@@ -1017,7 +1017,21 @@ border: 1px solid black;
 	}
 
 
+.mainDivHealth {
+background-size: cover;
+background-color: white;
+height: 100%;
+width: 100%;
+overflow: auto;
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
 
+
+.mainDivHealth::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
+}
 
 
 

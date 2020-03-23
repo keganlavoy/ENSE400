@@ -1,33 +1,42 @@
 <template>
 
-<div class="mainDiv">
+<div class="mainDivForumReply">
 
-  <div class="Community">
+  <div class="CommunityForumReply">
 
-    <div class="title">
-      <h1 class="Home-H1">Share your experiences & search for help.</h1>
-    </div>
     
-    <div class="center-community">
-       <button type="button" class="forumButton" @click="$router.push('/Forum')">Back to home</button>
-        <h2 id="topics">Topics</h2>
+    <div class="center-community-ForumReplies">
+       <button type="button" class="forumRepliesButton" @click="$router.push(`/Forum/${user_id}`)">Back to home</button>
+        <h2 class="ForumReplies-h1">Replies Forum</h2>
     </div>
 
-  <div class="center-community" id="center-community-subheader">
-        <div id="forumHeading"><h2>Forum Discussion</h2></div>
-        <div id="likesHeading"><h2>Likes</h2></div>
-        <div id="dislikesHeading"><h2>Dislikes</h2></div>
-        <div id="repliesHeading"><h2>Replies</h2></div>
-        <div id="lastPostHeading"><h2>Last Post</h2></div>
+    <div class="center-community-ForumReplies" id="center-community-subheader-ForumReplies">
+      <span class='invis'>hello</span>
     </div>
-    <!--This is where we would do v-for-->
-    <div class="center-community" id="center-community-tabs">
-        <div id="topicHeading"><h3>General Discussion</h3></div>
-        <div id="replyButton"><button type="button" class="button">Reply</button></div>
-        <div id="numLikesHeading"><h3>0</h3></div>
-        <div id="numDislikesHeading"><h3>0</h3></div>
-        <div id="numRepliesHeading"><h3>0</h3></div>
-        <div id="lastPostNameHeading"><h3>By: Daris</h3></div>
+   
+    <div class="center-community-forumAddReply" id="forumAddReply-originalPost">
+        <div id="originalHeader"><h2 class="forumAddReply-H2">Original Post</h2></div>
+        <div id="originalPostHeading"><h3 class="forumAddReply-Titles">Original post title: {{post[0].post_title}}</h3></div>
+        <div id="originalPostNameHeading"><h3 class="forumAddReply-Titles">Original post by: {{post[0].username}}</h3></div>
+        <div id="originalPost"><h3 class="forumAddReply-body">{{post[0].post_body}}</h3></div>
+    </div>
+
+
+    <div class="center-community-ForumReplies" id="center-community-tabs-ForumReplies">
+      <div id="replyHeader"><h2 class="forumAddReply-H2">Replies</h2></div>
+
+    <div class="border">
+      <div v-bind:key="reply.reply_id" v-bind:index="index" v-for="(reply, index) in replies">
+        <div id="filler"><h2 class="replyNumbering">Reply #: {{index + 1}}</h2></div>
+        <div id="replyHeading"><h3 class="forumReply-Titles">Reply title: {{reply.reply_title}}</h3></div>
+        <div id="replyNameHeading"><h3 class="forumReply-Titles">Reply posted by: {{reply.username}}</h3></div>
+        <div id="originalPost"><h3 class="forumReply-body">{{reply.reply_body}}</h3></div>
+
+
+      </div>
+    </div>
+
+
     </div>
   
   </div>
@@ -39,10 +48,10 @@
 
 <script>
 
-
+import axios from 'axios'
 
 export default {
-  name: 'home',
+  name: 'ForumReplies',
   components: {
       
   },
@@ -52,87 +61,142 @@ export default {
     return {
 
        responses: [],
-
-                input: {
+       post: [],
+       replies: [],
+      input: {
                   
-                },   
+      },   
 
       msg: '',
-      hover: false
+      hover: false,
+      user_id: 0,
+      post_id: 0,
+      userName: "",
     }
 
+
+  },
+
+  methods: {
+
+
+
+
+  },
+
+  created() {
+
+    this.user_id = this.$route.params.user_id
+    this.post_id = this.$route.params.post_id
+    var id = this.user_id
+    var post_id = this.post_id
+
+
+    axios.get(`http://162.253.11.179:3000/getUsername/${id}`)
+    .then((res) => {
+    var response = res.data[0];
+    this.userName = response.userName;
+    })
+    .catch(err => {throw err;});
+
+    axios.get(`http://162.253.11.179:3000/getSingleBlogPost/${post_id}`)
+    .then(res => this.post = res.data)
+    .catch(err => {throw err;});
+
+
+    axios.get(`http://162.253.11.179:3000/getAllReplies/${post_id}`)
+    .then(res => this.replies = res.data)
+    .catch(err => {throw err;});
+
   }
+
+
+
 }
 </script>
 
 
 <style>
 
-#topics {
-  margin-right: 20%;
-}
-#forumHeading {
-  width: 15%;
+#replyHeading {
   float: left;
-  margin-left: 3%;
-  margin-right: 25%;
-}
-#likesHeading {
-  float: left;
-  margin-right: 7%;
+  margin-left: 10%;
+  width: 35%;
+  text-decoration: underline;
+ 
 }
 
-#dislikesHeading {
-  float: left;
-  margin-right: 7%;
+#replyHeader {
+    width: 100%;
+    height: 5.5vh;
+    margin-top: -1.25%;
+    margin-bottom: 0%;
+    background-color:rgb(30, 35, 39);
+    border-radius: 1vh 1vh 0vh 0vh;
+    border-bottom: 3px solid white;
+    
+
 }
 
-#repliesHeading {
-  float: left;
-  margin-right: -5%;
-}
-
-#topicHeading {
-  float: left;
-  margin-right: 0%;
-  margin-left: 3%;
-  width: 15%;
-}
-
-#replyButton {
-  width: 25%;
-  margin-top: 1%;
-  float: left;
-}
-
-#numLikesHeading {
-  float: left;
-  margin-right: 11%;
-}
-
-#numDislikesHeading {
-  float: left;
-  margin-right: 11%;
-}
-
-#numRepliesHeading {
-  float: left;
-  margin-right: 11%;
-}
-textarea {
-  resize: none;
-}
-#forumPost {
-  width: 85%;
-  height: 40%; 
+#replyNameHeading {
+   float: left;
+  width: 35%;
+  margin-left: 5%;
+  text-decoration: underline;
   
 }
 
-#forumPostInput {
-  width: 100%;
-  height: 100%; 
+
+
+#topics {
+  margin-right: 20%;
 }
-.Community {
+
+.forumReply-Titles {
+
+ color: black;
+ font-size: 2vw;
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.forumReply-body {
+ font-size: 0.8vw;
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ color: black;
+ text-align: left;
+ margin-left: 1%;
+ margin-bottom: 2vh;
+}
+
+#filler {
+  float: left;
+  color: white;
+  width: 100%;
+  height: 5.5vh;
+  background-color: rgb(30, 35, 39);
+}
+
+
+
+
+
+
+.forumRepliesButton {
+  float: left;
+  width: 10%;
+  margin-left: 1%;
+  margin-top: 1%;
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 7px;
+  overflow: auto;
+}
+
+.CommunityForumReply {
 background-size: cover;
 background-color: rgb(243, 243, 243);
 height: 85%;
@@ -142,36 +206,29 @@ overflow: hidden;
 
 }
 
-.title {
-
-  height: 10%;
-  width: 44%;
-  margin-left: 28%;
-
-}
-
-.Home-H1 {
-
+.ForumReplies-h1 {
+  float: left;
   text-align: center;
   font-size: 2.8vw;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+  margin-top: 0%;
+  margin-left: 29%;
 }
 
-p {
+.ForumReplies-p {
   font-size: 1vw;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: left;
 }
 
-h2 {
+.ForumReplies-h2 {
  color: white;
  font-size: 1.4vw;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
 
-h3 {
+.ForumReplies-h3 {
  font-size: 1.2vw;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  color: black;
@@ -179,46 +236,42 @@ h3 {
  
 }
 
-.forumRouting {
-    color:black;
-    font-size: 1.6vw;
-    bottom: 0%;
-    word-spacing: 1em;
-}
 
-ul.aboutUsText {
-  font-size: 1vw;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: left;
-  
-}
 
-.center-community {
+
+.center-community-ForumReplies {
 
 float: left;
 width: 100%;
-height: 10%;
-margin-top: 7%;
+height: 9vh;
+margin-top: 3%;
 background-color: rgb(29, 134, 219);
 border-radius: 1vh 1vh 0vh 0vh;
 
 }
 
-#center-community-subheader {
+#center-community-subheader-ForumReplies {
 
-height: 7%;
+height: 2vh;;
 margin-top: 0%;
 background-color: rgb(30, 35, 39);
 border-radius: 0vh;
 
 }
 /* add v-for to this css */
-#center-community-tabs {
-
+#center-community-tabs-ForumReplies {
+width: 99.6%;
 height: 25%;
 margin-top: 0.5%;
 background-color: white;
-border-radius: 0vh;
+border: 3px solid rgb(30, 35, 39);
+border-radius: 1vh;
+margin-top: 2%;
+
+}
+
+.invis {
+  visibility: hidden;
 
 }
 
