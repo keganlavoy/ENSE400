@@ -40,8 +40,7 @@
         <p class="paragraph-dashboard">Become part of our community and help us grow and reach others.</p>
         <h2 class="sub-title">Experiences</h2>
         <p class="paragraph-dashboard">See what others have said about their experiences and add your own into the mix.</p>
-
-        
+      
       </div>
     </div>
   
@@ -52,9 +51,6 @@
 
     </div>
   </div>
-
-
-
 
    <div class="AboutUs">
 
@@ -72,8 +68,7 @@
               <li>We want to make finding the best deal as easy and fast as possible and provide direct comparisons between insurance providers so that you don't have to.</li>
               <br>
               <li>In adition, we envision creating a community that freely shares their own experiences and can further help others make the best choices for them.</li>
-           </ul>
-        
+           </ul>      
 
       </div>
 
@@ -98,18 +93,15 @@
           <ul class="aboutUsText">
               <li>We have seen and heard enough people struggle with finding the right insurance plan for them. The countless hours of web searching and manual 
                   comparisons between them are stressful and tiring. We are here to change that. We provide a centralized place where you can compare insurance providers stress free.</li>       
-           </ul>
-      
+           </ul>      
       </div>
-
-
-    </div>
-  
+    </div>  
   </div>
-
+<div class="dashboardFooter">
+</div>
 
 <div>
-<ProfileButton class="ProfileButton" @click.native="$router.push(`/ProfilePage/${user_id}`)"/>
+  <ProfileButton class="ProfileButton" @click.native="$router.push(`/ProfilePage/${user_id}`)"/>
 </div>
 </div>
 
@@ -154,7 +146,6 @@ export default {
 <style>
 
 .quotes {
-
 background-size: cover;
 background-color: white;
 height: 75%;
@@ -162,7 +153,6 @@ width: 100%;
 overflow: hidden;
 position: relative;
 z-index: 2;
-
 }
 
 .Community {
@@ -171,37 +161,26 @@ background-color: rgb(243, 243, 243);
 height: 85%;
 width: 100%;
 overflow: hidden;
-
-
 }
 
 .AboutUs {
-
 background-size: cover;
 background-color: white;
 height: 85%;
 width: 100%;
 overflow: hidden;
-
-
 }
 
-
-
 .title {
-
   height: 10%;
   width: 44%;
   margin-left: 28%;
-
 }
 
 .Home-H1 {
-
   text-align: center;
   font-size: 2.8vw;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
 
 .paragraph-dashboard {
@@ -213,30 +192,22 @@ overflow: hidden;
 .sub-title {
  font-size: 1.4vw;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
 
 ul.aboutUsText {
   font-size: 1vw;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: left;
-  
+  text-align: left;  
 }
 
-
-
 .left-quotes {
-
 float: left;
 width: 30%;
 height: 100%;
 margin-top: 3%;
-
-
 }
 
 .left-text {
-
   width: 44%;
   text-align: left;
   margin-left: 30%;
@@ -248,16 +219,13 @@ width: 69%;
 height: 100%;
 margin-top: 5%;
 overflow: hidden;
-
 }
 
 .left-community {
-
 float: left;
 width: 30%;
 height: 100%;
 margin-top: 9%;
-
 }
 
 .right-community {
@@ -266,19 +234,15 @@ width: 65%;
 height: 100%;
 margin-top: 2%;
 overflow: hidden;
-
 }
 
-
 .CenterAboutUs {
-
-width: 60%;
-height: auto;
-margin-top: 1%;
-margin-left: 20%;
-border-radius: 7px;
-border: 1px solid black;
-
+  width: 60%;
+  height: auto;
+  margin-top: 1%;
+  margin-left: 20%;
+  border-radius: 7px;
+  border: 1px solid black;
 }
 
 .odd-paragraph {
@@ -301,9 +265,7 @@ border: 1px solid black;
   float: left;
   border-radius: 7px;
   background-image: url(../assets/selection.jpg);
-  background-size: cover;
-  
-  
+  background-size: cover;  
 }
 
 .ComparePicture {
@@ -312,8 +274,7 @@ border: 1px solid black;
   float: right;
   border-radius: 7px;
   background-image: url(../assets/sampleQuoteBluecross.jpg);
-  background-size: cover;
-  
+  background-size: cover;  
 }
 
 .CommunityPicture {
@@ -322,24 +283,27 @@ border: 1px solid black;
   float: right;
   margin-right: 30%;
   background-image: url(../assets/community.png);
-  background-size: cover;
-  
+  background-size: cover;  
 }
 
-
 .mainDivDashboard {
-background-size: cover;
-background-color: white;
-height: 100%;
-width: 100%;
-overflow: auto;
--ms-overflow-style: none;
-scrollbar-width: none;
+  background-size: cover;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .mainDivDashboard::-webkit-scrollbar {
   display: none;
   scrollbar-width: none;
+}
+
+.dashboardFooter{
+  background-color: white;
+  height: 20%;
 }
 
 </style>

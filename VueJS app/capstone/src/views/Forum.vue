@@ -204,6 +204,7 @@ export default {
   margin-left: 1%;
   margin-right: 25%;
 }
+
 #likesHeading {
   float: left;
   margin-right: 7%;
@@ -222,8 +223,7 @@ export default {
 #topicHeading {
   float: left;
   margin-left: 1%;
-  width: 15%;
-  
+  width: 15%;  
 }
 
 #replyButton {
@@ -263,6 +263,7 @@ export default {
   margin-top: 6%;
   width: 6%;
 }
+
 #numRepliesHeading {
   float: left;
   margin-left: 11%;
@@ -271,7 +272,6 @@ export default {
 #lastPostNameHeading {
   float: left;
   margin-left: 14%;
-
 }
 
 #forumPost {
@@ -281,60 +281,47 @@ export default {
   margin-left: 1%;
   margin-bottom: 2%;
   border: 3px solid rgb(30, 35, 39);
-  border-radius: 1vh;
-  
+  border-radius: 1vh;  
 }
 
-
 .Forum-main {
-background-size: cover;
-background-color: rgb(243, 243, 243);
-height: auto;
-width: 100%;
-overflow: hidden;
-
-
+  background-size: cover;
+  background-color: rgb(243, 243, 243);
+  height: auto;
+  width: 100%;
+  overflow: hidden;
 }
 
 .Forum-title {
-
   height: 10%;
   width: 44%;
   margin-left: 28%;
-
 }
 
 .Forum-H1 {
-
   text-align: center;
   font-size: 2.8vw;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
 
 .forum-H1 {
-
  font-size: 1.4vw;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  color: black;
  text-align: left;
-
-
 }
 
 .forum-H2 {
  color: white;
  font-size: 1.4vw;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
 
 .forum-H3 {
  font-size: 1.4vw;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  color: black;
- text-align: left;
- 
+ text-align: left; 
 }
 
 .forum-body {
@@ -345,46 +332,38 @@ overflow: hidden;
 }
 
 .forumRouting {
-    color:black;
-    font-size: 1.6vw;
-    bottom: 0%;
-    word-spacing: 1em;
+  color:black;
+  font-size: 1.6vw;
+  bottom: 0%;
+  word-spacing: 1em;
 }
 
-
 .center-community {
-
-float: left;
-width: 100%;
-height: auto;
-margin-top: 2%;
-background-color: rgb(29, 134, 219);
-border-radius: 1vh 1vh 0vh 0vh;
-overflow: auto;
-
+  float: left;
+  width: 100%;
+  height: auto;
+  margin-top: 2%;
+  background-color: rgb(29, 134, 219);
+  border-radius: 1vh 1vh 0vh 0vh;
+  overflow: auto;
 }
 
 #center-community-subheader {
-
-height: 10%;
-margin-top: 0%;
-background-color: rgb(30, 35, 39);
-border-radius: 0vh;
-
+  height: 10%;
+  margin-top: 0%;
+  background-color: rgb(30, 35, 39);
+  border-radius: 0vh;
 }
-/* add v-for to this css */
+
 #center-community-tabs {
-
-height: 60%;
-width: 95%;
-margin-left: 2.5%;
-margin-top: 0.5%;
-background-color: white;
-
+  height: 60%;
+  width: 95%;
+  margin-left: 2.5%;
+  margin-top: 0.5%;
+  background-color: white;
 }
 
 .mainDiv {
-
   height: auto;
 }
 

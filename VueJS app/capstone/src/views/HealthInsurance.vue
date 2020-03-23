@@ -124,11 +124,12 @@
         <div class="notSelected"></div>
       </div>
 
+      
+    </div>
+    
+    <div class="getQuotesFooter">
 
     </div>
-
-
-
 
   </div>
 </template>
@@ -143,7 +144,6 @@ import externalButton from '@/components/external.vue'
 import axios from 'axios'
 
 export default {
-  
 
 
  name: 'HealthInsurance',
@@ -565,234 +565,167 @@ export default {
 </script>
 
 
-
 <style scoped>
 
 .legendGreyDashplaceholder {
-
   width: 25%;
   height: 8%;
   float: right;
   margin-top: -3.5%;
   margin-right: 9.3%;
-  
-
 }
 
 .legendGreenCheckplaceholder {
-
   width: 25%;
   height: 8%;
   float: right;
   margin-top: -0.5%;
   margin-right: 43%;
-  
-
 }
 
 .legendRedXplaceholder {
-
   width: 25%;
   height: 8%;
   float: left;
   margin-top: 0%;
   margin-left: 2%;
-  
-
 }
 
-
-
 .legendGreyDash {
-
   width: 25%;
   height: 8%;
   float: right;
   margin-top: 5.4%;
   margin-right: -58%;
-  
-
 }
 
 .legendGreenCheck {
-
   width: 25%;
   height: 8%;
   float: right;
   margin-top: 5%;
   margin-right: 40%;
-  
-
 }
 
 .legendRedX {
-
   width: 25%;
   height: 8%;
   float: left;
   margin-top: 5%;
   margin-left: 4.3%;
-  
-
 }
 
 
 .PeopleQuotePrice {
-
   width: 8%;
   height: 8%;
   float: right;
   margin-top: -26%;
   margin-right: 3%;
   text-align: left;
-  
-
 }
 
 .OurQuotePrice {
-
   width: 8%;
   height: 8%;
   float: right;
   margin-top: -32%;
   margin-right: 3%;
   text-align: left;
-  
-
 }
 
 .OurQuoteText {
-
   width: 25%;
   height: 8%;
   float: right;
   margin-top: -32%;
   margin-right: 12%;
   text-align: right;
-  
-
 }
 
 .PeopleQuoteText {
-
   width: 25%;
   height: 8%;
   float: right;
   margin-top: -26%;
   margin-right: 12%;
   text-align: right;
-  
-
 }
 
 
 .AttributePrescription {
-
   width: 25%;
   height: 8%;
   float: right;
   margin-top: -27.5%;
   margin-right: 42%;
- 
-
 }
 
 .AttributeDental {
-
   width: 25%;
   height: 8%;
   float: right;
   margin-top: -23.5%;
   margin-right: 42%;
- 
-
 }
 
 .AttributeStudent {
-
   width: 25%;
   height: 8%;
   float: right;
   margin-top: -19.5%;
   margin-right: 42%;
-  
-
 }
 
 .AttributeTravel {
-
   width: 25%;
   height: 8%;
   float: right;
   margin-top: -15.5%;
   margin-right: 42%;
-  
-
 }
 
 .AttributeHospital {
-
   width: 25%;
   height: 8%;
   float: right;
   margin-top: -11.5%;
   margin-right: 42%;
-  
-
 }
 
 .AttributeIllness {
-
   width: 25%;
   height: 8%;
   float: right;
   margin-top: -7.5%;
   margin-right: 42%;
-  
-
 }
 
 .AttributeLife {
-
   width: 25%;
   height: 8%;
   float: right;
   margin-top: -3.5%;
   margin-right: 42%;
-  
-
 }
 
-
 .checkedAttributes {
-
-
   width: 25%;
   height: 8%;
   float: right;
   margin-top: -31.5%;
   margin-right: 42%;
-  text-decoration:underline;
-  
-
-
+  text-decoration:underline; 
 }
 
-
 .insurerName {
-
   width: 25%;
   height: 10%;
   margin-top: 2%;
   margin-left: 2%;
-  
-  
-
 }
 
-
 .insurerLogo {
-
 width: 25%;
 height: 50%;
 margin-top: 2%;
@@ -803,7 +736,6 @@ border: 1px solid black;
 }
 
 .insurerLogo2 {
-
 width: 25%;
 height: 50%;
 margin-top: 2%;
@@ -814,7 +746,6 @@ border: 1px solid black;
 }
 
 .insurerLogo3 {
-
 width: 25%;
 height: 50%;
 margin-top: 2%;
@@ -825,7 +756,6 @@ border: 1px solid black;
 }
 
 .insurerLogo4 {
-
 width: 25%;
 height: 50%;
 margin-top: 2%;
@@ -835,49 +765,40 @@ background-size:contain;
 border: 1px solid black;
 }
 
-
-
-
 .insurerDivs {
-
-width: 80%;
-height: 80%;
-margin-left: 10%;
-margin-top: 4%;
-margin-bottom: 2%;
-background-image: url(../assets/InsureButtonBG.jpg);
-background-size: cover;
-border-radius: 5vh;
-border: 1px solid black;
-
+  width: 80%;
+  height: 80%;
+  margin-left: 10%;
+  margin-top: 4%;
+  margin-bottom: 2%;
+  background-image: url(../assets/InsureButtonBG.jpg);
+  background-size: cover;
+  border-radius: 5vh;
+  border: 1px solid black;
 }
 
-
-
 .coreHealth {
-left: 0%;
-font-size: 1.8vw;
-text-align: center;
-margin-left: 5%;
+  left: 0%;
+  font-size: 1.8vw;
+  text-align: center;
+  margin-left: 5%;
 }
 
 .selectCoverage {
-
   text-align: center;
   text-decoration: underline;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .center {
-
-width: 80%;
-height: 90%;
-margin-left: 10%;
-margin-top: 4%;
-background-image: url(../assets/InsureButtonBG.jpg);
-background-size: cover;
-border-radius: 5vh;
-border: 1px solid black;
+  width: 80%;
+  height: 90%;
+  margin-left: 10%;
+  margin-top: 4%;
+  background-image: url(../assets/InsureButtonBG.jpg);
+  background-size: cover;
+  border-radius: 5vh;
+  border: 1px solid black;
 }
 
 .container {
@@ -951,6 +872,7 @@ border: 1px solid black;
 	background-color: #ff5248;
 	border-radius: 50%;
 	}
+
 .noInsurance::before, .noInsurance::after {
 	position: absolute;
 	top: 45%;
@@ -961,17 +883,18 @@ border: 1px solid black;
 	background-color: #eef5df;
 	display: block;
 	}
+
 .noInsurance::before {
 	-ms-transform: rotate(-45deg);
 	-webkit-transform: rotate(-45deg);
 	transform: rotate(-45deg);
 	}
+
 .noInsurance::after {
 	-ms-transform: rotate(45deg);
 	-webkit-transform: rotate(45deg);
 	transform: rotate(45deg);
 	}
-
 
 .hasInsurance {
   float: left;
@@ -984,7 +907,6 @@ border: 1px solid black;
   border-right: 7px solid #78b13f;
 }
 
-
 .notSelected {
 	position: relative;
 	width: 6%;
@@ -995,6 +917,7 @@ border: 1px solid black;
 	background-color: #FFF;
 	border-radius: 50%;
 	}
+
 .notselected::before, .notSelected::after {
 	position: absolute;
 	top: 45%;
@@ -1005,36 +928,38 @@ border: 1px solid black;
 	background-color: #979797;
 	display: block;
 	}
+
 .notSelected::before {
 	-ms-transform: rotate(-45deg);
 	-webkit-transform: rotate(-45deg);
 	transform: rotate(-45deg);
 	}
+
 .notSelected::after {
 	-ms-transform: rotate(45deg);
 	-webkit-transform: rotate(45deg);
 	transform: rotate(45deg);
 	}
 
-
 .mainDivHealth {
-background-size: cover;
-background-color: white;
-height: 100%;
-width: 100%;
-overflow: auto;
--ms-overflow-style: none;
-scrollbar-width: none;
+  background-size: cover;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-
 
 .mainDivHealth::-webkit-scrollbar {
   display: none;
   scrollbar-width: none;
 }
 
-
-
+.getQuotesFooter{
+  background-color: white;
+  height: 20%;
+}
 
 </style>
 

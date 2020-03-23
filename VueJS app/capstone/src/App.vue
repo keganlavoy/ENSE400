@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <!--ProfileButton class="profileButton" @click.native="$router.push('/ProfilePage')"/>-->
+      <!--ProfileButton class="profileButton" @click.native="$router.push('/ProfilePage')"/>
       <router-link to="Dashboard">Home  </router-link> 
       <router-link to="/HealthInsurance">HealthInsurance  </router-link>
       <router-link to="/">Login  </router-link>
@@ -10,7 +10,7 @@
       <router-link to="/ForgotPass">ForgotPass  </router-link>
       <router-link to="/ProfilePage">Profile Page  </router-link>
       <router-link to="/Forum">Forum  </router-link>
-      <!--<h3 @click="$router.push('/')">Care Compare</h3>-->
+      <h3 @click="$router.push('/')">Care Compare</h3>-->
     </div>
     <router-view/>
     
@@ -21,7 +21,6 @@
 <script>
 
 //import ProfileButton from '@/components/ProfileButton.vue'
-
 
 export default {
   name: 'app',
@@ -39,16 +38,12 @@ export default {
 
 <style>
 
-
-
 #app {
 height: 100%;
 text-align: center;
-
 }
 
-#nav {
- 
+#nav { 
   position: -ms-page;
   position: -webkit-sticky;
   position: sticky;
@@ -60,14 +55,12 @@ text-align: center;
   overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  z-index: 0;
-  
+  z-index: 0;  
 }
 
 #nav a {
   font-weight: bold;
-  color: #1e5fa0;
-  
+  color: #1e5fa0;  
 }
 
 #nav a.router-link-exact-active {
@@ -75,14 +68,13 @@ text-align: center;
 }
 
 .mainDiv {
-
-background-size: cover;
-background-color: white;
-height: 100%;
-width: 100%;
-overflow: auto;
--ms-overflow-style: none;
-scrollbar-width: none;
+  background-size: cover;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .mainDiv::-webkit-scrollbar {
@@ -91,20 +83,17 @@ scrollbar-width: none;
 }
 
 .left-gray {
-
-width: 18%;
-height: 100%;
-float: left;
-background-color: rgb(243, 243, 243);
-
+  width: 18%;
+  height: 100%;
+  float: left;
+  background-color: rgb(243, 243, 243);
 }
 
 .right-gray {
-
-width: 18%;
-height: 100%;
-float: right;
-background-color: rgb(243, 243, 243);
+  width: 18%;
+  height: 100%;
+  float: right;
+  background-color: rgb(243, 243, 243);
 }
 
 .input {
@@ -148,6 +137,5 @@ background-color: rgb(243, 243, 243);
   background-color: black;
   color: white;
 }
-
 
 </style>
