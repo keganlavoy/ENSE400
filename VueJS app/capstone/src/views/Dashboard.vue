@@ -1,6 +1,6 @@
 <template>
 
-<div class="mainDiv">
+<div class="mainDivDashboard">
   <div class="quotes">
         
         <div class="title">
@@ -145,7 +145,7 @@ export default {
   created() {
 
     this.user_id = this.$route.params.user_id;
-
+   
   }
 }
 </script>
@@ -224,10 +224,6 @@ ul.aboutUsText {
 }
 
 
-.top-buffer {
-height: 20%;
-
-}
 
 .left-quotes {
 
@@ -328,5 +324,20 @@ border: 1px solid black;
   
 }
 
+
+.mainDivDashboard {
+background-size: cover;
+background-color: white;
+height: 100%;
+width: 100%;
+overflow: auto;
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+
+.mainDivDashboard::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
+}
 
 </style>

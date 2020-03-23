@@ -1,11 +1,11 @@
 <template>
 
-<div class="mainDiv">
+<div class="mainDivForum">
   
-  <div class="Community">
+  <div class="Forum-main">
 
-    <div class="title">
-      <h1 class="Home-H1">Share your experiences & search for help.</h1>
+    <div class="Forum-title">
+      <h1 class="Forum-H1">Share your experiences & search for help.</h1>
     </div>
   
     <div class="center-community">
@@ -21,11 +21,14 @@
         <div id="repliesHeading"><h2 class="forum-H2">Replies</h2></div>
         <div id="lastPostHeading"><h2 class="forum-H2">Posted By</h2></div>
     </div>
-    <!--This is where we would do v-for-->
+
+
+
+
     <div class="center-community" id="center-community-tabs">
-      <div v-bind:key="post.post_id" v-for="post in posts">
-        
-          <div id="topicHeading"><h3 class="forum-H3">{{post.post_title}}</h3></div>
+      <div v-bind:key="post.post_id" v-bind:index="index" v-for="(post, index) in posts">
+          <div id="postHead"><h2 class="postNumbering">Post #: {{index + 1}}</h2></div>
+          <div id="topicHeading"><h3 class="forum-H1">{{post.post_title}}</h3></div>
           <div id="replyButton"><button type="button" class="button" @click="$router.push(`/ForumAddReply/${user_id}/${post.post_id}/${post.post_replies}`)">Reply</button></div>
           <div id="numLikesHeading"><h3 class="forum-H3">{{post.post_likes}}</h3></div>        
           <div id="numDislikesHeading"><h3 class="forum-H3">{{post.post_dislikes}}</h3></div>        
@@ -33,8 +36,8 @@
           <div id="lastPostNameHeading"><h3 class="forum-H3">{{post.username}}</h3></div>
           <button type="button" id="numLikesButton" class="button" @click="checkLike(post.post_id, user_id, post.post_likes)">Like</button>
           <button type="button" id="numDislikesButton" class="button" @click="checkDislike(post.post_id, user_id, post.post_dislikes)">Dislike</button>
-          <button type="button" id="viewRepliesButton" class="button" @click="$router.push('/ForumReplies')">View Replies</button>
-          <div id="forumPost"><h3 class="forum-H3">{{post.post_body}}</h3></div>
+          <button type="button" id="viewRepliesButton" class="button" @click="$router.push(`/ForumReplies/${user_id}/${post.post_id}`)">View Replies</button>
+          <div id="forumPost"><h3 class="forum-body">{{post.post_body}}</h3></div>
         
       </div>
     </div>
@@ -160,6 +163,14 @@ export default {
   margin-right: 23%;
 }
 
+#postHead {
+  float: left;
+  color: white;
+  width: 100%;
+  height: 5.5vh;
+  background-color: rgb(30, 35, 39);
+}
+
 .forumButton {
   float: left;
   width: 10%;
@@ -203,7 +214,7 @@ export default {
 
 #replyButton {
   width: 25%;
-  margin-top: 1%;
+  margin-top: 6%;
   margin-right: 1%;
   float: left;
 }
@@ -220,25 +231,22 @@ export default {
 
 #numLikesButton {
   float: left;
-  margin-left: 40%;
-  margin-right: 5%;
-  margin-top: 1%;
+  margin-left: -46.5%;
+  margin-top: 6%;
   width: 5%;
 }
 
 #numDislikesButton {
   float: left;
-  margin-left: 2%;
-  margin-right: 5%;
-  margin-top: 1%;
+  margin-left: -35%;
+  margin-top: 6%;
   width: 5%;
 }
 
 #viewRepliesButton {
   float: left;
-  margin-left: 1%;
-  margin-right: 5%;
-  margin-top: 1%;
+  margin-left: -23.5%;
+  margin-top: 6%;
   width: 6%;
 }
 #numRepliesHeading {
@@ -255,15 +263,16 @@ export default {
 #forumPost {
   width: 98%;
   float: left;
-  margin-top: 1%;
+  margin-top: 2%;
   margin-left: 1%;
   margin-bottom: 2%;
-  border-bottom: 3px solid rgb(29, 134, 219);
+  border: 3px solid rgb(30, 35, 39);
+  border-radius: 1vh;
   
 }
 
 
-.Community {
+.Forum-main {
 background-size: cover;
 background-color: rgb(243, 243, 243);
 height: auto;
@@ -273,7 +282,7 @@ overflow: hidden;
 
 }
 
-.title {
+.Forum-title {
 
   height: 10%;
   width: 44%;
@@ -281,11 +290,21 @@ overflow: hidden;
 
 }
 
-.Home-H1 {
+.Forum-H1 {
 
   text-align: center;
   font-size: 2.8vw;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.forum-H1 {
+
+ font-size: 1.4vw;
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ color: black;
+ text-align: left;
+
 
 }
 
@@ -297,11 +316,18 @@ overflow: hidden;
 }
 
 .forum-H3 {
- font-size: 1.2vw;
+ font-size: 1.4vw;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  color: black;
  text-align: left;
  
+}
+
+.forum-body {
+ font-size: 0.9vw;
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ color: black;
+ text-align: left;
 }
 
 .forumRouting {
@@ -311,12 +337,6 @@ overflow: hidden;
     word-spacing: 1em;
 }
 
-ul.aboutUsText {
-  font-size: 1vw;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: left;
-  
-}
 
 .center-community {
 

@@ -167,7 +167,7 @@ width: 99.5%;
 height: auto;
 margin-top: 0.5%;
 background-color: rgb(247, 247, 247);
-border: 2px solid rgb(30, 35, 39);
+border: 4px solid rgb(30, 35, 39);
 border-radius: 1vh;
 
 }
@@ -178,7 +178,7 @@ border-radius: 1vh;
   margin-top: 1%;
   margin-left: 1%;
   margin-bottom: 2%;
-  border: 3px solid rgb(30, 35, 39);
+  border: 1px solid rgb(30, 35, 39);
   border-radius: 1vh;
   
 }
@@ -204,7 +204,7 @@ border-radius: 1vh;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  color: black;
  text-align: left;
- 
+ margin-left: 1%;
 }
 
 
@@ -309,9 +309,9 @@ margin-bottom: 1%;
 #center-community-tabs-forumAddReply {
 width: 99.5%;
 height: 40%;
-margin-top: 0.5%;
+margin-top: 2%;
 background-color: rgb(247, 247, 247);
-border: 2px solid rgb(30, 35, 39);
+border: 4px solid rgb(30, 35, 39);
 border-radius: 1vh;
 margin-bottom: 7vh;
 
