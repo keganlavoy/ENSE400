@@ -12,7 +12,7 @@
         <button type="button" class="forumButton" @click="$router.push(`/Dashboard/${user_id}`)">Back to home</button>
         <button type="button" class="forumButton" @click="$router.push(`/ForumAdd/${user_id}`)">Post a forum</button>
         <h2 class="forum-H2" id="generalDiscussion">Care Compare Forum</h2>
-        <button type="button" class="getQuotesForumButton" @click="$router.push(`/HealthInsurance/${user_id}`)">Get quotes</button>
+        <button type="button" class="getQuotesForumButton" @click="$router.push(`/UserInputQuotes/${user_id}`)">Share your quote</button>
     </div>
 
     <div class="center-community" id="center-community-subheader">

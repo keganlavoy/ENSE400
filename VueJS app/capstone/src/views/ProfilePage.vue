@@ -1,5 +1,5 @@
 <template>
-  <div class="mainDiv">
+  <div class="mainDivProfile">
 
     <div class="left-gray"></div>
     <div class="right-gray"></div>
@@ -106,9 +106,9 @@ export default {
 
         this.user_id = this.$route.params.user_id;
         var id = this.user_id;
-         axios.get(`http://162.253.11.179:3000/getSingleUser/${id}`)
-         .then(res => this.input = res.data[0])
-         .catch(err => {throw err;});
+        axios.get(`http://162.253.11.179:3000/getSingleUser/${id}`)
+        .then(res => this.input = res.data[0])
+        .catch(err => {throw err;});
     }
   
 }
@@ -146,6 +146,21 @@ width: 3%;
 
 #DOByear {
 width: 4%;
+}
+
+.mainDivProfile {
+  background-size: cover;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.mainDivProfile::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
 }
 
 </style>

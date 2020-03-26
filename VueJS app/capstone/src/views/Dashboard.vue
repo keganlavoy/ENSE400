@@ -31,7 +31,7 @@
   <div class="Community">
 
     <div class="title">
-      <h1 class="Home-H1">Share your experiences.</h1>
+      <h1 class="Home-H1">Share your experiences to help others!</h1>
     </div>
     
     <div class="left-community">
