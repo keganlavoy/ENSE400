@@ -20,7 +20,7 @@
         <br>
         <button type="button" class="button" @click="$router.push('/')">Already have an account</button>
     </div>
-  </template>
+</template>
 
 <script>
 

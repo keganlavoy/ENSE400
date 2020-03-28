@@ -7,7 +7,7 @@
    <div class="top-buffer">
    </div>
 
-        <div v-bind:class="{ noError: isUser, error: noUser }">The username and password dont match or they don't exist.</div>
+        <div v-bind:class="{ noErrorLogin: isUser, errorLogin: noUser }">The username and password dont match or they don't exist.</div>
         <input type="text" class="input" name="userName" v-model="input.userName" placeholder="Username" />
         <br>
         <br>
@@ -21,7 +21,7 @@
         <br>
         <button type="button" class="button" @click="$router.push('/SignUp')">Dont have an account? Sign-up</button>
     </div>
-  </template>
+</template>
 
 <script>
 
@@ -51,16 +51,16 @@ export default {
         .then((res) => {
           
           var response = res.data[0];
-          this.gotten_id = response.user_id;
+          this.gotten_id = response;
 
-          if(this.gotten_id == [] || this.gotten_id == "" || this.gotten_id == null) {
+          if(this.gotten_id == [] || this.gotten_id == "" || this.gotten_id == null || this.gotten_id == 0) {
             this.noUser = true;
             this.isUser = false;
           }
           else{
             this.noUser = false;
             this.isUser = true;
-            this.$router.push(`/Dashboard/${this.gotten_id}`)
+            this.$router.push(`/Dashboard/${this.gotten_id.user_id}`)
           }
         }) 
         .catch(err => {throw err;});
@@ -83,12 +83,12 @@ export default {
 
 }
 
-.noError {
+.noErrorLogin {
 visibility: hidden;
 
 }
 
-.error {
+.errorLogin {
   visibility: visible;
   color: red;
 }

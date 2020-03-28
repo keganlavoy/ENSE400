@@ -93,11 +93,11 @@
         <h2>${{quoteSums[index].sum}}</h2>
       </div>
       <div class="PeopleQuotePrice">
-        <h2></h2>
+        <h2>${{bluecross_UserQuote_total}}</h2>
       </div>
 
 
-      <shareQuoteButton msg="Share your quote experience with this insurance provider here!"/>
+      <shareQuoteButton msg="Share your quote experience with this insurance provider here!" @click.native="$router.push(`/UserInputQuotes/${user_id}`)"/>
       <externalButton msg="Go to this insurance providers website here"/>
 
       <div class="legendRedX">
@@ -169,6 +169,10 @@ export default {
       },
 
       insurers: [],
+      user_quotes_blue_cross: [],
+      user_quotes_sunlife: [],
+      user_quotes_caa: [],
+      user_quotes_sure_health: [],
 
       quoteSums: [
 
@@ -243,8 +247,20 @@ export default {
 
       bluecross_sum: 0.0,
       sunlife_sum: 0.0,
-      insurer3_sum: 0.0,
-      basic_insurance_sum: 0.0
+      CAA_sum: 0.0,
+      sureHealth_sum: 0.0,
+
+      bluecross_UserQuote_sum: 0.0,
+      sunlife_UserQuote_sum: 0.0,
+      CAA_UserQuote_sum: 0.0,
+      sureHealth_UserQuote_sum: 0.0,
+
+      bluecross_UserQuote_total: 0.0,
+      sunlife_UserQuote_total: 0.0,
+      CAA_UserQuote_total: 0.0,
+      sureHealth_UserQuote_total: 0.0,
+
+     
 
     }
 
@@ -254,19 +270,93 @@ export default {
 
     getInsurers() {
 
+    var blueCrossCount = 2;
+    var sunlifeCount = 0;
+    var caaCount = 0;
+    var sureHealthCount = 0;
+    var i = 0;
+    
+
+    axios.get(`http://162.253.11.179:3000/getUserQuotesBlueCross`)
+    .then(res => this.user_quotes_blue_cross = res.data)
+    .catch(err => {throw err;});
+
+    axios.get(`http://162.253.11.179:3000/getUserQuotesBlueCrossCount`)
+    .then((res) => {
+      blueCrossCount = res.data[0].countValue
+      for(i = 0; i < blueCrossCount; i++)
+      this.bluecross_UserQuote_total += this.user_quotes_blue_cross[i].total_quote
+    })
+    .catch(err => {throw err;});
+
+    axios.get(`http://162.253.11.179:3000/getUserQuotesSunlife`)
+    .then(res => this.user_quotes_sunlife = res.data)
+    .catch(err => {throw err;});
+
+    axios.get(`http://162.253.11.179:3000/getUserQuotesSunlifeCount`)
+    .then(res => sunlifeCount = res.data[0].countValue)
+    .catch(err => {throw err;});
+
+    axios.get(`http://162.253.11.179:3000/getUserQuotesCAA`)
+    .then(res => this.user_quotes_caa = res.data)
+    .catch(err => {throw err;});
+
+    axios.get(`http://162.253.11.179:3000/getUserQuotesCAACount`)
+    .then(res => caaCount = res.data[0].countValue)
+    .catch(err => {throw err;});
+
+    axios.get(`http://162.253.11.179:3000/getUserQuotesSureHealth`)
+    .then(res => this.user_quotes_sure_health = res.data)
+    .catch(err => {throw err;});
+
+    axios.get(`http://162.253.11.179:3000/getUserQuotesSureHealthCount`)
+    .then(res => sureHealthCount = res.data[0].countValue)
+    .catch(err => {throw err;});
+
+    this.bluecross_UserQuote_total = 0.0;
+    this.sunlife_UserQuote_total = 0.0;
+    this.CAA_UserQuote_total = 0.0;
+    this.sureHealth_UserQuote_total = 0.0;
+
+    
+
+    
+    
+
+
+
+
+
+
+    
+
+    for(i = 0; i < sunlifeCount; i++) 
+      this.sunlife_UserQuote_total += this.user_quotes_sunlife[i].total_quote
+    
+    
+    for(i = 0; i < caaCount; i++) 
+      this.CAA_UserQuote_total += this.user_quotes_caa[i].total_quote
+    
+
+    for(i = 0; i < sureHealthCount; i++) 
+      this.sureHealth_UserQuote_total += this.user_quotes_sure_health[i].total_quote
+    
+
+  
+
     axios.get(`http://162.253.11.179:3000/getInsurers`)
     .then((res) => {
     this.insurers = res.data;
 
     this.bluecross_sum = 0.0;
     this.sunlife_sum = 0.0;
-    this.insurer3_sum = 0.0;
-    this.basic_insurance_sum = 0.0;
+    this.CAA_sum = 0.0;
+    this.sureHealth_sum = 0.0;
 
     this.bluecross_sum = this.bluecross_sum + this.insurers[0].core_health;
     this.sunlife_sum = this.sunlife_sum + this.insurers[1].core_health;
-    this.insurer3_sum = this.insurer3_sum + this.insurers[2].core_health;
-    this.basic_insurance_sum = this.basic_insurance_sum + this.insurers[3].core_health;
+    this.CAA_sum = this.CAA_sum + this.insurers[2].core_health;
+    this.sureHealth_sum = this.sureHealth_sum + this.insurers[3].core_health;
 
 
     if(this.input.prescriptionCheck) {
@@ -287,7 +377,7 @@ export default {
       }
 
       if(this.insurers[2].prescription_drugs != null){
-      this.insurer3_sum = this.insurer3_sum + this.insurers[2].prescription_drugs;
+      this.CAA_sum = this.CAA_sum + this.insurers[2].prescription_drugs;
       this.insurerClassBinds[2].prescriptionNull = false;
       }
       else {
@@ -295,7 +385,7 @@ export default {
       }
 
       if(this.insurers[3].prescription_drugs != null) {
-      this.basic_insurance_sum = this.basic_insurance_sum + this.insurers[3].prescription_drugs;
+      this.sureHealth_sum = this.sureHealth_sum + this.insurers[3].prescription_drugs;
       this.insurerClassBinds[3].prescriptionNull = false;
       }
       else {
@@ -331,7 +421,7 @@ export default {
 
 
       if(this.insurers[2].dental != null) {
-      this.insurer3_sum = this.insurer3_sum + this.insurers[2].dental;
+      this.CAA_sum = this.CAA_sum + this.insurers[2].dental;
       this.insurerClassBinds[2].dentalNull = false;
       }
       else {
@@ -340,7 +430,7 @@ export default {
 
 
       if(this.insurers[3].dental != null) {
-      this.basic_insurance_sum = this.basic_insurance_sum + this.insurers[3].dental;
+      this.sureHealth_sum = this.sureHealth_sum + this.insurers[3].dental;
       this.insurerClassBinds[3].dentalNull = false;
       }
       else {
@@ -371,7 +461,7 @@ export default {
 
 
       if(this.insurers[2].student_accident != null) {
-      this.insurer3_sum = this.insurer3_sum + this.insurers[2].student_accident;
+      this.CAA_sum = this.CAA_sum + this.insurers[2].student_accident;
       this.insurerClassBinds[2].studentNull = false;
       }
       else {
@@ -380,7 +470,7 @@ export default {
 
 
       if(this.insurers[3].student_accident != null) {
-      this.basic_insurance_sum = this.basic_insurance_sum + this.insurers[3].student_accident;
+      this.sureHealth_sum = this.sureHealth_sum + this.insurers[3].student_accident;
        this.insurerClassBinds[3].studentNull = false;
       }
       else {
@@ -410,7 +500,7 @@ export default {
 
 
       if(this.insurers[2].vip_travel != null) {
-      this.insurer3_sum = this.insurer3_sum + this.insurers[2].vip_travel;
+      this.CAA_sum = this.CAA_sum + this.insurers[2].vip_travel;
       this.insurerClassBinds[2].travelNull = false;
       }
       else {
@@ -419,7 +509,7 @@ export default {
 
 
       if(this.insurers[3].vip_travel != null) {
-      this.basic_insurance_sum = this.basic_insurance_sum + this.insurers[3].vip_travel;
+      this.sureHealth_sum = this.sureHealth_sum + this.insurers[3].vip_travel;
       this.insurerClassBinds[3].travelNull = false;
       }
       else {
@@ -448,7 +538,7 @@ export default {
 
 
       if(this.insurers[2].hospital_cash != null) {
-      this.insurer3_sum = this.insurer3_sum + this.insurers[2].hospital_cash;
+      this.CAA_sum = this.CAA_sum + this.insurers[2].hospital_cash;
       this.insurerClassBinds[2].hospitalNull = false;
       }
       else {
@@ -457,7 +547,7 @@ export default {
 
 
       if(this.insurers[3].hospital_cash != null) {
-      this.basic_insurance_sum = this.basic_insurance_sum + this.insurers[3].hospital_cash;
+      this.sureHealth_sum = this.sureHealth_sum + this.insurers[3].hospital_cash;
       this.insurerClassBinds[3].hospitalNull = false;
       }
       else {
@@ -486,7 +576,7 @@ export default {
       }
 
       if(this.insurers[2].critical_illness != null) {
-      this.insurer3_sum = this.insurer3_sum + this.insurers[2].critical_illness;
+      this.CAA_sum = this.CAA_sum + this.insurers[2].critical_illness;
       this.insurerClassBinds[2].illnessNull = false;
       }
       else {
@@ -494,7 +584,7 @@ export default {
       }
 
       if(this.insurers[3].critical_illness != null) {
-      this.basic_insurance_sum = this.basic_insurance_sum + this.insurers[3].critical_illness;
+      this.sureHealth_sum = this.sureHealth_sum + this.insurers[3].critical_illness;
       this.insurerClassBinds[3].illnessNull = false;
       }
       else {
@@ -522,7 +612,7 @@ export default {
 
 
       if(this.insurers[2].term_life_insurance != null) {
-      this.insurer3_sum = this.insurer3_sum + this.insurers[2].term_life_insurance;
+      this.CAA_sum = this.CAA_sum + this.insurers[2].term_life_insurance;
       this.insurerClassBinds[2].lifeNull = false;
       }
       else {
@@ -530,7 +620,7 @@ export default {
       }
 
       if(this.insurers[3].term_life_insurance != null) {
-      this.basic_insurance_sum = this.basic_insurance_sum + this.insurers[3].term_life_insurance;
+      this.sureHealth_sum = this.sureHealth_sum + this.insurers[3].term_life_insurance;
       this.insurerClassBinds[3].lifeNull = false;
       }
       else {
@@ -543,8 +633,8 @@ export default {
 
     this.quoteSums[0].sum = this.bluecross_sum.toFixed(2);
     this.quoteSums[1].sum = this.sunlife_sum.toFixed(2);
-    this.quoteSums[2].sum = this.insurer3_sum.toFixed(2);
-    this.quoteSums[3].sum = this.basic_insurance_sum.toFixed(2);
+    this.quoteSums[2].sum = this.CAA_sum.toFixed(2);
+    this.quoteSums[3].sum = this.sureHealth_sum.toFixed(2);
     })
 
 

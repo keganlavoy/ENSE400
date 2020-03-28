@@ -49,7 +49,7 @@
         <button type="button" class="button" @click="$router.push(`/Dashboard/${user_id}`)">Back to home</button>
 
     </div>
-  </template>
+</template>
 
 <script>
 

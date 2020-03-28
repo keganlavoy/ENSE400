@@ -10,7 +10,7 @@
 
     <div v-bind:class="{ noErrorInsurer: isInsurer, errorInsurer: noInsurer }">You have not chosen an Insurer.</div>
     <div v-bind:class="{ noErrorEmpty: isData, errorEmpty: noData }">You have not entered any data.</div>
-
+    
     
 
      <h3>Choose Insurer: <select name="Insurer" class="dropdown" v-model="input.Insurer">
@@ -38,14 +38,14 @@
 
         <div class="QuoteBoxes">
     
-        <input type="number" id="firstBox" class="inputUserQuotes" name="prescriptionDrugs" v-model="input.prescriptionDrugs" placeholder="prescription drugs price" /><br>
-        <input type="number" class="inputUserQuotes" name="dental" v-model="input.dental" placeholder="dental price" /><br>
-        <input type="number" class="inputUserQuotes" id="studentAccident" name="studentAccident" v-model="input.studentAccident" placeholder="student accident price" /><br>
-        <input type="number" class="inputUserQuotes" id="VIPtravel" name="VIPtravel" v-model="input.VIPtravel" placeholder="VIP travel price" /><br>
-        <input type="number" class="inputUserQuotes" id="hospitalCash" name="hospitalCash" v-model="input.hospitalCash" placeholder="hospital cash price" /><br>
-        <input type="number" class="inputUserQuotes" id="criticalIllness" name="criticalIllness" v-model="input.criticalIllness" placeholder="critical Illness price" /><br>
-        <input type="number" class="inputUserQuotes" id="termLifeInsurance" name="termLifeInsurance" v-model="input.termLifeInsurance" placeholder="term life insurance price" /><br>
-        <input type="number" class="inputUserQuotes" id="totalQuote" name="totalQuote" v-model="input.totalQuote" placeholder="term life insurance price" />
+        <input type="number" step="0.01" id="firstBox" class="inputUserQuotes" name="prescriptionDrugs" v-model="input.prescriptionDrugs" placeholder="prescription drugs price" /><br>
+        <input type="number" step="0.01" class="inputUserQuotes" name="dental" v-model="input.dental" placeholder="dental price" /><br>
+        <input type="number" step="0.01" class="inputUserQuotes" id="studentAccident" name="studentAccident" v-model="input.studentAccident" placeholder="student accident price" /><br>
+        <input type="number" step="0.01" class="inputUserQuotes" id="VIPtravel" name="VIPtravel" v-model="input.VIPtravel" placeholder="VIP travel price" /><br>
+        <input type="number" step="0.01" class="inputUserQuotes" id="hospitalCash" name="hospitalCash" v-model="input.hospitalCash" placeholder="hospital cash price" /><br>
+        <input type="number" step="0.01" class="inputUserQuotes" id="criticalIllness" name="criticalIllness" v-model="input.criticalIllness" placeholder="critical Illness price" /><br>
+        <input type="number" step="0.01" class="inputUserQuotes" id="termLifeInsurance" name="termLifeInsurance" v-model="input.termLifeInsurance" placeholder="term life insurance price" /><br>
+        <input type="number" step="0.01" class="inputUserQuotes" id="totalQuote" name="totalQuote" v-model="input.totalQuote" placeholder="term life insurance price" />
         </div>
 
         
@@ -54,7 +54,7 @@
         <UserQuoteHome msg="Back to Home" @click="$router.push(`/Dashboard/${user_id}`)"/>
       
     </div>
-  </template>
+</template>
 
 
 
@@ -78,14 +78,14 @@
 
                     input: {
                         Insurer: "",
-                        prescriptionDrugs: 0,
-                        dental: 0,
-                        studentAccident: 0,
-                        VIPtravel: 0,
-                        hospitalCash: 0,
-                        criticalIllness: 0,
-                        termLifeInsurance: 0,
-                        totalQuote: 0
+                        prescriptionDrugs: "0",
+                        dental: "0",
+                        studentAccident: "0",
+                        VIPtravel: "0",
+                        hospitalCash: "0",
+                        criticalIllness: "0",
+                        termLifeInsurance: "0",
+                        totalQuote: "0"
                     },
 
                 user_id: 0,
@@ -93,6 +93,8 @@
                 isInsurer: true,
                 noData: false,
                 isData: true,
+                noErrorCheck: false,
+                isErrorCheck: true,
             }
     },
 
@@ -105,7 +107,19 @@
         this.isInsurer = true;
         this.noData = false;
         this.isData = true;
+        this.noErrorCheck = false;
+        this.isErrorCheck = true;
 
+        prescriptionDrugs = parseFloat(prescriptionDrugs);
+        dental = parseFloat(dental);
+        studentAccident = parseFloat(studentAccident);
+        VIPtravel = parseFloat(VIPtravel)
+        hospitalCash = parseFloat(hospitalCash);
+        criticalIllness = parseFloat(criticalIllness);
+        termLifeInsurance = parseFloat(termLifeInsurance);
+        totalQuote = parseFloat(totalQuote);
+
+        
 
         if(Insurer == "Insurer" || Insurer == "" || Insurer == "null") {
             this.noInsurer = true;
@@ -131,23 +145,23 @@
         this.$router.push(`/Dashboard/${this.user_id}`)
         }
 
-        else if(Insurer == "sunlife"){
-        axios.post(`http://162.253.11.179:3000/submitQuoteSunlife/${Insurer}/${prescriptionDrugs}/${dental}/${studentAccident}/${VIPtravel}/${hospitalCash}/${criticalIllness}/${termLifeInsurance}/${totalQuote}`)
+        if(Insurer == "sunlife"){
+        axios.post(`http://162.253.11.179:3000/submitQuoteSunlife/${prescriptionDrugs}/${dental}/${studentAccident}/${VIPtravel}/${hospitalCash}/${criticalIllness}/${termLifeInsurance}/${totalQuote}`)
         .then(res => this.input = res.data[0])
         .catch(err => {throw err;});
         this.$router.push(`/Dashboard/${this.user_id}`)
 
         }
 
-        else if(Insurer == "CAA") {
-        axios.post(`http://162.253.11.179:3000/submitQuoteCAA/${Insurer}/${prescriptionDrugs}/${dental}/${studentAccident}/${VIPtravel}/${hospitalCash}/${criticalIllness}/${termLifeInsurance}/${totalQuote}`)
+        if(Insurer == "CAA") {
+        axios.post(`http://162.253.11.179:3000/submitQuoteCAA/${prescriptionDrugs}/${dental}/${studentAccident}/${VIPtravel}/${hospitalCash}/${criticalIllness}/${termLifeInsurance}/${totalQuote}`)
         .then(res => this.input = res.data[0])
         .catch(err => {throw err;});
         this.$router.push(`/Dashboard/${this.user_id}`)
         }
 
-        else if(Insurer == "sureHealth"){
-        axios.post(`http://162.253.11.179:3000/submitQuoteSureHealth/${Insurer}/${prescriptionDrugs}/${dental}/${studentAccident}/${VIPtravel}/${hospitalCash}/${criticalIllness}/${termLifeInsurance}/${totalQuote}`)
+        if(Insurer == "sureHealth"){
+        axios.post(`http://162.253.11.179:3000/submitQuoteSureHealth/${prescriptionDrugs}/${dental}/${studentAccident}/${VIPtravel}/${hospitalCash}/${criticalIllness}/${termLifeInsurance}/${totalQuote}`)
         .then(res => this.input = res.data[0])
         .catch(err => {throw err;});
         this.$router.push(`/Dashboard/${this.user_id}`)
@@ -265,6 +279,8 @@ visibility: hidden;
   visibility: visible;
   color: red;
 }
+
+
 
 
 </style>

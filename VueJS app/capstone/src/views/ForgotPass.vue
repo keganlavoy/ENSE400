@@ -17,7 +17,7 @@
         <br>
         <button type="button" class="button" @click="$router.push('/SignUp')">Sign up, I do not have an account</button>        
     </div>
-  </template>
+</template>
 
 <script>
 
