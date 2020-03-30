@@ -44,10 +44,8 @@
                                                                 input.homeAddress, input.city, input.province, input.postalCode, input.email, input.phoneNum,
                                                                 input.maritalStatus, input.children,)">
     </form>
-        <br>
-        <br>
+        <br><br>
         <button type="button" class="button" @click="$router.push(`/Dashboard/${user_id}`)">Back to home</button>
-
     </div>
 </template>
 

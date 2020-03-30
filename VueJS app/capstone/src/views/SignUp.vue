@@ -44,15 +44,11 @@ export default {
       addUser(userName, password) {
         axios.post(`http://162.253.11.179:3000/addUser/${userName}/${password}`)
         .then(res => this.input = res.data[0])
-        .catch(err => {throw err;});
-
-        
+        .catch(err => {throw err;});    
 
       }
 
     }
-
-
 }
 </script>
 

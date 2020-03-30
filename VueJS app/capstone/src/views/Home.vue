@@ -6,6 +6,13 @@
       
    <div class="top-buffer">
    </div>
+   <div class="welcomeLogin">
+     <h1 class="welcomeH1">Welcome to Care Compare SK</h1>
+     <p class="welcomeParagraph">If you do not already have an account with Care Compare SK, you must click on the 
+       <b>Sign-Up</b> button below before proceeding. Care Compare SK is completely confidential and users do
+        not need to enter any personal information unless they want.
+     </p>
+   </div>
 
         <div v-bind:class="{ noErrorLogin: isUser, errorLogin: noUser }">The username and password dont match or they don't exist.</div>
         <input type="text" class="input" name="userName" v-model="input.userName" placeholder="Username" />
@@ -66,7 +73,7 @@ export default {
 </script>
 
 <style>
-
+/* 
 #forgot-pass {
   font-size: 100%;
   position: absolute;
@@ -76,11 +83,10 @@ export default {
 #forgot-pass:hover {
   font-size: 120%;
 
-}
+} */
 
 .noErrorLogin {
 visibility: hidden;
-
 }
 
 .errorLogin {
@@ -89,9 +95,27 @@ visibility: hidden;
 }
 
 .top-buffer {
-height: 20%;
-
+height: 5%;
 }
 
+.welcomeLogin{
+  height: 20%;
+  width: 60%;
+  margin-left: 20%;
+  
+  border-radius: 1vh; 
+}
+
+.welcomeH1{
+  font-size: 2.0vw;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+}
+
+.welcomeParagraph{
+   font-size: 1.2vw;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color: black;
+}
 
 </style>
