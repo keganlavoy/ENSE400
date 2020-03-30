@@ -9,16 +9,11 @@
 
         <div v-bind:class="{ noErrorLogin: isUser, errorLogin: noUser }">The username and password dont match or they don't exist.</div>
         <input type="text" class="input" name="userName" v-model="input.userName" placeholder="Username" />
-        <br>
-        <br>
+        <br><br>
         <input type="password" class="input" name="password" v-model="input.password" placeholder="Password" />
-        <br>
-        <router-link to="/ForgotPass" id="forgot-pass">Forgot password?</router-link>
-        <br>
-        <br>
+        <br><br>
         <button type="button" class="button" @click="login(input.userName, input.password)">Login</button>
-        <br>
-        <br>
+        <br><br>
         <button type="button" class="button" @click="$router.push('/SignUp')">Dont have an account? Sign-up</button>
     </div>
 </template>
