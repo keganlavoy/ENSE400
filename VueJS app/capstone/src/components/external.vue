@@ -41,7 +41,7 @@ color: rgb(11, 11, 14);
 text-align: center;
 margin-top: 5%;
 font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-font-size: 1.2vw;
+font-size: 18px;
 }
 
 

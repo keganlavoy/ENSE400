@@ -6,9 +6,6 @@
 
 </template>
 
-
-
-
 <script>
 export default {
       name: "ProfileButton",
@@ -25,17 +22,12 @@ export default {
 }
 </script>
 
-
-
-
 <style scoped>
 
 .ProfileButton {
-
-
 position: fixed;
-top: 0.9%;
-right: 0.5%;
+top: 1.2%;
+right: 0.6%;
 z-index: 1;
 width: 6%;
 height: 11.9%;
@@ -44,11 +36,9 @@ background-size: cover;
 background-color: white;
 border-left: 2px solid black;
 cursor: pointer;
-
 }
 
 #Profile {
-
 width: 5%;
 height: 5%;
 background-image: url(../assets/ProfileIcon.png), url(../assets/bannerLogoBG.png);
@@ -59,16 +49,6 @@ border-left: 2px solid black;
 cursor: pointer;
 z-index: 1;
 margin-top: -5%;
-
 }
-
-/*
-.ProfileButton:hover {
-
-width: 50%;
-border: 5px solid black;
-cursor: pointer;
-}
-*/
 
 </style>

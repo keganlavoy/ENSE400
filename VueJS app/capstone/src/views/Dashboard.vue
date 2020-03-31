@@ -148,7 +148,7 @@ export default {
 .quotes {
 background-size: cover;
 background-color: white;
-height: 75%;
+height: 500px;
 width: 100%;
 overflow: hidden;
 position: relative;
@@ -158,7 +158,7 @@ z-index: 2;
 .Community {
 background-size: cover;
 background-color: rgb(243, 243, 243);
-height: 85%;
+height: 550px;
 width: 100%;
 overflow: hidden;
 }
@@ -166,7 +166,7 @@ overflow: hidden;
 .AboutUs {
 background-size: cover;
 background-color: white;
-height: 85%;
+height: 550px;
 width: 100%;
 overflow: hidden;
 }
