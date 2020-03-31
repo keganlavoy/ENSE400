@@ -10,7 +10,7 @@
 
     <div v-bind:class="{ noErrorInsurer: isInsurer, errorInsurer: noInsurer }">You have not chosen an Insurer.</div>
     <div v-bind:class="{ noErrorEmpty: isData, errorEmpty: noData }">You have not entered any data.</div>
-    
+    <div v-bind:class="{ noErrorNaN: isNan, errorNaN: noNan }">One of the fields is entered is not a number.</div>
     
 
      <h3>Choose Insurer: <select name="Insurer" class="dropdown" v-model="input.Insurer">
@@ -95,6 +95,8 @@
                 isData: true,
                 noErrorCheck: false,
                 isErrorCheck: true,
+                noNan: false,
+                isNan: true
             }
     },
 
@@ -109,6 +111,9 @@
         this.isData = true;
         this.noErrorCheck = false;
         this.isErrorCheck = true;
+        this.noNan = false;
+        this.isNan = true;
+
 
         prescriptionDrugs = parseFloat(prescriptionDrugs);
         dental = parseFloat(dental);
@@ -131,6 +136,13 @@
             this.isData = false;
 
         }
+
+        else if(isNaN(prescriptionDrugs) || isNaN(dental) || isNaN(studentAccident) || isNaN(VIPtravel) || isNaN(hospitalCash) || isNaN(criticalIllness) || isNaN(termLifeInsurance) || isNaN(totalQuote)) {
+            this.noNan = true;
+            this.isNan = false;
+
+        }
+
 
         else {
         if(totalQuote == 0) {
@@ -280,7 +292,15 @@ visibility: hidden;
   color: red;
 }
 
+.noErrorNaN {
+visibility: hidden;
 
+}
+
+.errorNaN {
+  visibility: visible;
+  color: red;
+}
 
 
 </style>
