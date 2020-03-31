@@ -27,7 +27,7 @@ export default {
 .ProfileButton {
 position: fixed;
 top: 1.2%;
-right: 0.6%;
+right: 0.8%;
 z-index: 1;
 width: 6%;
 height: 11.9%;
