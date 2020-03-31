@@ -87,13 +87,19 @@
         <h2>Our Estimated Quote:</h2> 
       </div>
       <div class="PeopleQuoteText">
-        <h2>Average Estimate from the Community:</h2>
+        <h2>Average Estimate using selected features from the Community:</h2>
+      </div>
+       <div class="PeopleQuoteTextAverage">
+        <h2>Average Estimate Quote from the Community:</h2>
       </div>
       <div class="OurQuotePrice">
-        <h2>${{quoteSums[index].sum}}</h2>
+        <h2>${{quoteSums[index].OurQuoteSum}}</h2>
       </div>
       <div class="PeopleQuotePrice">
-        <h2>${{bluecross_UserQuote_total}}</h2>
+        <h2>${{quoteSums[index].UserQuoteSelectedAverage}}</h2>
+      </div>
+      <div class="PeopleQuotePriceAverage">
+        <h2>${{quoteSums[index].UserQuoteAverage}}</h2>
       </div>
 
 
@@ -101,11 +107,11 @@
       <externalButton msg="Go to this insurance providers website here"/>
 
       <div class="legendRedX">
-        <h4> - means you selected this option, but the provider does not offer this coverage type.</h4>
+        <h4> - means you selected this option, but we do not have access to the providers data for this type of insurance.</h4>
       </div>
 
       <div class="legendGreenCheck">
-        <h4> - means you selected this option and the provider offers this coverage type.</h4>
+        <h4> - means you selected this option and we have access to the providers data for this type of insurance.</h4>
       </div>
 
        <div class="legendGreyDash">
@@ -177,19 +183,27 @@ export default {
       quoteSums: [
 
         {
-          sum: 0.0
+          OurQuoteSum: 0.0,
+          UserQuoteAverage: 0.0,
+          UserQuoteSelectedAverage: 0.0
         },
 
         {
-          sum: 0.0
+          OurQuoteSum: 0.0,
+          UserQuoteAverage: 0.0,
+          UserQuoteSelectedAverage: 0.0
         },
 
         {
-          sum: 0.0
+          OurQuoteSum: 0.0,
+          UserQuoteAverage: 0.0,
+          UserQuoteSelectedAverage: 0.0
         },
 
         {
-          sum: 0.0
+          OurQuoteSum: 0.0,
+          UserQuoteAverage: 0.0,
+          UserQuoteSelectedAverage: 0.0
         }
       ],
 
@@ -255,11 +269,17 @@ export default {
       CAA_UserQuote_sum: 0.0,
       sureHealth_UserQuote_sum: 0.0,
 
+
       bluecross_UserQuote_total: 0.0,
       sunlife_UserQuote_total: 0.0,
       CAA_UserQuote_total: 0.0,
       sureHealth_UserQuote_total: 0.0,
 
+      blueCrossCount: 0,
+      sunlifeCount: 0,
+      caaCount: 0,
+      sureHealthCount: 0,
+      
      
 
     }
@@ -270,78 +290,9 @@ export default {
 
     getInsurers() {
 
-    var blueCrossCount = 2;
-    var sunlifeCount = 0;
-    var caaCount = 0;
-    var sureHealthCount = 0;
-    var i = 0;
-    
-
-    axios.get(`http://162.253.11.179:3000/getUserQuotesBlueCross`)
-    .then(res => this.user_quotes_blue_cross = res.data)
-    .catch(err => {throw err;});
-
-    axios.get(`http://162.253.11.179:3000/getUserQuotesBlueCrossCount`)
-    .then((res) => {
-      blueCrossCount = res.data[0].countValue
-      for(i = 0; i < blueCrossCount; i++)
-      this.bluecross_UserQuote_total += this.user_quotes_blue_cross[i].total_quote
-    })
-    .catch(err => {throw err;});
-
-    axios.get(`http://162.253.11.179:3000/getUserQuotesSunlife`)
-    .then(res => this.user_quotes_sunlife = res.data)
-    .catch(err => {throw err;});
-
-    axios.get(`http://162.253.11.179:3000/getUserQuotesSunlifeCount`)
-    .then(res => sunlifeCount = res.data[0].countValue)
-    .catch(err => {throw err;});
-
-    axios.get(`http://162.253.11.179:3000/getUserQuotesCAA`)
-    .then(res => this.user_quotes_caa = res.data)
-    .catch(err => {throw err;});
-
-    axios.get(`http://162.253.11.179:3000/getUserQuotesCAACount`)
-    .then(res => caaCount = res.data[0].countValue)
-    .catch(err => {throw err;});
-
-    axios.get(`http://162.253.11.179:3000/getUserQuotesSureHealth`)
-    .then(res => this.user_quotes_sure_health = res.data)
-    .catch(err => {throw err;});
-
-    axios.get(`http://162.253.11.179:3000/getUserQuotesSureHealthCount`)
-    .then(res => sureHealthCount = res.data[0].countValue)
-    .catch(err => {throw err;});
-
-    this.bluecross_UserQuote_total = 0.0;
-    this.sunlife_UserQuote_total = 0.0;
-    this.CAA_UserQuote_total = 0.0;
-    this.sureHealth_UserQuote_total = 0.0;
-
-    
-
     
     
-
-
-
-
-
-
-    
-
-    for(i = 0; i < sunlifeCount; i++) 
-      this.sunlife_UserQuote_total += this.user_quotes_sunlife[i].total_quote
-    
-    
-    for(i = 0; i < caaCount; i++) 
-      this.CAA_UserQuote_total += this.user_quotes_caa[i].total_quote
-    
-
-    for(i = 0; i < sureHealthCount; i++) 
-      this.sureHealth_UserQuote_total += this.user_quotes_sure_health[i].total_quote
-    
-
+  
   
 
     axios.get(`http://162.253.11.179:3000/getInsurers`)
@@ -353,10 +304,23 @@ export default {
     this.CAA_sum = 0.0;
     this.sureHealth_sum = 0.0;
 
+    this.bluecross_UserQuote_sum = 0.0;
+    this.sunlife_UserQuote_sum = 0.0;
+    this.CAA_UserQuote_sum = 0.0;
+    this.sureHealth_UserQuote_sum = 0.0;
+
+
+
     this.bluecross_sum = this.bluecross_sum + this.insurers[0].core_health;
     this.sunlife_sum = this.sunlife_sum + this.insurers[1].core_health;
     this.CAA_sum = this.CAA_sum + this.insurers[2].core_health;
     this.sureHealth_sum = this.sureHealth_sum + this.insurers[3].core_health;
+
+
+    this.bluecross_UserQuote_sum = this.bluecross_UserQuote_sum + this.insurers[0].core_health;
+    this.sunlife_UserQuote_sum = this.sunlife_UserQuote_sum + this.insurers[1].core_health;
+    this.CAA_UserQuote_sum = this.CAA_UserQuote_sum + this.insurers[2].core_health;
+    this.sureHealth_UserQuote_sum = this.sureHealth_UserQuote_sum + this.insurers[3].core_health;
 
 
     if(this.input.prescriptionCheck) {
@@ -570,6 +534,7 @@ export default {
       if(this.insurers[1].critical_illness != null) {
       this.sunlife_sum = this.sunlife_sum + this.insurers[1].critical_illness;
       this.insurerClassBinds[1].illnessNull = false;
+
       }
       else {
         this.insurerClassBinds[1].illnessNull = true;
@@ -631,10 +596,430 @@ export default {
 
 
 
-    this.quoteSums[0].sum = this.bluecross_sum.toFixed(2);
-    this.quoteSums[1].sum = this.sunlife_sum.toFixed(2);
-    this.quoteSums[2].sum = this.CAA_sum.toFixed(2);
-    this.quoteSums[3].sum = this.sureHealth_sum.toFixed(2);
+    this.quoteSums[0].OurQuoteSum = this.bluecross_sum.toFixed(2);
+    this.quoteSums[1].OurQuoteSum = this.sunlife_sum.toFixed(2);
+    this.quoteSums[2].OurQuoteSum = this.CAA_sum.toFixed(2);
+    this.quoteSums[3].OurQuoteSum = this.sureHealth_sum.toFixed(2);
+
+
+
+
+
+    var tempAverage = 0.0;
+    var counter = 0;
+
+    if(this.input.prescriptionCheck) {
+
+      for(let i = 0; i < this.blueCrossCount; i++) {
+        if(this.user_quotes_blue_cross[i].prescription_drugs != 0) {
+          tempAverage += this.user_quotes_blue_cross[i].prescription_drugs;
+          counter++;
+          /* eslint-disable no-console */
+          console.log(tempAverage)
+        }
+      }
+
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2);
+      this.bluecross_UserQuote_sum += parseFloat(tempAverage);
+
+  
+      counter = 0;
+      tempAverage = 0.0;
+
+      for(let i = 0; i < this.sunlifeCount; i++) {
+      /* eslint-disable no-console */
+      console.log(this.sunlifeCount)
+        if(this.user_quotes_sunlife[i].prescription_drugs != 0) {
+          tempAverage += this.user_quotes_sunlife[i].prescription_drugs;
+          counter++;
+          /* eslint-disable no-console */
+          console.log(tempAverage)
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2);
+      this.sunlife_UserQuote_sum += parseFloat(tempAverage);
+
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.caaCount; i++) {
+        if(this.user_quotes_caa[i].prescription_drugs != 0) {
+          tempAverage += this.user_quotes_caa[i].prescription_drugs
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.CAA_UserQuote_sum += parseFloat(tempAverage)
+
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.sureHealthCount; i++) {
+        if(this.user_quotes_sure_health[i].prescription_drugs != 0) {
+          tempAverage += this.user_quotes_sure_health[i].prescription_drugs
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.sureHealth_UserQuote_sum += parseFloat(tempAverage)
+
+    }
+    
+
+
+
+      tempAverage = 0.0
+      counter = 0
+
+    
+
+    if(this.input.dentalCheck) {
+
+
+
+      for(let i = 0; i < this.blueCrossCount; i++) {
+        if(this.user_quotes_blue_cross[i].dental != 0) {
+          tempAverage += this.user_quotes_blue_cross[i].dental
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.bluecross_UserQuote_sum += parseFloat(tempAverage)
+
+
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.sunlifeCount; i++) {
+        if(this.user_quotes_sunlife[i].dental != 0) {
+          tempAverage += this.user_quotes_sunlife[i].dental
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.sunlife_UserQuote_sum += parseFloat(tempAverage)
+
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.caaCount; i++) {
+        if(this.user_quotes_caa[i].dental != 0) {
+          tempAverage += this.user_quotes_caa[i].dental
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.CAA_UserQuote_sum += parseFloat(tempAverage)
+
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.sureHealthCount; i++) {
+        if(this.user_quotes_sure_health[i].dental != 0) {
+          tempAverage += this.user_quotes_sure_health[i].dental
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.sureHealth_UserQuote_sum += parseFloat(tempAverage)
+    }
+
+
+
+
+    tempAverage = 0.0
+    counter = 0
+
+    if(this.input.studentCheck) {
+
+      for(let i = 0; i < this.blueCrossCount; i++) {
+        if(this.user_quotes_blue_cross[i].student_accident != 0) {
+          tempAverage += this.user_quotes_blue_cross[i].student_accident
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.bluecross_UserQuote_sum += parseFloat(tempAverage)
+
+
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.sunlifeCount; i++) {
+        if(this.user_quotes_sunlife[i].student_accident != 0) {
+          tempAverage += this.user_quotes_sunlife[i].student_accident
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.sunlife_UserQuote_sum += parseFloat(tempAverage)
+
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.caaCount; i++) {
+        if(this.user_quotes_caa[i].student_accident != 0) {
+          tempAverage += this.user_quotes_caa[i].student_accident
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.CAA_UserQuote_sum += parseFloat(tempAverage)
+
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.sureHealthCount; i++) {
+        if(this.user_quotes_sure_health[i].student_accident != 0) {
+          tempAverage += this.user_quotes_sure_health[i].student_accident
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.sureHealth_UserQuote_sum += parseFloat(tempAverage)
+
+    }
+
+
+    tempAverage = 0.0
+    counter = 0
+
+    if(this.input.travelCheck) {
+
+      for(let i = 0; i < this.blueCrossCount; i++) {
+        if(this.user_quotes_blue_cross[i].vip_travel != 0) {
+          tempAverage += this.user_quotes_blue_cross[i].vip_travel
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.bluecross_UserQuote_sum += parseFloat(tempAverage)
+
+
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.sunlifeCount; i++) {
+        if(this.user_quotes_sunlife[i].vip_travel != 0) {
+          tempAverage += this.user_quotes_sunlife[i].vip_travel
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.sunlife_UserQuote_sum += parseFloat(tempAverage)
+
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.caaCount; i++) {
+        if(this.user_quotes_caa[i].vip_travel != 0) {
+          tempAverage += this.user_quotes_caa[i].vip_travel
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.CAA_UserQuote_sum += parseFloat(tempAverage)
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.sureHealthCount; i++) {
+        if(this.user_quotes_sure_health[i].vip_travel != 0) {
+          tempAverage += this.user_quotes_sure_health[i].vip_travel
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.sureHealth_UserQuote_sum += parseFloat(tempAverage)
+
+    }
+
+
+    tempAverage = 0.0
+    counter = 0
+
+    if(this.input.hospitalCheck) {
+
+      for(let i = 0; i < this.blueCrossCount; i++) {
+        if(this.user_quotes_blue_cross[i].hospital_cash != 0) {
+          tempAverage += this.user_quotes_blue_cross[i].hospital_cash
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.bluecross_UserQuote_sum += parseFloat(tempAverage)
+
+
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.sunlifeCount; i++) {
+        if(this.user_quotes_sunlife[i].hospital_cash != 0) {
+          tempAverage += this.user_quotes_sunlife[i].hospital_cash
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.sunlife_UserQuote_sum += parseFloat(tempAverage)
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.caaCount; i++) {
+        if(this.user_quotes_caa[i].hospital_cash != 0) {
+          tempAverage += this.user_quotes_caa[i].hospital_cash
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.CAA_UserQuote_sum += parseFloat(tempAverage)
+
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.sureHealthCount; i++) {
+        if(this.user_quotes_sure_health[i].hospital_cash != 0) {
+          tempAverage += this.user_quotes_sure_health[i].hospital_cash
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.sureHealth_UserQuote_sum += parseFloat(tempAverage)
+
+    }
+
+
+    tempAverage = 0.0
+    counter = 0
+
+    if(this.input.illnessCheck) {
+
+      for(let i = 0; i < this.blueCrossCount; i++) {
+        if(this.user_quotes_blue_cross[i].critical_illness != 0) {
+          tempAverage += this.user_quotes_blue_cross[i].critical_illness
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.bluecross_UserQuote_sum += parseFloat(tempAverage)
+
+
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.sunlifeCount; i++) {
+        if(this.user_quotes_sunlife[i].critical_illness != 0) {
+          tempAverage += this.user_quotes_sunlife[i].critical_illness
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.sunlife_UserQuote_sum += parseFloat(tempAverage)
+
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.caaCount; i++) {
+        if(this.user_quotes_caa[i].critical_illness != 0) {
+          tempAverage += this.user_quotes_caa[i].critical_illness
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.CAA_UserQuote_sum += parseFloat(tempAverage)
+
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.sureHealthCount; i++) {
+        if(this.user_quotes_sure_health[i].critical_illness != 0) {
+          tempAverage += this.user_quotes_sure_health[i].critical_illness
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.sureHealth_UserQuote_sum += parseFloat(tempAverage)
+
+    }
+
+
+    tempAverage = 0.0
+    counter = 0
+
+    if(this.input.lifeCheck) {
+
+      for(let i = 0; i < this.blueCrossCount; i++) {
+        if(this.user_quotes_blue_cross[i].term_life_insurance != 0) {
+          tempAverage += this.user_quotes_blue_cross[i].term_life_insurance
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.bluecross_UserQuote_sum += parseFloat(tempAverage)
+
+
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.sunlifeCount; i++) {
+        if(this.user_quotes_sunlife[i].term_life_insurance != 0) {
+          tempAverage += this.user_quotes_sunlife[i].term_life_insurance
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.sunlife_UserQuote_sum += parseFloat(tempAverage)
+
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.caaCount; i++) {
+        if(this.user_quotes_caa[i].term_life_insurance != 0) {
+          tempAverage += this.user_quotes_caa[i].term_life_insurance
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.CAA_UserQuote_sum += parseFloat(tempAverage)
+
+
+      counter = 0
+      tempAverage = 0
+
+      for(let i = 0; i < this.sureHealthCount; i++) {
+        if(this.user_quotes_sure_health[i].term_life_insurance != 0) {
+          tempAverage += this.user_quotes_sure_health[i].term_life_insurance
+          counter++
+        }
+      }
+      tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
+      this.sureHealth_UserQuote_sum += parseFloat(tempAverage)
+
+    }
+
+    this.quoteSums[0].UserQuoteSelectedAverage = this.bluecross_UserQuote_sum.toFixed(2)
+    this.quoteSums[1].UserQuoteSelectedAverage = this.sunlife_UserQuote_sum.toFixed(2)
+    this.quoteSums[2].UserQuoteSelectedAverage = this.CAA_UserQuote_sum.toFixed(2)
+    this.quoteSums[3].UserQuoteSelectedAverage = this.sureHealth_UserQuote_sum.toFixed(2)
+
+  
     })
 
 
@@ -648,6 +1033,106 @@ export default {
   created() {
 
     this.user_id = this.$route.params.user_id;
+
+    var i = 0;
+   
+    
+
+    axios.get(`http://162.253.11.179:3000/getUserQuotesBlueCross`)
+    .then(res => this.user_quotes_blue_cross = res.data)
+    .catch(err => {throw err;});
+
+
+
+
+    axios.get(`http://162.253.11.179:3000/getUserQuotesBlueCrossCount`)
+    .then((res) => {
+      this.blueCrossCount = res.data[0].countValue
+
+       while(this.user_quotes_blue_cross[0].total_quote == undefined){
+        i++
+      }
+
+      for(i = 0; i < this.blueCrossCount; i++)
+      this.bluecross_UserQuote_total += this.user_quotes_blue_cross[i].total_quote
+
+      this.bluecross_UserQuote_total = this.bluecross_UserQuote_total / this.blueCrossCount.toFixed(1)
+      this.bluecross_UserQuote_total = this.bluecross_UserQuote_total.toFixed(2)
+      this.quoteSums[0].UserQuoteAverage = this.bluecross_UserQuote_total
+    })
+    .catch(err => {throw err;});
+
+
+
+    axios.get(`http://162.253.11.179:3000/getUserQuotesSunlife`)
+    .then(res => this.user_quotes_sunlife = res.data)
+    .catch(err => {throw err;});
+
+    axios.get(`http://162.253.11.179:3000/getUserQuotesSunlifeCount`)
+    .then((res) => {
+      this.sunlifeCount = res.data[0].countValue
+
+       while(this.user_quotes_sunlife[0].total_quote == undefined){
+        i++
+      }
+
+      for(i = 0; i < this.sunlifeCount; i++)
+      this.sunlife_UserQuote_total += this.user_quotes_sunlife[i].total_quote
+
+      this.sunlife_UserQuote_total = this.sunlife_UserQuote_total / this.sunlifeCount.toFixed(1)
+      this.sunlife_UserQuote_total = this.sunlife_UserQuote_total.toFixed(2)
+      this.quoteSums[1].UserQuoteAverage = this.sunlife_UserQuote_total
+    })
+    .catch(err => {throw err;});
+
+
+    axios.get(`http://162.253.11.179:3000/getUserQuotesCAA`)
+    .then(res => this.user_quotes_caa = res.data)
+    .catch(err => {throw err;});
+
+    axios.get(`http://162.253.11.179:3000/getUserQuotesCAACount`)
+    .then((res) => {
+
+      this.caaCount = res.data[0].countValue
+
+       while(this.user_quotes_caa[0].total_quote == undefined){
+        i++
+      }
+
+      for(i = 0; i < this.caaCount; i++)
+        this.CAA_UserQuote_total += this.user_quotes_caa[i].total_quote
+
+      this.CAA_UserQuote_total = this.CAA_UserQuote_total / this.caaCount.toFixed(1)
+      this.CAA_UserQuote_total = this.CAA_UserQuote_total.toFixed(2)
+      this.quoteSums[2].UserQuoteAverage = this.CAA_UserQuote_total
+    })
+    .catch(err => {throw err;});
+
+
+
+    axios.get(`http://162.253.11.179:3000/getUserQuotesSureHealth`)
+    .then(res => this.user_quotes_sure_health = res.data)
+    .catch(err => {throw err;});
+
+    axios.get(`http://162.253.11.179:3000/getUserQuotesSureHealthCount`)
+    .then((res) => {
+      this.sureHealthCount = res.data[0].countValue
+      
+      while(this.user_quotes_sure_health[0].total_quote == undefined){
+        i++
+      }
+
+      for(i = 0; i < this.sureHealthCount; i++)
+      this.sureHealth_UserQuote_total += this.user_quotes_sure_health[i].total_quote
+
+      this.sureHealth_UserQuote_total = this.sureHealth_UserQuote_total / this.sureHealthCount.toFixed(1)
+      this.sureHealth_UserQuote_total = this.sureHealth_UserQuote_total.toFixed(2)
+      this.quoteSums[3].UserQuoteAverage = this.sureHealth_UserQuote_total
+    })
+    .catch(err => {throw err;});
+
+
+
 
   }
 
@@ -705,41 +1190,64 @@ export default {
   margin-left: 4.3%;
 }
 
+.PeopleQuotePriceAverage {
+  width: 8%;
+  height: 8%;
+  float: right;
+  margin-top: -23%;
+  margin-right: 3%;
+  text-align: left;
+  
+}
 
 .PeopleQuotePrice {
   width: 8%;
   height: 8%;
   float: right;
-  margin-top: -26%;
+  margin-top: -28.5%;
   margin-right: 3%;
   text-align: left;
+ 
 }
 
 .OurQuotePrice {
   width: 8%;
   height: 8%;
   float: right;
-  margin-top: -32%;
+  margin-top: -34%;
   margin-right: 3%;
   text-align: left;
+  
 }
 
 .OurQuoteText {
   width: 25%;
   height: 8%;
   float: right;
-  margin-top: -32%;
+  margin-top: -34%;
   margin-right: 12%;
   text-align: right;
+  
 }
 
 .PeopleQuoteText {
   width: 25%;
   height: 8%;
   float: right;
-  margin-top: -26%;
+  margin-top: -28.5%;
   margin-right: 12%;
   text-align: right;
+  
+}
+
+.PeopleQuoteTextAverage {
+  width: 25%;
+  height: 8%;
+  float: right;
+  margin-top: -23%;
+  margin-right: 12%;
+  text-align: right;
+  
 }
 
 
