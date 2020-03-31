@@ -43,12 +43,12 @@ font-size: 35px;
 width: 400px;
 height: 70px;
 margin: auto;
-margin-top: 270px;
+margin-top: 295px;
 border-style: solid;
 border-width: 1px;
 border-color: black;
 background-color: white;
-border-radius: 3vh;
+border-radius: 15px;
 }
 
 .QuoteButton:hover {

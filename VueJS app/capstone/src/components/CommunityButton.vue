@@ -53,7 +53,7 @@ h1 {
     border-width: 1px;
     border-color: black;
     background-color: white;
-    border-radius: 3vh;
+    border-radius: 15px;
 }
 
 .CommunityButton:hover {
