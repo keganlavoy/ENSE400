@@ -84,14 +84,14 @@ text-align: center;
 
 .left-gray {
   width: 18%;
-  height: 100%;
+  height: 120%;
   float: left;
   background-color: rgb(243, 243, 243);
 }
 
 .right-gray {
   width: 18%;
-  height: 100%;
+  height: 120%;
   float: right;
   background-color: rgb(243, 243, 243);
 }

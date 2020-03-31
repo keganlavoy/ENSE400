@@ -54,31 +54,31 @@
         <h2>Your Selected Coverage</h2>
       </div>
       <div class="AttributePrescription">
-        <h3>Prescription Drugs</h3>
+        <h3 class="HealthInsuranceH3">Prescription Drugs</h3>
         <div v-bind:class="{ noInsurance: insurerClassBinds[index].prescriptionNull == true, hasInsurance: insurerClassBinds[index].prescriptionNull == false, notSelected: input.prescriptionCheck == false}"></div>
       </div>
        <div class="AttributeDental">
-        <h3>Dental</h3>
+        <h3 class="HealthInsuranceH3">Dental</h3>
         <div v-bind:class="{ noInsurance: insurerClassBinds[index].dentalNull == true, hasInsurance: insurerClassBinds[index].dentalNull == false, notSelected: input.dentalCheck == false}"></div>
       </div>
        <div class="AttributeStudent">
-        <h3>Student Accident</h3>
+        <h3 class="HealthInsuranceH3">Student Accident</h3>
         <div v-bind:class="{ noInsurance: insurerClassBinds[index].studentNull == true, hasInsurance: insurerClassBinds[index].studentNull == false, notSelected: input.studentCheck == false}"></div>
       </div>
        <div class="AttributeTravel">
-        <h3>VIP Travel</h3>
+        <h3 class="HealthInsuranceH3">VIP Travel</h3>
         <div v-bind:class="{ noInsurance: insurerClassBinds[index].travelNull == true, hasInsurance: insurerClassBinds[index].travelNull == false, notSelected: input.travelCheck == false}"></div>
       </div>
        <div class="AttributeHospital">
-        <h3>Hospital Cash</h3>
+        <h3 class="HealthInsuranceH3">Hospital Cash</h3>
         <div v-bind:class="{ noInsurance: insurerClassBinds[index].hospitalNull == true, hasInsurance: insurerClassBinds[index].hospitalNull == false, notSelected: input.hospitalCheck == false}"></div>
       </div>
        <div class="AttributeIllness">
-        <h3>Critical Illness</h3>
+        <h3 class="HealthInsuranceH3">Critical Illness</h3>
         <div v-bind:class="{ noInsurance: insurerClassBinds[index].illnessNull == true, hasInsurance: insurerClassBinds[index].illnessNull == false, notSelected: input.illnessCheck == false}"></div>
       </div>
        <div class="AttributeLife">
-        <h3>Term Life Insurance</h3>
+        <h3 class="HealthInsuranceH3">Term Life Insurance</h3>
         <div v-bind:class="{ noInsurance: insurerClassBinds[index].lifeNull == true, hasInsurance: insurerClassBinds[index].lifeNull == false, notSelected: input.lifeCheck == false}"></div>
       </div>
 
@@ -103,8 +103,8 @@
       </div>
 
 
-      <shareQuoteButton msg="Share your quote experience with this insurance provider here!" @click.native="$router.push(`/UserInputQuotes/${user_id}`)"/>
-      <externalButton msg="Go to this insurance providers website here"/>
+      <shareQuoteButton msg="Share your experience with this insurance provider here!" @click.native="$router.push(`/UserInputQuotes/${user_id}`)"/>
+      <externalButton msg="Go to this insurance providers website"/>
 
       <div class="legendRedX">
         <h4> - means you selected this option, but we do not have access to the providers data for this type of insurance.</h4>
@@ -1255,7 +1255,7 @@ export default {
   width: 25%;
   height: 8%;
   float: right;
-  margin-top: -27.5%;
+  margin-top: -220px;
   margin-right: 42%;
 }
 
@@ -1263,7 +1263,7 @@ export default {
   width: 25%;
   height: 8%;
   float: right;
-  margin-top: -23.5%;
+  margin-top: -190px;
   margin-right: 42%;
 }
 
@@ -1271,7 +1271,7 @@ export default {
   width: 25%;
   height: 8%;
   float: right;
-  margin-top: -19.5%;
+  margin-top: -160px;
   margin-right: 42%;
 }
 
@@ -1279,7 +1279,7 @@ export default {
   width: 25%;
   height: 8%;
   float: right;
-  margin-top: -15.5%;
+  margin-top: -130px;
   margin-right: 42%;
 }
 
@@ -1287,7 +1287,7 @@ export default {
   width: 25%;
   height: 8%;
   float: right;
-  margin-top: -11.5%;
+  margin-top: -100px;
   margin-right: 42%;
 }
 
@@ -1295,7 +1295,7 @@ export default {
   width: 25%;
   height: 8%;
   float: right;
-  margin-top: -7.5%;
+  margin-top: -50px;
   margin-right: 42%;
 }
 
@@ -1303,7 +1303,7 @@ export default {
   width: 25%;
   height: 8%;
   float: right;
-  margin-top: -3.5%;
+  margin-bottom: -30px;
   margin-right: 42%;
 }
 
@@ -1311,7 +1311,7 @@ export default {
   width: 25%;
   height: 8%;
   float: right;
-  margin-top: -31.5%;
+  margin-top: -288px;
   margin-right: 42%;
   text-decoration:underline; 
 }
@@ -1320,12 +1320,12 @@ export default {
   width: 25%;
   height: 10%;
   margin-top: 2%;
-  margin-left: 2%;
+  margin-left: 0%;
 }
 
 .insurerLogo {
-width: 25%;
-height: 50%;
+width: 200px;
+height: 200px;
 margin-top: 2%;
 margin-left: 2%;
 background-image: url(../assets/bluecross.png);
@@ -1334,8 +1334,8 @@ border: 1px solid black;
 }
 
 .insurerLogo2 {
-width: 25%;
-height: 50%;
+width: 200px;
+height: 200px;
 margin-top: 2%;
 margin-left: 2%;
 background-image: url(../assets/sunlife.jpg);
@@ -1344,8 +1344,8 @@ border: 1px solid black;
 }
 
 .insurerLogo3 {
-width: 25%;
-height: 50%;
+width: 200px;
+height: 200px;
 margin-top: 2%;
 margin-left: 2%;
 background-image: url(../assets/CAA.png);
@@ -1354,8 +1354,8 @@ border: 1px solid black;
 }
 
 .insurerLogo4 {
-width: 25%;
-height: 50%;
+width: 200px;
+height: 200px;
 margin-top: 2%;
 margin-left: 2%;
 background-image: url(../assets/surehealth.jpg);
@@ -1365,11 +1365,11 @@ border: 1px solid black;
 
 .insurerDivs {
   width: 80%;
-  height: 80%;
-  margin-left: 10%;
+  height: 500px;
+  margin-left: 12%;
   margin-top: 4%;
   margin-bottom: 2%;
-  background-image: url(../assets/InsureButtonBG.jpg);
+  background-image: url(../assets/InsureButtonBG1.jpg);
   background-size: cover;
   border-radius: 5vh;
   border: 1px solid black;
@@ -1377,7 +1377,7 @@ border: 1px solid black;
 
 .coreHealth {
   left: 0%;
-  font-size: 1.8vw;
+  font-size: 26px;
   text-align: center;
   margin-left: 5%;
 }
@@ -1390,10 +1390,10 @@ border: 1px solid black;
 
 .center {
   width: 80%;
-  height: 90%;
-  margin-left: 10%;
+  height: 650px;
+  margin-left: 12%;
   margin-top: 4%;
-  background-image: url(../assets/InsureButtonBG.jpg);
+  background-image: url(../assets/InsureButtonBG1.jpg);
   background-size: cover;
   border-radius: 5vh;
   border: 1px solid black;
@@ -1423,7 +1423,7 @@ border: 1px solid black;
 .checkmark {
   position: absolute;
   top: 0;
-  left: 40%;
+  left: 28vw;
   height: 25px;
   width: 25px;
   background-color: rgb(54, 49, 49);
@@ -1460,6 +1460,9 @@ border: 1px solid black;
   transform: rotate(45deg);
 }
 
+.HealthInsuranceH3{
+  margin-left: 2%;
+}
 .noInsurance {
 	position: relative;
 	width: 6%;
