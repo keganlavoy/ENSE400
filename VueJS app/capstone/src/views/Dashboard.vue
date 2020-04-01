@@ -179,14 +179,14 @@ overflow: hidden;
 
 .title-community {
   height: 10%;
-  width: 85%;
-  margin-left: 20%;
+  width: 100%;
+  
 }
 
 .title-quotes {
   height: 10%;
-  width: 65%;
-  margin-left: 30%;
+  width: 100%;
+  
 }
 
 .Home-H1 {
