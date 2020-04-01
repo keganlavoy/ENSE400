@@ -272,8 +272,7 @@ overflow: hidden;
 }
 
 .InsurancePicture {
-
-  width: 54.1%;
+  width: 450px;
   height: 50%;
   float: left;
   border-radius: 7px;
@@ -281,13 +280,59 @@ overflow: hidden;
   background-size: cover;  
 }
 
+@media screen and (max-width: 1365px){
+  .InsurancePicture {
+    width: 70%;
+    margin-left: 16%;
+  }
+}
+
 .ComparePicture {
-  width: 45%;
-  height: 50%;
-  float: right;
-  border-radius: 7px;
-  background-image: url(../assets/sampleQuoteBluecross.jpg);
-  background-size: cover;  
+   width: 50%;
+   height: 50%;
+   float: right;
+   border-radius: 7px;
+   background-image: url(../assets/sampleQuoteBluecross.jpg);
+   background-size: cover;  
+}
+
+@media screen and (max-width: 1365px){
+  .ComparePicture {
+    display:none;
+  }
+}
+
+@media screen and (max-width: 1680px){
+  .ComparePicture {
+    width: 45%;
+    height: 50%;
+  }
+}
+
+@media screen and (max-width: 1440px){
+  .ComparePicture {
+    width: 50%;
+    height: 50%;
+  }
+}
+
+@media screen and (min-width: 1880px){
+  .ComparePicture {
+    width: 60%;
+    height: 50%;
+  }
+}
+
+@media screen and (min-width: 1441px){
+  .ComparePicture {
+    margin-right: 100px;
+  }
+}
+
+@media screen and (min-width: 1880px){
+  .ComparePicture {
+    margin-right: 30px;
+  }
 }
 
 .CommunityPicture {
