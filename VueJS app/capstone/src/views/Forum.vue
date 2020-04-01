@@ -168,7 +168,7 @@ export default {
   float: left;
   color: white;
   width: 100%;
-  height: 5.5vh;
+  height: 50px;
   background-color: rgb(30, 35, 39);
 }
 
@@ -227,7 +227,7 @@ export default {
 }
 
 #replyButton {
-  width: 25%;
+  width: 30%;
   margin-top: 6%;
   margin-right: 1%;
   float: left;
@@ -235,43 +235,43 @@ export default {
 
 #numLikesHeading {
   float: left;
-  margin-left: 0%;
-}
-
-#numDislikesHeading {
-  float: left;
-  margin-left: 11%;
+  margin-left: -5%;
 }
 
 #numLikesButton {
   float: left;
-  margin-left: -46.5%;
+  margin-left: -46%;
   margin-top: 6%;
   width: 5%;
+}
+
+#numDislikesHeading {
+  float: left;
+  margin-left: 6%;
 }
 
 #numDislikesButton {
   float: left;
-  margin-left: -35%;
+  margin-left: -36%;
   margin-top: 6%;
-  width: 5%;
-}
-
-#viewRepliesButton {
-  float: left;
-  margin-left: -23.5%;
-  margin-top: 6%;
-  width: 6%;
+  width: 10%;
 }
 
 #numRepliesHeading {
   float: left;
-  margin-left: 11%;
+  margin-left: 12%;
+}
+
+#viewRepliesButton {
+  float: left;
+  margin-left: -23%;
+  margin-top: 6%;
+  width: 8%;
 }
 
 #lastPostNameHeading {
   float: left;
-  margin-left: 14%;
+  margin-left: 12%;
 }
 
 #forumPost {
