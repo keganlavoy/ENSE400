@@ -86,14 +86,14 @@ text-align: center;
   width: 18%;
   height: 120%;
   float: left;
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(234, 249, 255);
 }
 
 .right-gray {
   width: 18%;
   height: 120%;
   float: right;
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(234, 249, 255);
 }
 
 .input {
