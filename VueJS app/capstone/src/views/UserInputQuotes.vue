@@ -5,7 +5,7 @@
     <div class="right-gray-UserQuotes"></div>
     
      <h3>Choose Insurer: <select name="Insurer" class="dropdown" v-model="input.Insurer">
-             <option value="null">Insurer</option>
+             <option value="null" selected disabled hidden>Insurer</option>
              <option value="blueCross">Blue Cross</option>
              <option value="sunlife">Sunlife</option>
              <option value="CAA">CAA</option>
