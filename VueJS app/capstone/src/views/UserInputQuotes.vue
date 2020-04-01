@@ -51,7 +51,7 @@
         
         <UserQuoteSubmit msg="Submit Quote" @click.native="submitQuote(input.Insurer, input.prescriptionDrugs, input.dental, input.studentAccident, input.VIPtravel,
                                                                                      input.hospitalCash, input.criticalIllness, input.termLifeInsurance, input.totalQuote)"/>
-        <UserQuoteHome msg="Back to Home" @click="$router.push(`/Dashboard/${user_id}`)"/>
+        <UserQuoteHome msg="Back to Home" @click.native="$router.push(`/Dashboard/${user_id}`)"/>
       
     </div>
 </template>
