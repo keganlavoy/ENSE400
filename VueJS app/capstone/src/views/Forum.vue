@@ -338,7 +338,7 @@ export default {
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.forum-H2-title {
+.forum-H2-title, .postNumbering {
  color: white;
  font-size: 24px;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
