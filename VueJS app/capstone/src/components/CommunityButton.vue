@@ -48,7 +48,8 @@ h1 {
     width: 500px;
     height: 60px;
     margin: auto;
-    margin-top: 350px;
+    margin-top: 650px;
+    margin-right: 10%;
     border-style: solid;
     border-width: 1px;
     border-color: black;

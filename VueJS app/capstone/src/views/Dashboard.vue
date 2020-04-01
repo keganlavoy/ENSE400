@@ -158,7 +158,7 @@ z-index: 2;
 .Community {
 background-size: cover;
 background-color: rgb(243, 243, 243);
-height: 550px;
+height: 850px;
 width: 100%;
 overflow: hidden;
 }
@@ -244,7 +244,7 @@ margin-top: 3%;
 float: right;
 width: 65%;
 height: 100%;
-margin-top: 2%;
+margin-top: 0%;
 overflow: hidden;
 }
 
@@ -291,10 +291,10 @@ overflow: hidden;
 }
 
 .CommunityPicture {
-  width: 40%;
-  height: 58%;
+  width: 558px;
+  height: 550px;
   float: right;
-  margin-right: 30%;
+  margin-right: 10%;
   background-image: url(../assets/community.png);
   background-size: cover;  
 }
