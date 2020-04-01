@@ -17,7 +17,7 @@
             <input type="text" class="input" id="DOBday" name="DOBday" v-model="input.DOBday" placeholder="Day" />
             <input type="text" class="input" id="DOByear" name="DOByear" v-model="input.DOByear" placeholder="Year" />
             <select name="gender" class="dropdown" v-model="input.gender">
-             <option value="null">Gender</option>
+             <option value="null" selected disabled hidden>Gender</option>
              <option value="male">Male</option>
              <option value="female">Female</option>
             </select>
@@ -33,7 +33,7 @@
         <input type="text" class="input" name="phoneNum" v-model="input.phoneNum" placeholder="Phone Number" />
         <br><br>
         <select name="maritalStatus" class="dropdown" v-model="input.maritalStatus">
-             <option value="null">Marital Status</option>
+             <option value="null" selected disabled hidden>Marital Status</option>
              <option value="Not married">Not married</option>
              <option value="married">Married</option>
              <option value="common Law">Common Law</option>

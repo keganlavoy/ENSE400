@@ -5,13 +5,13 @@
   <div class="Forum-main">
 
     <div class="Forum-title">
-      <h1 class="Forum-H1">Share your experiences & search for help.</h1>
+      <h1 class="Forum-H1">Share your experiences & search for help</h1>
     </div>
   
     <div class="center-community">
         <button type="button" class="forumButton" @click="$router.push(`/Dashboard/${user_id}`)">Back to home</button>
         <button type="button" class="forumButton" @click="$router.push(`/ForumAdd/${user_id}`)">Post a forum</button>
-        <h2 class="forum-H2" id="generalDiscussion">Care Compare Forum</h2>
+        <h2 class="forum-H2-title" id="generalDiscussion">Care Compare Forum</h2>
         <button type="button" class="getQuotesForumButton" @click="$router.push(`/UserInputQuotes/${user_id}`)">Share your quote</button>
     </div>
 
@@ -28,7 +28,7 @@
 
     <div class="center-community" id="center-community-tabs">
       <div v-bind:key="post.post_id" v-bind:index="index" v-for="(post, index) in posts">
-          <div id="postHead"><h2 class="postNumbering">Post #: {{index + 1}}</h2></div>
+          <div id="postHead"><h2 class="postNumbering">Post: # {{index + 1}}</h2></div>
           <div id="topicHeading"><h3 class="forum-H1">{{post.post_title}}</h3></div>
           <div id="replyButton"><button type="button" class="button" @click="$router.push(`/ForumAddReply/${user_id}/${post.post_id}/${post.post_replies}`)">Reply</button></div>
           <div id="numLikesHeading"><h3 class="forum-H3">{{post.post_likes}}</h3></div>        
@@ -168,7 +168,7 @@ export default {
   float: left;
   color: white;
   width: 100%;
-  height: 5.5vh;
+  height: 50px;
   background-color: rgb(30, 35, 39);
 }
 
@@ -189,7 +189,7 @@ export default {
   float: right;
   width: 10%;
   margin-right: 1%;
-  margin-top: -3%;
+  margin-top: -55px;
   background-color: #f1f1f1;
   color: black;
   font-size: 16px;
@@ -220,58 +220,79 @@ export default {
   margin-right: -5%;
 }
 
+@media screen and (min-width: 1600px){
+  #dislikesHeading {
+    float: left;
+    margin-right: 9%;
+  }
+}
+
+@media screen and (min-width: 1900px){
+  #dislikesHeading {
+    float: left;
+    margin-right: 10%;
+  }
+}
+
+@media screen and (min-width: 2000px){
+  #dislikesHeading {
+    float: left;
+    margin-right: 12%;
+  }
+}
+
 #topicHeading {
   float: left;
   margin-left: 1%;
-  width: 15%;  
+  width: 28%;
 }
 
 #replyButton {
-  width: 25%;
-  margin-top: 6%;
-  margin-right: 1%;
   float: left;
+  width: 30%;
+  margin-top: 6%;
+  margin-left: -10%;
 }
 
 #numLikesHeading {
   float: left;
-  margin-left: 0%;
-}
-
-#numDislikesHeading {
-  float: left;
-  margin-left: 11%;
+  margin-left: -7%;
 }
 
 #numLikesButton {
   float: left;
-  margin-left: -46.5%;
+  margin-left: -27%;
   margin-top: 6%;
   width: 5%;
+}
+
+#numDislikesHeading {
+  float: left;
+  margin-left: 4%;
 }
 
 #numDislikesButton {
   float: left;
-  margin-left: -35%;
+  margin-left: -18%;
   margin-top: 6%;
-  width: 5%;
-}
-
-#viewRepliesButton {
-  float: left;
-  margin-left: -23.5%;
-  margin-top: 6%;
-  width: 6%;
+  width: 10%;
 }
 
 #numRepliesHeading {
   float: left;
-  margin-left: 11%;
+  margin-left: 12%;
+}
+
+#viewRepliesButton {
+  float: left;
+  margin-left: -4%;
+  margin-top: 6%;
+  width: 8%;
 }
 
 #lastPostNameHeading {
-  float: left;
-  margin-left: 14%;
+  float: right;
+  margin-right: 10%;
 }
 
 #forumPost {
@@ -281,7 +302,7 @@ export default {
   margin-left: 1%;
   margin-bottom: 2%;
   border: 3px solid rgb(30, 35, 39);
-  border-radius: 1vh;  
+  border-radius: 8px;  
 }
 
 .Forum-main {
@@ -294,18 +315,18 @@ export default {
 
 .Forum-title {
   height: 10%;
-  width: 44%;
-  margin-left: 28%;
+  width: 60%;
+  margin-left: 20%;
 }
 
 .Forum-H1 {
   text-align: center;
-  font-size: 2.8vw;
+  font-size: 28px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .forum-H1 {
- font-size: 1.4vw;
+ font-size: 20px;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  color: black;
  text-align: left;
@@ -313,19 +334,25 @@ export default {
 
 .forum-H2 {
  color: white;
- font-size: 1.4vw;
+ font-size: 18px;
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.forum-H2-title, .postNumbering {
+ color: white;
+ font-size: 24px;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .forum-H3 {
- font-size: 1.4vw;
+ font-size: 20px;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  color: black;
  text-align: left; 
 }
 
 .forum-body {
- font-size: 0.9vw;
+ font-size: 14px;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  color: black;
  text-align: left;
@@ -344,7 +371,7 @@ export default {
   height: auto;
   margin-top: 2%;
   background-color: rgb(29, 134, 219);
-  border-radius: 1vh 1vh 0vh 0vh;
+  border-radius: 8px 8px 0px 0px;
   overflow: auto;
 }
 

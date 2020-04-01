@@ -3,8 +3,8 @@
 <div class="mainDivDashboard">
   <div class="quotes">
         
-        <div class="title">
-         <h1 class="Home-H1">Get quotes fast for the insurance you need.</h1>
+        <div class="title-quotes">
+         <h1 class="Home-H1">Get quotes fast for the insurance you need!</h1>
         </div>
     
         <div class="left-quotes">
@@ -30,7 +30,7 @@
 
   <div class="Community">
 
-    <div class="title">
+    <div class="title-community">
       <h1 class="Home-H1">Share your experiences to help others!</h1>
     </div>
     
@@ -54,7 +54,7 @@
 
    <div class="AboutUs">
 
-    <div class="title">
+    <div class="title-about">
       <h1 class="Home-H1">About Us</h1>
     </div>
     
@@ -148,7 +148,7 @@ export default {
 .quotes {
 background-size: cover;
 background-color: white;
-height: 500px;
+height: 550px;
 width: 100%;
 overflow: hidden;
 position: relative;
@@ -158,7 +158,7 @@ z-index: 2;
 .Community {
 background-size: cover;
 background-color: rgb(243, 243, 243);
-height: 550px;
+height: 850px;
 width: 100%;
 overflow: hidden;
 }
@@ -166,36 +166,48 @@ overflow: hidden;
 .AboutUs {
 background-size: cover;
 background-color: white;
-height: 550px;
+height: 750px;
 width: 100%;
 overflow: hidden;
 }
 
-.title {
+.title-about {
   height: 10%;
-  width: 44%;
-  margin-left: 28%;
+  width: 85%;
+  margin-left: 7%;
+}
+
+.title-community {
+  height: 10%;
+  width: 85%;
+  margin-left: 20%;
+}
+
+.title-quotes {
+  height: 10%;
+  width: 65%;
+  margin-left: 30%;
 }
 
 .Home-H1 {
   text-align: center;
-  font-size: 2.8vw;
+  font-size: 40px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .paragraph-dashboard {
-  font-size: 1vw;
+  font-size: 15px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: left;
 }
 
 .sub-title {
- font-size: 1.4vw;
+ font-size: 22px;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 ul.aboutUsText {
-  font-size: 1vw;
+  font-size: 18px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: left;  
 }
@@ -204,11 +216,11 @@ ul.aboutUsText {
 float: left;
 width: 30%;
 height: 100%;
-margin-top: 3%;
+margin-top: 3vh;
 }
 
 .left-text {
-  width: 44%;
+  width: 55%;
   text-align: left;
   margin-left: 30%;
 }
@@ -225,42 +237,42 @@ overflow: hidden;
 float: left;
 width: 30%;
 height: 100%;
-margin-top: 9%;
+margin-top: 3%;
 }
 
 .right-community {
 float: right;
 width: 65%;
 height: 100%;
-margin-top: 2%;
+margin-top: 0%;
 overflow: hidden;
 }
 
 .CenterAboutUs {
-  width: 60%;
+  width: 80%;
   height: auto;
-  margin-top: 1%;
-  margin-left: 20%;
-  border-radius: 7px;
+  margin-top: 2%;
+  margin-left: 10%;
+  border-radius: 8px;
   border: 1px solid black;
 }
 
 .odd-paragraph {
-  margin-top: -1.9%;
-  border-radius: 1vh 1vh 0vh 0vh;
+  margin-top: -18px;
+  margin-bottom: -12px;
+  border-radius: 8px 8px 0px 0px;
   background-color:rgb(246, 246, 246);
   height: auto;
 }
 
 .even-paragraph {
-  margin-top: -1.9%;
+  margin-top: -18px;
   background-color: white;
   height: auto;
 }
 
 .InsurancePicture {
-
-  width: 54.1%;
+  width: 450px;
   height: 50%;
   float: left;
   border-radius: 7px;
@@ -268,20 +280,66 @@ overflow: hidden;
   background-size: cover;  
 }
 
+@media screen and (max-width: 1365px){
+  .InsurancePicture {
+    width: 70%;
+    margin-left: 16%;
+  }
+}
+
 .ComparePicture {
-  width: 45%;
-  height: 50%;
-  float: right;
-  border-radius: 7px;
-  background-image: url(../assets/sampleQuoteBluecross.jpg);
-  background-size: cover;  
+   width: 50%;
+   height: 50%;
+   float: right;
+   border-radius: 7px;
+   background-image: url(../assets/sampleQuoteBluecross.jpg);
+   background-size: cover;  
+}
+
+@media screen and (max-width: 1365px){
+  .ComparePicture {
+    display:none;
+  }
+}
+
+@media screen and (max-width: 1680px){
+  .ComparePicture {
+    width: 45%;
+    height: 50%;
+  }
+}
+
+@media screen and (max-width: 1440px){
+  .ComparePicture {
+    width: 50%;
+    height: 50%;
+  }
+}
+
+@media screen and (min-width: 1880px){
+  .ComparePicture {
+    width: 60%;
+    height: 50%;
+  }
+}
+
+@media screen and (min-width: 1441px){
+  .ComparePicture {
+    margin-right: 100px;
+  }
+}
+
+@media screen and (min-width: 1880px){
+  .ComparePicture {
+    margin-right: 30px;
+  }
 }
 
 .CommunityPicture {
-  width: 40%;
-  height: 58%;
+  width: 558px;
+  height: 550px;
   float: right;
-  margin-right: 30%;
+  margin-right: 10%;
   background-image: url(../assets/community.png);
   background-size: cover;  
 }
@@ -303,7 +361,7 @@ overflow: hidden;
 
 .dashboardFooter{
   background-color: white;
-  height: 20%;
+  height: 10%;
 }
 
 </style>
