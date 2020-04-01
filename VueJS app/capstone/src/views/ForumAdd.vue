@@ -21,7 +21,9 @@
         <input type="text" class="input" id="postTitle" name="postTitle" v-model="input.postTitle" placeholder="Post Title" />
         <div id="forumAddPost"><textarea input type="text" row="5" col="15" class="input" id="forumPostInput" name="forumPost" v-model="input.forumPost" placeholder="Start writting your forum post here..." ></textarea></div>
         <div id="postButton"><button type="button" class="button" @click="addBlogPost(user_id, input.postTitle, input.forumPost, userName)">Post</button></div>
-        <div v-bind:class="{ noError: completeForm, error: incompleteForm }">One of the above fields is empty.</div>
+        <div v-bind:class="{ noError: completeForm, error: incompleteForm }">
+          One of the above fields is empty. Make sure both fields are filled before posting.
+        </div>
     </div>
   
   </div>
@@ -92,9 +94,7 @@ export default {
     var response = res.data[0];
     this.userName = response.userName;
     })
-    .catch(err => {throw err;});
-
-    
+    .catch(err => {throw err;});    
   }
 }
 </script>
@@ -108,7 +108,7 @@ export default {
 
 .forumAdd-H2 {
  color: white;
- font-size: 1.4vw;
+ font-size: 24px;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
@@ -134,7 +134,6 @@ export default {
   margin-right: 0.5%;
 }
 
-
 textarea {
   resize: none;
 }
@@ -154,8 +153,7 @@ textarea {
   border-radius: 7px;
   padding: 5px;
   outline: none;
-  margin: 1%;
-  
+  margin: 1%;  
 }
 
 #forumPostInput:focus {
@@ -165,90 +163,73 @@ textarea {
 .CommunityForumAdd {
 background-size: cover;
 background-color: rgb(243, 243, 243);
-height: 90%;
+height: 800px;
 width: 100%;
 overflow: hidden;
-
-
 }
 
 .titleForumAdd {
-
   height: 10%;
   width: 44%;
   margin-left: 28%;
-
 }
 
 .Home-H1ForumAdd {
-
   text-align: center;
-  font-size: 2.8vw;
+  font-size: 28px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
 
-
 .center-community-forumAdd {
-
 float: left;
 width: 100%;
 height: 10%;
 margin-top: 2%;
 background-color: rgb(29, 134, 219);
-border-radius: 1vh 1vh 0vh 0vh;
-
+border-radius: 8px 8px 0px 0px;
 }
 
 #center-community-subheader-forumAdd {
-
 height: 7%;
 margin-top: 0%;
 background-color: rgb(30, 35, 39);
-border-radius: 0vh;
-
+border-radius: 0px;
 }
-/* add v-for to this css */
+
 #center-community-tabs-forumAdd {
 width: 99.5%;
-height: 40%;
+height: 400px;
 margin-top: 0.5%;
 background-color: white;
 border: 2px solid rgb(30, 35, 39);
-border-radius: 1vh;
-
+border-radius: 8px;
 }
 
 #postTitle {
-
   float: left;
   margin-left: 2%;
-  margin-top: 2%;
-  
+  margin-top: 2%;  
 }
 
 .noError {
 visibility: hidden;
-
 }
 
 .error {
   visibility: visible;
   color: red;
   float: left;
-  font-size: 1.3vw;
-  margin-left: 40%;
+  font-size: 20px;
+  margin-left: 15%;
   margin-top: 1%;
 }
 
 .mainDivForumAdd {
 height: 100%;
-
 }
 
 .invis {
-  visibility: hidden;
-  
+  visibility: hidden;  
 }
 
 </style>
