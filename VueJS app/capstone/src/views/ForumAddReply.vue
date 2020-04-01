@@ -8,12 +8,11 @@
     
     <div class="center-community-forumAddReply">
        <button type="button" class="forumAddReplyBackButton" @click="$router.push(`/Forum/${user_id}`)">Back to forum</button>
-       <h2 class="forumAddReply-H2" id="postAReply">Post a reply</h2>
+       <h2 class="forumAddReply-H2-title" id="postAReply">Post a reply</h2>
     </div>
 
     <div class="center-community-forumAddReply" id="center-community-subheader-forumAddReply">
         <span class='invis'>hello</span>
-
     </div>
 
     <div class="center-community-forumAddReply" id="forumAddReply-originalPost">
@@ -23,24 +22,19 @@
         <div id="originalPost"><h3 class="forumAddReply-body">{{post[0].post_body}}</h3></div>
     </div>
 
-
-
     <div class="center-community-forumAddReply" id="center-community-tabs-forumAddReply">
         <div id="originalHeader"><h2 class="forumAddReply-H2">Your Reply</h2></div>
         <input type="text" class="input" id="replyTitle" name="replyTitle" v-model="input.replyTitle" placeholder="Reply Title" />
         <div id="forumAddReply"><textarea input type="text" row="5" col="15" class="input" id="forumReplyInput" name="forumReply" v-model="input.forumReply" placeholder="Start writting your Reply here..." ></textarea></div>
         <div id="ReplyButton"><button type="button" class="button" @click="addReply(user_id, input.replyTitle, input.forumReply, userName, post_id)">Reply</button></div>
-        <div v-bind:class="{ noErrorReply: completeForm, errorReply: incompleteForm }">One of the above fields is empty.</div>
-    </div>
-  
+        <div v-bind:class="{ noErrorReply: completeForm, errorReply: incompleteForm }">
+          One of the above fields is empty. Make sure both fields are filled before replying.
+          </div>
+    </div>  
   </div>
-
 </div>
 
-
 </template>
-
-
 
 <script>
 import axios from 'axios'
@@ -140,8 +134,7 @@ export default {
   float: left;
   margin-left: 10%;
   width: 35%;
-  text-decoration: underline;
-  
+  text-decoration: underline;  
 }
 
 #originalPostNameHeading {
@@ -149,27 +142,22 @@ export default {
   width: 35%;
   margin-left: 5%;
   text-decoration: underline;
-
 }
 
 #originalHeader {
-
-    width: 100%;
-    height: 5.5vh;
-    margin-top: -1.25%;
-    background-color:rgb(30, 35, 39);
-    border-radius: 1vh 1vh 0vh 0vh;
+  width: 100%;
+  height: 5.5vh;
+  margin-top: -20px;
+  background-color:rgb(30, 35, 39);
 }
 
 #forumAddReply-originalPost {
-
-width: 99.5%;
-height: auto;
-margin-top: 0.5%;
-background-color: rgb(247, 247, 247);
-border: 4px solid rgb(30, 35, 39);
-border-radius: 1vh;
-
+  width: 99%;
+  height: auto;
+  margin-top: 0.5%;
+  background-color: rgb(247, 247, 247);
+  border: 4px solid rgb(30, 35, 39);
+  border-radius: 8px;
 }
 
 #originalPost {
@@ -179,35 +167,34 @@ border-radius: 1vh;
   margin-left: 1%;
   margin-bottom: 2%;
   border: 1px solid rgb(30, 35, 39);
-  border-radius: 1vh;
-  
+  border-radius: 8px;  
 }
-
-
 
 .forumAddReply-H2 {
  color: white;
- font-size: 1.4vw;
+ font-size: 20px;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+.forumAddReply-H2-title {
+ color: white;
+ font-size: 26px;
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .forumAddReply-Titles {
  color: black;
- font-size: 2vw;
+ font-size: 22px;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
 
 .forumAddReply-body {
- font-size: 0.8vw;
+ font-size: 18px;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  color: black;
  text-align: left;
  margin-left: 1%;
 }
-
-
 
 .forumAddReplyBackButton {
   float: left;
@@ -225,11 +212,10 @@ border-radius: 1vh;
 
 #ReplyButton {
   width: 40%;
-  margin-top: 0%;
+  margin-bottom: 1%;
   float: right;
   margin-right: 0.5%;
 }
-
 
 textarea {
   resize: none;
@@ -250,8 +236,7 @@ textarea {
   border-radius: 7px;
   padding: 5px;
   outline: none;
-  margin: 1%;
-  
+  margin: 1%;  
 }
 
 #forumReplyInput:focus {
@@ -259,89 +244,74 @@ textarea {
 }
 
 .CommunityForumAddReply {
-background-size: cover;
-background-color: rgb(243, 243, 243);
-height: 90%;
-width: 100%;
-overflow: hidden;
-
-
+  background-size: cover;
+  background-color: rgb(243, 243, 243);
+  height: 90%;
+  width: 100%;
+  overflow: hidden;
 }
 
 .titleForumAddReply {
-
   height: 10%;
   width: 44%;
   margin-left: 28%;
-
 }
 
 .Home-H1ForumAddReply {
-
   text-align: center;
-  font-size: 2.8vw;
+  font-size: 18px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
 
 
 .center-community-forumAddReply {
-
 float: left;
 width: 100%;
 height: 10%;
 margin-top: 2%;
 background-color: rgb(29, 134, 219);
-border-radius: 1vh 1vh 0vh 0vh;
-
+border-radius: 8px 8px 0px 0px;
 }
 
 #center-community-subheader-forumAddReply {
-
 height: 4vh;
 margin-top: 0%;
 background-color: rgb(30, 35, 39);
-border-radius: 0vh;
+border-radius: 0px;
 margin-bottom: 1%;
-
 }
-/* add v-for to this css */
+
 #center-community-tabs-forumAddReply {
-width: 99.5%;
+width: 99%;
 height: 40%;
 margin-top: 2%;
 background-color: rgb(247, 247, 247);
 border: 4px solid rgb(30, 35, 39);
-border-radius: 1vh;
+border-radius: 8px;
 margin-bottom: 7vh;
-
 }
 
 #replyTitle {
-
   float: left;
   margin-left: 2%;
-  margin-top: 2%;
-  
+  margin-top: 2%;  
 }
 
 .noErrorReply {
 visibility: hidden;
-
 }
 
 .errorReply {
   visibility: visible;
   color: red;
   float: left;
-  font-size: 1.3vw;
-  margin-left: 40%;
+  font-size: 20px;
+  margin-left: 15%;
   margin-top: 1%;
 }
 
 .mainDivForumAddReply {
 height: auto;
-
 }
 
 .invis {
