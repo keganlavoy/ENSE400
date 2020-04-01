@@ -162,7 +162,7 @@ textarea {
 
 .CommunityForumAdd {
 background-size: cover;
-background-color: rgb(243, 243, 243);
+background-color: rgb(234, 249, 255);
 height: 800px;
 width: 100%;
 overflow: hidden;
@@ -226,6 +226,7 @@ visibility: hidden;
 
 .mainDivForumAdd {
 height: 100%;
+background-color: rgb(234, 249, 255);
 }
 
 .invis {

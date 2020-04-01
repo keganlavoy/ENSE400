@@ -67,7 +67,7 @@
               <br>
               <li>We want to make finding the best deal as easy and fast as possible and provide direct comparisons between insurance providers so that you don't have to.</li>
               <br>
-              <li>In adition, we envision creating a community that freely shares their own experiences and can further help others make the best choices for them.</li>
+              <li>In addition, we envision creating a community that freely shares their own experiences and can further help others make the best choices for them.</li>
            </ul>      
 
       </div>
@@ -157,7 +157,7 @@ z-index: 2;
 
 .Community {
 background-size: cover;
-background-color: rgb(243, 243, 243);
+background-color: rgb(234, 249, 255);
 height: 850px;
 width: 100%;
 overflow: hidden;
@@ -209,7 +209,8 @@ overflow: hidden;
 ul.aboutUsText {
   font-size: 18px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: left;  
+  text-align: left;
+   
 }
 
 .left-quotes {
@@ -261,7 +262,7 @@ overflow: hidden;
   margin-top: -18px;
   margin-bottom: -12px;
   border-radius: 8px 8px 0px 0px;
-  background-color:rgb(246, 246, 246);
+  background-color: rgb(234, 249, 255);
   height: auto;
 }
 

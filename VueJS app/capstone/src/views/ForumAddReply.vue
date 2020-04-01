@@ -245,7 +245,7 @@ textarea {
 
 .CommunityForumAddReply {
   background-size: cover;
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(234, 249, 255);
   height: 90%;
   width: 100%;
   overflow: hidden;

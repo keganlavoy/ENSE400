@@ -184,7 +184,7 @@ export default {
 
 .CommunityForumReply {
   background-size: cover;
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(234, 249, 255);
   height: 85%;
   width: 100%;
   overflow: hidden;

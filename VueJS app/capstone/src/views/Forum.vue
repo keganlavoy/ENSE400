@@ -307,7 +307,7 @@ export default {
 
 .Forum-main {
   background-size: cover;
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(234, 249, 255);
   height: auto;
   width: 100%;
   overflow: hidden;

@@ -23,7 +23,7 @@
             <h2 class="quotePrice">Total Quote Price: </h2>
         </div>       
 
-        <div class="QuoteBoxes">
+      <div class="QuoteBoxes">
     
         <input type="number" step="0.01" id="firstBox" class="inputUserQuotes" name="prescriptionDrugs" v-model="input.prescriptionDrugs" placeholder="prescription drugs price" /><br>
         <input type="number" step="0.01" class="inputUserQuotes" name="dental" v-model="input.dental" placeholder="dental price" /><br>
@@ -217,14 +217,14 @@
   width: 18%;
   height: 100%;
   float: left;
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(234, 249, 255);
 }
 
 .right-gray-UserQuotes {
   width: 18%;
   height: 100%;
   float: right;
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(234, 249, 255);
 }
 
 .mainDivUserQuotes {
