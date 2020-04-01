@@ -1,16 +1,11 @@
+<!--Vue.js creates a single page application (only ever loads one page which is this page App.vue)
+    Since we are using the Vue-Router extension, it also loads the HTML of the view currently selected.
+    This block of code loads the main page App, the nav navigation bar, and the HTML code of the view selected-->
+
 <template>
   <div id="app">
     <div id="nav">
-      <!--ProfileButton class="profileButton" @click.native="$router.push('/ProfilePage')"/>
-      <router-link to="Dashboard">Home  </router-link> 
-      <router-link to="/HealthInsurance">HealthInsurance  </router-link>
-      <router-link to="/">Login  </router-link>
-      <router-link to="/InsuranceSelection">InsuranceSelection  </router-link>
-      <router-link to="/SignUp">SignUp  </router-link>
-      <router-link to="/ForgotPass">ForgotPass  </router-link>
-      <router-link to="/ProfilePage">Profile Page  </router-link>
-      <router-link to="/Forum">Forum  </router-link>
-      <h3 @click="$router.push('/')">Care Compare</h3>-->
+
     </div>
     <router-view/>
     
@@ -20,12 +15,12 @@
 
 <script>
 
-//import ProfileButton from '@/components/ProfileButton.vue'
+
 
 export default {
   name: 'app',
   components: {      
-      //ProfileButton
+      
   },
    data()  {
         return {
@@ -43,6 +38,9 @@ height: 100%;
 text-align: center;
 }
 
+
+/*the positions here are set to sticky for multiple browsers
+  z index is set so that other components can appear on top of it*/
 #nav { 
   position: -ms-page;
   position: -webkit-sticky;
@@ -67,6 +65,10 @@ text-align: center;
   color: #42b983;
 }
 
+
+/*This sets the size and color of the main div for all pages. 
+  overflow is set to auto to allow scrolling if pages are bigger than 100%. 
+  Also removes additional scrollbars from being added*/ 
 .mainDiv {
   background-size: cover;
   background-color: white;
@@ -77,25 +79,29 @@ text-align: center;
   scrollbar-width: none;
 }
 
+/*makes added scrollbars invisible*/
 .mainDiv::-webkit-scrollbar {
   display: none;
   scrollbar-width: none;
 }
 
-.left-gray {
+
+/*left-blue and right-blue are the side blocks on the profile page*/
+.left-blue {
   width: 18%;
   height: 120%;
   float: left;
   background-color: rgb(234, 249, 255);
 }
 
-.right-gray {
+.right-blue {
   width: 18%;
   height: 120%;
   float: right;
   background-color: rgb(234, 249, 255);
 }
 
+/*input is the styling of our input boxes on all pages*/
 .input {
   border-radius: 7px;
   padding: 5px;
@@ -108,6 +114,7 @@ text-align: center;
   border: 3px solid #555;
 }
 
+/*button is the styling for all standard buttons on all pages*/
 .button {
   background-color: #f1f1f1;
   color: black;
@@ -123,6 +130,8 @@ text-align: center;
   color: white;
 }
 
+
+/*dropdown is the styling on all dropdown boxes on all pages*/
 .dropdown {
   background-color: white;
   color: black;

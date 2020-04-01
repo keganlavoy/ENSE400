@@ -1,8 +1,8 @@
 <template>
   <div class="mainDivProfile">
 
-    <div class="left-gray"></div>
-    <div class="right-gray"></div>
+    <div class="left-blue"></div>
+    <div class="right-blue"></div>
       
    <div class="top-buffer">
    </div>
