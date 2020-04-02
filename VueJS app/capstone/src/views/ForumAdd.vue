@@ -4,19 +4,27 @@
 
   <div class="CommunityForumAdd">
 
+    <!--Title for post a frum page-->
     <div class="titleForumAdd">
       <h1 class="Home-H1ForumAdd">Post your experience below</h1>
     </div>
     
+    <!--Main header similar to main forum page that only includes a back to forum button-->
     <div class="center-community-forumAdd">
        <button type="button" class="forumAddBackButton" @click="$router.push(`/Forum/${user_id}`)">Back to forum</button>
        <h2 class="forumAdd-H2" id="postAForum">Post a forum</h2>
     </div>
 
+    <!--Dark grey subheader underneath main header. There is an invisible span included here because view does not load 
+        Empty divs, Therefore we had to add some content to the div to make it load on the page, but the contents are
+        invisible because we did not want any writing displayed in the subheader here.-->
     <div class="center-community-forumAdd" id="center-community-subheader-forumAdd">
         <span class='invis'>hello</span>
     </div>
 
+    <!--This is a simple form that has two input fields one for the title of your post and another for the body of your post. If either 
+        of the fields are left empty an error message is displayed notifying the user. Otherwise when the post button is clicked a function 
+        is executed to add your new post to the forum and you are redirected back to the main forum.-->
     <div class="center-community-forumAdd" id="center-community-tabs-forumAdd">
         <input type="text" class="input" id="postTitle" name="postTitle" v-model="input.postTitle" placeholder="Post Title" />
         <div id="forumAddPost"><textarea input type="text" row="5" col="15" class="input" id="forumPostInput" name="forumPost" v-model="input.forumPost" placeholder="Start writting your forum post here..." ></textarea></div>
@@ -63,6 +71,10 @@ export default {
 
   methods: {
 
+    /*This function is executed when the post button is clicked on the form. It checks both input fields to make sure there is content inside.
+      If there isn't an error message is displayed, otherwise a query is made to our database that adds a new post to the forum. This new post
+      contains the title and body entered in the form, likes, dislikes, and replies are all initialized to zero and the username associated 
+      with the user id that submitted the new post is also added. The user is then redirected to the main forum.*/
      addBlogPost(user_id, postTitle, postBody, userName) {
 
         if(postTitle == "" || postBody == "") {
@@ -85,6 +97,8 @@ export default {
   },
 
 
+  /*When the page is loaded a query is executed on our database that returns the username associated with the user id that loaded the page.
+    This username is used within the addBlogPost method and is added to the post.*/
   created() {
 
     this.user_id = this.$route.params.user_id

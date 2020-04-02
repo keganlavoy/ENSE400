@@ -3,11 +3,14 @@
 <div class="mainDivForum">
   
   <div class="Forum-main">
+    
 
+    <!--Title for main forum page-->
     <div class="Forum-title">
       <h1 class="Forum-H1">Share your experiences & search for help</h1>
     </div>
-  
+
+    <!--Forum header that contains all of the buttons for going back to the dashboard, creating your own forum post, and sharing your own personal quote.-->
     <div class="center-community">
         <button type="button" class="forumButton" @click="$router.push(`/Dashboard/${user_id}`)">Back to home</button>
         <button type="button" class="forumButton" @click="$router.push(`/ForumAdd/${user_id}`)">Post a forum</button>
@@ -15,6 +18,7 @@
         <button type="button" class="getQuotesForumButton" @click="$router.push(`/UserInputQuotes/${user_id}`)">Share your quote</button>
     </div>
 
+    <!--Dark grey subheader under the main header that holds all of the headings that describe the forum posts underneath.-->
     <div class="center-community" id="center-community-subheader">
         <div id="forumHeading"><h2 class="forum-H2">Post Title</h2></div>
         <div id="likesHeading"><h2 class="forum-H2">Likes</h2></div>
@@ -25,7 +29,9 @@
 
 
 
-
+    <!--This is a div that makes use of the v-for directive which repeats the div an amount of times equal to the number of posts retrieved from the database.
+        Each post has a unique id and index assigned to it so that they are distiguishable from one another. Each one of these divs provide an array o f options to
+        the users such as replying to the post, liking the post, disliking the post, viewing all replies made by other users, and seeing who the post was made by.-->
     <div class="center-community" id="center-community-tabs">
       <div v-bind:key="post.post_id" v-bind:index="index" v-for="(post, index) in posts">
           <div id="postHead"><h2 class="postNumbering">Post: # {{index + 1}}</h2></div>
@@ -61,6 +67,10 @@ export default {
       
   },
 
+/*The posts array below is used to store an array of forum posts that are returned from the database whenever the page is loaded. These
+  are the posts that are immediately viewable by users whe nthey load the forum.
+  
+  The responses array is used to hold the data returned when a check is made to the like and dislikes tables in our database.*/
   data() {
 
     return {
@@ -78,6 +88,10 @@ export default {
 
   methods: {
 
+    /*This function is used when a user attempts to like a particular blog post. A query is made to our database and returns any row that 
+      contains the user id and post id together. If a row is returned, that means that the user has already liked this particular post and nothing happens.
+      If nothing is returned, the number of likes is increased by one, the user is added to the likes table so they cannot like the same post again, 
+      and the blog posts are reloaded to display the new like count.*/
     checkLike(post_id, user_id, likes) {
 
     axios.get(`http://162.253.11.179:3000/checkLike/${post_id}/${user_id}`)
@@ -110,7 +124,7 @@ export default {
     },
 
 
-
+    /*This function works the exact same as the checkLikes function above.*/
     checkDislike(post_id, user_id, dislikes) {
 
     axios.get(`http://162.253.11.179:3000/checkDislike/${post_id}/${user_id}`)
@@ -145,6 +159,8 @@ export default {
 
   },
 
+  /*When the forum page is first loaded it queries the database and returns all posts currently in the database and 
+    displays them onto the screen for useres to see.*/
   created() {
 
     this.user_id = this.$route.params.user_id;
@@ -220,6 +236,7 @@ export default {
   margin-right: -5%;
 }
 
+/*The media tags are used to adjust the heading spacing on different sized screens*/
 @media screen and (min-width: 1600px){
   #dislikesHeading {
     float: left;
