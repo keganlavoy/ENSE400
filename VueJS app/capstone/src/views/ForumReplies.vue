@@ -13,22 +13,22 @@
       <span class='invis'>hello</span>
     </div>
    
-    <div class="center-community-forumAddReply" id="forumAddReply-originalPost">
-        <div id="originalHeader"><h2 class="forumAddReply-H2">Original Post</h2></div>
-        <div id="originalPostHeading"><h3 class="forumAddReply-Titles">Original post title: {{post[0].post_title}}</h3></div>
-        <div id="originalPostNameHeading"><h3 class="forumAddReply-Titles">Original post by: {{post[0].username}}</h3></div>
-        <div id="originalPost"><h3 class="forumAddReply-body">{{post[0].post_body}}</h3></div>
+    <div class="center-community-ForumReplies" id="forumReply-originalPost">
+        <div id="originalHeaderReply"><h2 class="forumReply-H2">Original Post</h2></div>
+        <div id="originalPostHeadingReply"><h3 class="forumReply-Titles">Original post title: {{post[0].post_title}}</h3></div>
+        <div id="originalPostNameHeadingReply"><h3 class="forumReply-Titles">Original post by: {{post[0].username}}</h3></div>
+        <div id="originalPostReply"><h3 class="forumReply-body">{{post[0].post_body}}</h3></div>
     </div>
 
     <div class="center-community-ForumReplies" id="center-community-tabs-ForumReplies">
-      <div id="replyHeader"><h2 class="forumAddReply-H2">Replies</h2></div>
+      <div id="replyHeader"><h2 class="forumReply-H2">Replies</h2></div>
 
     <div class="border">
       <div v-bind:key="reply.reply_id" v-bind:index="index" v-for="(reply, index) in replies">
         <div id="filler"><h2 class="replyNumbering">Reply: #{{index + 1}}</h2></div>
         <div id="replyHeading"><h3 class="forumReply-Titles">Reply title: {{reply.reply_title}}</h3></div>
         <div id="replyNameHeading"><h3 class="forumReply-Titles">Reply posted by: {{reply.username}}</h3></div>
-        <div id="originalPost"><h3 class="forumReply-body">{{reply.reply_body}}</h3></div>
+        <div id="originalPostReply"><h3 class="forumReply-body">{{reply.reply_body}}</h3></div>
       </div>
     </div>
 
@@ -112,8 +112,44 @@ export default {
 
 <style>
 
-.forumAddReply-H2, .replyNumbering {
+
+#originalPostReply {
+  width: 98%;
+  float: left;
+  margin-top: 1%;
+  margin-left: 1%;
+  margin-bottom: 2%;
+  border: 1px solid rgb(30, 35, 39);
+  border-radius: 8px;  
+}
+
+
+#originalPostNameHeadingReply {
+  float: left;
+  width: 35%;
+  margin-left: 5%;
+  text-decoration: underline;
+}
+
+
+
+#originalPostHeadingReply {
+  float: left;
+  margin-left: 10%;
+  width: 35%;
+  text-decoration: underline;  
+}
+#originalHeaderReply {
+  width: 100%;
+  height: 5.5vh;
+  margin-top: -20px;
+  background-color:rgb(30, 35, 39);
+}
+
+
+.forumReply-H2, .replyNumbering {
   font-size: 22px;
+  color: white;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -228,5 +264,16 @@ export default {
 .invis {
   visibility: hidden;
 }
+
+#forumReply-originalPost {
+  width: 99%;
+  height: auto;
+  margin-top: 0.5%;
+  background-color: rgb(247, 247, 247);
+  border: 4px solid rgb(30, 35, 39);
+  border-radius: 8px;
+}
+
+
 
 </style>
