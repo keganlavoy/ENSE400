@@ -10,13 +10,19 @@
 
     <!--These are the input boxes that are used to insert, save, and display the user's info if they choose to enter it in.-->
         <input type="text" class="input" name="firstName" v-model="input.firstName" placeholder="First Name" />
-        
         <input type="text" class="input" name="lastName" v-model="input.lastName" placeholder="Last Name" />
         <br>
-        <h4>Date of birth:
-            <input type="text" class="input" id="DOBmonth" name="DOBmonth" v-model="input.DOBmonth" placeholder="Month" />
-            <input type="text" class="input" id="DOBday" name="DOBday" v-model="input.DOBday" placeholder="Day" />
-            <input type="text" class="input" id="DOByear" name="DOByear" v-model="input.DOByear" placeholder="Year" />
+
+
+        <div v-bind:class="{ noErrorMonth: validMonth, errorMonth: invalidMonth }">The month entered is invalid.</div>
+        <div v-bind:class="{ noErrorDay: validDay, errorDay: invalidDay }">The day entered is invalid.</div>
+        <div v-bind:class="{ noErrorYear: validYear, errorYear: invalidYear }">The year entered is invalid.</div>
+
+        
+        <h4>Date of birth (MM/DD/YYYY):
+            <input type="number" step="1" class="input" id="DOBmonth" name="DOBmonth" v-model="input.DOBmonth" placeholder="Month" />
+            <input type="number" step="1" class="input" id="DOBday" name="DOBday" v-model="input.DOBday" placeholder="Day" />
+            <input type="number" step="1" class="input" id="DOByear" name="DOByear" v-model="input.DOByear" placeholder="Year" />
             <select name="gender" class="dropdown" v-model="input.gender">
                 <option value="null" selected disabled hidden>Gender</option>
                 <option value="male">Male</option>
@@ -41,7 +47,7 @@
         </select>
         <input type="number" step="1" class="input" id="children" name="children" v-model="input.children" placeholder="How many children?" />
         <br><br>
-
+        <div v-bind:class="{ noSave: invalidSave, Save: validSave }">Your information has been saved successfully.</div>
         <!--When this save button is clicked it will execute the function that saves the user entered data into the database-->
         <input type="submit" value="Save" class="button" @click="updateUser(user_id, input.firstName, input.lastName, input.DOBmonth, input.DOBday, input.DOByear, input.gender,
                                                                 input.homeAddress, input.city, input.province, input.postalCode, input.email, input.phoneNum,
@@ -83,6 +89,14 @@ export default {
                 },
 
                 user_id: 0,
+                invalidMonth: false,
+                validMonth: true,
+                invalidDay: false,
+                validDay: true,
+                invalidYear: false,
+                validYear: true,
+                invalidSave: true,
+                validSave: false,
                 
             }
     },
@@ -90,13 +104,44 @@ export default {
     methods: {
 
         /*This is the function that updates all of the users information when they click the save button for the form. It takes the contents of every input box from the 
-          form and saves that info directly into the database.*/
+          form and saves that info directly into the database. It includes some simple date checking and provides error/save feedback if the user inputs are allowed or not.*/
         updateUser(user_id, firstName, lastName, DOBmonth, DOBday, DOByear, gender, homeAddress, city, province, postalCode, email, phoneNum, maritalStatus, children) {
 
+        if(DOBmonth == "") {
+            DOBmonth = NaN;
+        }
+        
+        if(DOBday == "") {
+            DOBday = NaN;
+        }
+
+        if (DOByear == "") {
+            DOByear = NaN;
+        }
+        
+        if((DOBmonth < 1 && isNaN(DOBmonth) == false) || (DOBmonth > 12 && isNaN(DOBmonth) == false)) {
+            this.invalidMonth = true;
+            this.validMonth = false;
+        }
+
+        else if((DOBday < 1 && isNaN(DOBday) == false) || (DOBmonth > 31 && isNaN(DOBday) == false)) {
+            this.invalidDay = true;
+            this.validDay = false;
+        }
+
+        else if((DOByear < 1900 && isNaN(DOByear) == false) || (DOBmonth > 2020 && isNaN(DOByear) == false)) {
+            this.invalidYear = true;
+            this.validYear = false;
+        }
+
+        //This function will update the users data in the database and tell them that their information has been updated successfully
+        else {
         axios.post(`http://162.253.11.179:3000/updateUser/${user_id}/${firstName}/${lastName}/${DOBmonth}/${DOBday}/${DOByear}/${gender}/${homeAddress}/${city}/${province}/${postalCode}/${email}/${phoneNum}/${maritalStatus}/${children}`)
         .then(res => this.input = res.data[0])
         .catch(err => {throw err;});
-
+        this.invalidSave = false;
+        this.validSave = true;
+        }
 
         },
 
@@ -118,6 +163,43 @@ export default {
 </script>
 
 <style>
+
+.noErrorMonth {
+visibility: hidden;
+}
+
+.errorMonth {
+  visibility: visible;
+  color: red;
+}
+
+.noErrorDay {
+visibility: hidden;
+}
+
+.errorDay {
+  visibility: visible;
+  color: red;
+}
+
+.noErrorYear {
+visibility: hidden;
+}
+
+.errorYear {
+  visibility: visible;
+  color: red;
+}
+
+.noSave {
+visibility: hidden;
+}
+
+.Save {
+  visibility: visible;
+  color: black;
+}
+
 
 #children {
     width: 10%;
