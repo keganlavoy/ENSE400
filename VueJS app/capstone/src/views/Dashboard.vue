@@ -162,29 +162,29 @@ export default {
 <style>
 
 .quotes {
-background-size: cover;
-background-color: white;
-height: 550px;
-width: 100%;
-overflow: hidden;
-position: relative;
-z-index: 2;
+  background-size: cover;
+  background-color: white;
+  height: 550px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
 }
 
 .Community {
-background-size: cover;
-background-color: rgb(234, 249, 255);
-height: 850px;
-width: 100%;
-overflow: hidden;
+  background-size: cover;
+  background-color: rgb(234, 249, 255);
+  height: 850px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .AboutUs {
-background-size: cover;
-background-color: white;
-height: 750px;
-width: 100%;
-overflow: hidden;
+  background-size: cover;
+  background-color: white;
+  height: 750px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .title-about {
@@ -217,9 +217,33 @@ overflow: hidden;
   text-align: left;
 }
 
+@media screen and (min-width: 1680px){
+  .paragraph-dashboard {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 2100px){
+  .paragraph-dashboard {
+    font-size: 24px;
+  }
+}
+
 .sub-title {
  font-size: 22px;
  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media screen and (min-width: 1680px){
+  .sub-title{
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 2100px){
+  .sub-title{
+    font-size: 28px;
+  }
 }
 
 ul.aboutUsText {
