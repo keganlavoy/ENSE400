@@ -102,9 +102,9 @@
         <h2>${{quoteSums[index].UserQuoteAverage}}</h2>
       </div>
 
-
-      <shareQuoteButton msg="Share your experience with this insurance provider here!" @click.native="$router.push(`/UserInputQuotes/${user_id}`)"/>
-      <externalButton msg="Go to this insurance providers website"/>
+      <button type="button" class="button" @click="$router.push(`/UserInputQuotes/${user_id}`)">Share your experience with {{insurer.insurer_name}} here!</button>
+      <button type="button" class="button" @click="$router.push(`/Dashboard/${user_id}`)">Go to {{insurer.insurer_name}}'s website!</button>
+      
 
       <div class="legendRedX">
         <h4> - means you selected this option, but we do not have access to the providers data for this type of insurance.</h4>
@@ -145,8 +145,8 @@
 
 <script>
 
-import shareQuoteButton from '@/components/shareQuote.vue'
-import externalButton from '@/components/external.vue'
+//import shareQuoteButton from '@/components/shareQuote.vue'
+//import externalButton from '@/components/external.vue'
 import axios from 'axios'
 
 export default {
@@ -154,8 +154,7 @@ export default {
 
  name: 'HealthInsurance',
   components: {
-    shareQuoteButton,
-    externalButton
+
     
   },
 
