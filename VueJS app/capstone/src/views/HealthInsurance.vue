@@ -1160,7 +1160,7 @@ export default {
 
 @media screen and (max-width: 1366px){
   .legendGreyDashplaceholder {
-    margin-top: 50px;
+    margin-top: 40px;
   }
 }
 
@@ -1295,7 +1295,6 @@ export default {
   height: 8%;
   float: right;
   margin-right: 40%;
-   border: 1px solid black;
 }
 
 .AttributePrescription {  
@@ -1350,10 +1349,9 @@ export default {
 }
 
 .insurerName {
-  width: 25%;
+  width: 250px;
   height: 10%;
   margin-top: 2%;
-  margin-left: 0%;
 }
 
 .insurerLogo {
@@ -1514,7 +1512,7 @@ export default {
 	width: 30px;
 	height: 30px;
   margin-top: 10px;
-  margin-left: 2%;
+  margin-left: 5%;
 	border: 2px solid #eef5df;
 	background-color: #ff5248;
 	border-radius: 50%;
@@ -1522,9 +1520,8 @@ export default {
 
   @media screen and (min-width: 1680px){
     .noInsurance{
-      margin-top: 0px;
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
     }
   }
 
@@ -1556,8 +1553,8 @@ export default {
   transform: rotate(45deg);  
   width: 10px;
   height: 30px;
-  margin-top: 0px;
-  margin-left: 15%;
+  margin-top: 10px;
+  margin-left: 8%;
   border-bottom: 7px solid #78b13f;
   border-right: 7px solid #78b13f;
 }
@@ -1574,8 +1571,8 @@ export default {
 	position: relative;
 	width: 30px;
 	height: 30px;
-  margin-top: 0px;
-  margin-left: 0%;
+  margin-top: 10px;
+  margin-left: 5%;
 	border: 2px solid #979797;
 	background-color: #FFF;
 	border-radius: 50%; 
@@ -1586,9 +1583,9 @@ export default {
 
 @media screen and (min-width: 1680px){
   .notSelected{
-    margin-top: 0px;
-    width: 50px;
-    height: 50px;
+    margin-top: 10px;
+    width: 40px;
+    height: 40px;
   }
 }
 
