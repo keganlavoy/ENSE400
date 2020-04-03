@@ -1190,7 +1190,7 @@ export default {
   width: 8%;
   height: 8%;
   float: right;
-  margin-top: -23%;
+  margin-top: -18%;
   margin-right: 3%;
   text-align: left;  
 }
@@ -1199,7 +1199,7 @@ export default {
   width: 8%;
   height: 8%;
   float: right;
-  margin-top: -28.5%;
+  margin-top: -27%;
   margin-right: 3%;
   text-align: left; 
 }
@@ -1226,7 +1226,7 @@ export default {
   width: 25%;
   height: 8%;
   float: right;
-  margin-top: -28.5%;
+  margin-top: -30%;
   margin-right: 12%;
   text-align: right;  
 }
@@ -1235,7 +1235,7 @@ export default {
   width: 25%;
   height: 8%;
   float: right;
-  margin-top: -23%;
+  margin-top: -20%;
   margin-right: 12%;
   text-align: right;  
 }

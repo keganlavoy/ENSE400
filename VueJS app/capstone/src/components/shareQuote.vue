@@ -50,7 +50,7 @@ font-size: 18px;
 width: 25%;
 height: 15%;
 float: right;
-margin-top: -17%;
+margin-top: -10%;
 margin-right: 6%;
 border-style: solid;
 border-width: 1px;
