@@ -102,8 +102,8 @@
         <h2 class="HealthInsuranceH2">${{quoteSums[index].UserQuoteAverage}}</h2>
       </div>
 
-      <button type="button" class="button" @click="$router.push(`/UserInputQuotes/${user_id}`)">Share your experience with {{insurer.insurer_name}} here!</button>
-      <button type="button" class="button" @click="$router.push(`/Dashboard/${user_id}`)">Go to {{insurer.insurer_name}}'s website!</button>
+      <button type="button" class="button" id="shareExp" @click="$router.push(`/UserInputQuotes/${user_id}`)">Share your experience with {{insurer.insurer_name}} here!</button>
+      <button type="button" class="button" id="gotoInsurer" @click="$router.push(`/Dashboard/${user_id}`)">Go to {{insurer.insurer_name}}'s website!</button>
       
 
       <div class="legendRedXplaceholder">
@@ -1144,7 +1144,7 @@ export default {
   width: 3%;
   height: 8%;
   float: left;
-  margin-top: 60px;
+  margin-top: 40px;
   margin-left: 3%;
 }
 
@@ -1152,7 +1152,7 @@ export default {
   width: 25%;
   height: 100px;
   float: left;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-left: 2%;
   font-size: 16px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -1160,29 +1160,29 @@ export default {
 
 @media screen and (max-width: 1366px){
   .legendGreyDashplaceholder {
-    margin-top: 70px;
+    margin-top: 50px;
   }
 }
 
 .legendGreyDash {  
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 @media screen and (min-width: 1680px){
   .legendGreyDash {
-    margin-top: 50px;
+    margin-top: 30px;
   }
 }
 
 @media screen and (min-width: 2100px){
   .legendGreyDash {
-    margin-top: 60px;
+    margin-top: 40px;
   }
 }
 
 @media screen and (max-width: 1365px){
   .legendGreyDash {
-    margin-top: 50px;
+    margin-top: 30px;
   }
 }
 
@@ -1193,6 +1193,12 @@ export default {
   margin-top: -200px;
   margin-right: 3%;
   text-align: left;  
+}
+
+@media screen and (max-width: 1365px){
+  .PeopleQuotePriceAverage {
+  margin-top: -170px;
+  }
 }
 
 .PeopleQuotePrice {
@@ -1213,6 +1219,12 @@ export default {
   text-align: left;  
 }
 
+@media screen and (max-width: 1365px){
+  .OurQuotePrice{
+  margin-top: -370px;
+  }
+}
+
 .OurQuoteText {
   width: 25%;
   height: 8%;
@@ -1220,6 +1232,12 @@ export default {
   margin-top: -360px;
   margin-right: 12%;
   text-align: right;  
+}
+
+@media screen and (max-width: 1365px){
+  .OurQuoteText {
+  margin-top: -380px;
+  }
 }
 
 .PeopleQuoteText {
@@ -1240,6 +1258,38 @@ export default {
   text-align: right;  
 }
 
+@media screen and (max-width: 1365px){
+  .PeopleQuoteTextAverage {
+  margin-top: -200px;
+  }
+}
+
+#shareExp {
+  float: right;
+  margin-top: -100px;
+  margin-right: 6%;
+  width: 30%;
+}
+
+#gotoInsurer {
+  float: right;
+  margin-top: -40px;
+  margin-right: 6%;
+  width: 30%;
+}
+
+@media screen and (max-width: 1365px){
+  #shareExp {
+    margin-top: -80px
+  }
+}
+
+@media screen and (max-width: 1365px){
+  #gotoInsurer {
+    margin-top: -30px
+  }
+}
+
 .AttributePrescription, .AttributeDental, .AttributeStudent, .AttributeTravel, .AttributeHospital, .AttributeIllness, .AttributeLife {
   width: 25%;
   height: 8%;
@@ -1252,16 +1302,40 @@ export default {
   margin-top: -200px;
 }
 
+@media screen and (max-width: 1365px){
+  .AttributePrescription{
+    margin-top: -180px;
+  }
+}
+
 .AttributeDental {
   margin-top: -150px;
+}
+
+@media screen and (max-width: 1365px){
+  .AttributeDental{
+    margin-top: -130px;
+  }
 }
 
 .AttributeStudent {
   margin-top: -100px;
 }
 
+@media screen and (max-width: 1365px){
+  .AttributeStudent{
+    margin-top: -80px;
+  }
+}
+
 .AttributeTravel {
   margin-top: -50px;
+}
+
+@media screen and (max-width: 1365px){
+  .AttributeTravel{
+    margin-top: -30px;
+  }
 }
 
 .checkedAttributes {
