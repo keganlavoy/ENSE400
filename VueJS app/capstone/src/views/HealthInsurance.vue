@@ -1144,7 +1144,7 @@ export default {
   width: 3%;
   height: 8%;
   float: left;
-  margin-top: 80px;
+  margin-top: 60px;
   margin-left: 3%;
 }
 
@@ -1152,37 +1152,37 @@ export default {
   width: 25%;
   height: 100px;
   float: left;
-  margin-top: 60px;
+  margin-top: 40px;
   margin-left: 2%;
   font-size: 16px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-@media screen and (max-width: 1365px){
+@media screen and (max-width: 1366px){
   .legendGreyDashplaceholder {
-    margin-top: 60px;
+    margin-top: 70px;
   }
 }
 
 .legendGreyDash {  
-    margin-top: 60px;
+    margin-top: 50px;
 }
 
 @media screen and (min-width: 1680px){
   .legendGreyDash {
-    margin-top: 60px;
+    margin-top: 50px;
   }
 }
 
 @media screen and (min-width: 2100px){
   .legendGreyDash {
-    margin-top: 70px;
+    margin-top: 60px;
   }
 }
 
 @media screen and (max-width: 1365px){
   .legendGreyDash {
-    margin-top: 40px;
+    margin-top: 50px;
   }
 }
 
