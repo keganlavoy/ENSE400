@@ -1190,7 +1190,7 @@ export default {
   width: 8%;
   height: 8%;
   float: right;
-  margin-top: -18%;
+  margin-top: -200px;
   margin-right: 3%;
   text-align: left;  
 }
@@ -1199,7 +1199,7 @@ export default {
   width: 8%;
   height: 8%;
   float: right;
-  margin-top: -27%;
+  margin-top: -290px;
   margin-right: 3%;
   text-align: left; 
 }
@@ -1208,7 +1208,7 @@ export default {
   width: 8%;
   height: 8%;
   float: right;
-  margin-top: -34%;
+  margin-top: -360px;
   margin-right: 3%;
   text-align: left;  
 }
@@ -1217,7 +1217,7 @@ export default {
   width: 25%;
   height: 8%;
   float: right;
-  margin-top: -34%;
+  margin-top: -360px;
   margin-right: 12%;
   text-align: right;  
 }
@@ -1226,7 +1226,7 @@ export default {
   width: 25%;
   height: 8%;
   float: right;
-  margin-top: -30%;
+  margin-top: -320px;
   margin-right: 12%;
   text-align: right;  
 }
@@ -1235,7 +1235,7 @@ export default {
   width: 25%;
   height: 8%;
   float: right;
-  margin-top: -20%;
+  margin-top: -220px;
   margin-right: 12%;
   text-align: right;  
 }
