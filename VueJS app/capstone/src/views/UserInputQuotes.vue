@@ -1,9 +1,12 @@
 <template>
   <div class="mainDivUserQuotes">
-
-    <div class="left-gray-UserQuotes"></div>
-    <div class="right-gray-UserQuotes"></div>
     
+
+    <!--Creates blue side bars-->
+    <div class="left-blue-UserQuotes"></div>
+    <div class="right-blue-UserQuotes"></div>
+    
+     <!--Dropdown for choosing the insurer-->
      <h3>Choose Insurer: <select name="Insurer" class="dropdown" v-model="input.Insurer">
              <option value="null" selected disabled hidden>Insurer</option>
              <option value="blueCross">Blue Cross</option>
@@ -12,6 +15,7 @@
              <option value="sureHealth">Sure Health</option>
             </select></h3>
 
+        <!--Holds all of the text to the left of the input boxes-->
         <div class="QuoteWriting">
             <h2 class="quotePrice">Prescription Drugs Quote Price: </h2>
             <h2 class="quotePrice">Dental Quote Price: </h2>
@@ -23,8 +27,9 @@
             <h2 class="quotePrice">Total Quote Price: </h2>
         </div>       
 
+
+      <!--Input boxes that have a step of 0.01 to represent prices-->
       <div class="QuoteBoxes">
-    
         <input type="number" step="0.01" id="firstBox" class="inputUserQuotes" name="prescriptionDrugs" v-model="input.prescriptionDrugs" placeholder="prescription drugs price" /><br>
         <input type="number" step="0.01" class="inputUserQuotes" name="dental" v-model="input.dental" placeholder="dental price" /><br>
         <input type="number" step="0.01" class="inputUserQuotes" id="studentAccident" name="studentAccident" v-model="input.studentAccident" placeholder="student accident price" /><br>
@@ -35,10 +40,14 @@
         <input type="number" step="0.01" class="inputUserQuotes" id="totalQuote" name="totalQuote" v-model="input.totalQuote" placeholder="term life insurance price" />
         </div>
         
+
+        <!--buttons for submitting quotes or going to home page-->
         <UserQuoteSubmit msg="Submit Quote" @click.native="submitQuote(input.Insurer, input.prescriptionDrugs, input.dental, input.studentAccident, input.VIPtravel,
                                                                                      input.hospitalCash, input.criticalIllness, input.termLifeInsurance, input.totalQuote)"/>
         <UserQuoteHome msg="Back to Home" @click.native="$router.push(`/Dashboard/${user_id}`)"/>
 
+
+        <!--Error messages that are displayed if there are problems in the form-->
         <div v-bind:class="{ noErrorInsurer: isInsurer, errorInsurer: noInsurer }">You have not chosen an Insurer.</div>
         <div v-bind:class="{ noErrorEmpty: isData, errorEmpty: noData }">You have not entered any data.</div>
         <div v-bind:class="{ noErrorNaN: isNan, errorNaN: noNan }">One of the fields is entered is not a number.</div>
@@ -48,6 +57,7 @@
 
   <script>
 
+    //imports axios and custom components for buttons
     import axios from 'axios'
     import UserQuoteSubmit from '@/components/UserQuoteSubmit.vue'
     import UserQuoteHome from '@/components/UserQuoteHome.vue'
@@ -86,7 +96,14 @@
     },
 
     methods: {
-      
+
+
+        /*This function is executed when the submit quotes button is clicked. First it disables all error messages and guarantees the inputs are
+          in floating point number notation. It checks to see if the insurer is blank, if all input fields are blank, or if any of the inputs are
+          NaN's to insure the database does not fail. The user has the option of entering the prices of individual parts of their package, their 
+          total package price, or a combination of both. If the user does not know the price of individual parts or did not have them in their 
+          personal quote, they should simply leave them as 0. If all inputs are acceptable, The data is inputted into a table into our database
+          depending on the insurer selected.*/
         submitQuote(Insurer, prescriptionDrugs, dental, studentAccident, VIPtravel, hospitalCash, criticalIllness, termLifeInsurance, totalQuote) {
         
         this.noInsurer = false;
@@ -213,14 +230,14 @@
   text-align: left;    
 }
 
-.left-gray-UserQuotes {
+.left-blue-UserQuotes {
   width: 18%;
   height: 100%;
   float: left;
   background-color: rgb(234, 249, 255);
 }
 
-.right-gray-UserQuotes {
+.right-blue-UserQuotes {
   width: 18%;
   height: 100%;
   float: right;
