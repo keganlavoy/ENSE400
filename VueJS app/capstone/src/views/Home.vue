@@ -19,7 +19,7 @@
 
 
     <!--Displays an error message if the username and password dont exist in database-->
-    <div v-bind:class="{ noErrorLogin: isUser, errorLogin: noUser }">The username and password dont match or they don't exist.</div>
+    <div v-bind:class="{ noErrorLogin: isUser, errorLogin: noUser }">The <b>Username</b> and <b>Password</b> do not match or they do not exist.</div>
 
         <!--Input boxes for username/password entry and buttons for signing in and signing up-->
         <input type="text" class="input" name="userName" v-model="input.userName" placeholder="Username" />
@@ -86,17 +86,21 @@ export default {
 <style>
 
 /*CSS to display or hide error message for user login*/
-.noErrorLogin {
-visibility: hidden;
+.noErrorLogin {  
+  margin-top: 50px;
+  visibility: hidden;
 }
 
 .errorLogin {
+  margin-top: 50px;
   visibility: visible;
   color: red;
+  font-size: 1.4vw;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .top-buffer {
-height: 5%;
+  height: 5%;
 }
 
 .welcomeLogin{
@@ -107,13 +111,13 @@ height: 5%;
 }
 
 .welcomeH1{
-  font-size: 2.0vw;
+  font-size: 2.2vw;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: black;
 }
 
 .welcomeParagraph{
-   font-size: 1.2vw;
+   font-size: 1.4vw;
    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    color: black;
 }

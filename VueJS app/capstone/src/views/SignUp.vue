@@ -18,7 +18,7 @@
       </p>
     </div>
 
-    <div v-bind:class="{ noErrorSignUp: correctPass, errorSignUp: wrongPass }">password and confirm password dont match.</div>
+    <div v-bind:class="{ noErrorSignUp: correctPass, errorSignUp: wrongPass }"><b>Password</b> and <b>Confirm Password</b> do not match.</div>
         <!--Input boxes and buttons for signup Information-->
         <input type="text" class="input" name="userName" v-model="input.userName" placeholder="Username" />
         <br>
@@ -86,33 +86,33 @@ export default {
 
 <style>
 
-.noErrorSignUp {
-visibility: hidden;
+.noErrorSignUp {  
+  margin-top: 50px;
+  visibility: hidden;
 }
 
 .errorSignUp {
+  margin-top: 50px;
   visibility: visible;
   color: red;
+  font-size: 1.4vw;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-
 
 .welcomeSignUp{
   height: 20%;
   width: 60%;
-  margin-left: 20%;
-  
-  border-radius: 1vh; 
+  margin-left: 20%;  
 }
 
 .welcomeH1{
-  font-size: 2.0vw;
+  font-size: 2.2vw;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: black;
 }
 
 .welcomeSignUpParagraph{
-   font-size: 1.2vw;
+   font-size: 1.4vw;
    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    color: black;
 }
