@@ -49,57 +49,57 @@
     <div class="insurerDivs" v-bind:key="insurer.insurer_id" v-bind:index="index" v-for="(insurer, index) in insurers"> 
 
       <div v-bind:class="{insurerLogo: index == 0, insurerLogo2: index == 1, insurerLogo3: index == 2, insurerLogo4: index == 3}"></div>
-      <div class="insurerName"><h1>Insurer: {{insurer.insurer_name}}</h1></div>
+      <div class="insurerName"><h1 class="HealthInsuranceH1">Insurer: {{insurer.insurer_name}}</h1></div>
       <div class="checkedAttributes">
         <h2>Your Selected Coverage</h2>
       </div>
       <div class="AttributePrescription">
-        <h3 class="HealthInsuranceH3">Prescription Drugs</h3>
         <div v-bind:class="{ noInsurance: insurerClassBinds[index].prescriptionNull == true, hasInsurance: insurerClassBinds[index].prescriptionNull == false, notSelected: input.prescriptionCheck == false}"></div>
+        <h3 class="HealthInsuranceH3">Prescription Drugs</h3>        
       </div>
        <div class="AttributeDental">
-        <h3 class="HealthInsuranceH3">Dental</h3>
-        <div v-bind:class="{ noInsurance: insurerClassBinds[index].dentalNull == true, hasInsurance: insurerClassBinds[index].dentalNull == false, notSelected: input.dentalCheck == false}"></div>
+         <div v-bind:class="{ noInsurance: insurerClassBinds[index].dentalNull == true, hasInsurance: insurerClassBinds[index].dentalNull == false, notSelected: input.dentalCheck == false}"></div>
+        <h3 class="HealthInsuranceH3">Dental</h3>        
       </div>
        <div class="AttributeStudent">
-        <h3 class="HealthInsuranceH3">Student Accident</h3>
-        <div v-bind:class="{ noInsurance: insurerClassBinds[index].studentNull == true, hasInsurance: insurerClassBinds[index].studentNull == false, notSelected: input.studentCheck == false}"></div>
+         <div v-bind:class="{ noInsurance: insurerClassBinds[index].studentNull == true, hasInsurance: insurerClassBinds[index].studentNull == false, notSelected: input.studentCheck == false}"></div>
+        <h3 class="HealthInsuranceH3">Student Accident</h3>        
       </div>
        <div class="AttributeTravel">
-        <h3 class="HealthInsuranceH3">VIP Travel</h3>
-        <div v-bind:class="{ noInsurance: insurerClassBinds[index].travelNull == true, hasInsurance: insurerClassBinds[index].travelNull == false, notSelected: input.travelCheck == false}"></div>
+         <div v-bind:class="{ noInsurance: insurerClassBinds[index].travelNull == true, hasInsurance: insurerClassBinds[index].travelNull == false, notSelected: input.travelCheck == false}"></div>
+        <h3 class="HealthInsuranceH3">VIP Travel</h3>        
       </div>
        <div class="AttributeHospital">
-        <h3 class="HealthInsuranceH3">Hospital Cash</h3>
-        <div v-bind:class="{ noInsurance: insurerClassBinds[index].hospitalNull == true, hasInsurance: insurerClassBinds[index].hospitalNull == false, notSelected: input.hospitalCheck == false}"></div>
+         <div v-bind:class="{ noInsurance: insurerClassBinds[index].hospitalNull == true, hasInsurance: insurerClassBinds[index].hospitalNull == false, notSelected: input.hospitalCheck == false}"></div>
+        <h3 class="HealthInsuranceH3">Hospital Cash</h3>        
       </div>
        <div class="AttributeIllness">
-        <h3 class="HealthInsuranceH3">Critical Illness</h3>
-        <div v-bind:class="{ noInsurance: insurerClassBinds[index].illnessNull == true, hasInsurance: insurerClassBinds[index].illnessNull == false, notSelected: input.illnessCheck == false}"></div>
+         <div v-bind:class="{ noInsurance: insurerClassBinds[index].illnessNull == true, hasInsurance: insurerClassBinds[index].illnessNull == false, notSelected: input.illnessCheck == false}"></div>
+        <h3 class="HealthInsuranceH3">Critical Illness</h3>        
       </div>
        <div class="AttributeLife">
-        <h3 class="HealthInsuranceH3">Term Life Insurance</h3>
-        <div v-bind:class="{ noInsurance: insurerClassBinds[index].lifeNull == true, hasInsurance: insurerClassBinds[index].lifeNull == false, notSelected: input.lifeCheck == false}"></div>
+         <div v-bind:class="{ noInsurance: insurerClassBinds[index].lifeNull == true, hasInsurance: insurerClassBinds[index].lifeNull == false, notSelected: input.lifeCheck == false}"></div>
+        <h3 class="HealthInsuranceH3">Term Life Insurance</h3>        
       </div>
 
 
       <div class="OurQuoteText">
-        <h2>Our Estimated Quote:</h2> 
+        <h2 class="HealthInsuranceH2"> Our Estimated Quote:</h2> 
       </div>
       <div class="PeopleQuoteText">
-        <h2>Average Estimate using selected features from the Community:</h2>
+        <h2 class="HealthInsuranceH2">Average Estimate using selected features from the Community:</h2>
       </div>
        <div class="PeopleQuoteTextAverage">
-        <h2>Average Estimate Quote from the Community:</h2>
+        <h2 class="HealthInsuranceH2">Average Estimate Quote from the Community:</h2>
       </div>
       <div class="OurQuotePrice">
-        <h2>${{quoteSums[index].OurQuoteSum}}</h2>
+        <h2 class="HealthInsuranceH2">${{quoteSums[index].OurQuoteSum}}</h2>
       </div>
       <div class="PeopleQuotePrice">
-        <h2>${{quoteSums[index].UserQuoteSelectedAverage}}</h2>
+        <h2 class="HealthInsuranceH2">${{quoteSums[index].UserQuoteSelectedAverage}}</h2>
       </div>
       <div class="PeopleQuotePriceAverage">
-        <h2>${{quoteSums[index].UserQuoteAverage}}</h2>
+        <h2 class="HealthInsuranceH2">${{quoteSums[index].UserQuoteAverage}}</h2>
       </div>
 
 
@@ -1145,7 +1145,7 @@ export default {
   width: 3%;
   height: 8%;
   float: left;
-  margin-top: 170px;
+  margin-top: 80px;
   margin-left: 3%;
 }
 
@@ -1153,7 +1153,7 @@ export default {
   width: 25%;
   height: 100px;
   float: left;
-  margin-top: 150px;
+  margin-top: 60px;
   margin-left: 2%;
   font-size: 16px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -1161,29 +1161,29 @@ export default {
 
 @media screen and (max-width: 1365px){
   .legendGreyDashplaceholder {
-    margin-top: 160px;
+    margin-top: 60px;
   }
 }
 
 .legendGreyDash {  
-    margin-top: 140px;
+    margin-top: 60px;
 }
 
 @media screen and (min-width: 1680px){
   .legendGreyDash {
-    margin-top: 150px;
+    margin-top: 60px;
   }
 }
 
 @media screen and (min-width: 2100px){
   .legendGreyDash {
-    margin-top: 160px;
+    margin-top: 70px;
   }
 }
 
 @media screen and (max-width: 1365px){
   .legendGreyDash {
-    margin-top: 130px;
+    margin-top: 40px;
   }
 }
 
@@ -1241,69 +1241,39 @@ export default {
   text-align: right;  
 }
 
-.AttributePrescription {
+.AttributePrescription, .AttributeDental, .AttributeStudent, .AttributeTravel, .AttributeHospital, .AttributeIllness, .AttributeLife {
   width: 25%;
   height: 8%;
   float: right;
-  margin-top: -220px;
   margin-right: 42%;
+   border: 1px solid black;
+}
+
+.AttributePrescription {  
+  margin-top: -200px;
 }
 
 .AttributeDental {
-  width: 25%;
-  height: 8%;
-  float: right;
-  margin-top: -190px;
-  margin-right: 42%;
+  margin-top: -150px;
 }
 
 .AttributeStudent {
-  width: 25%;
-  height: 8%;
-  float: right;
-  margin-top: -160px;
-  margin-right: 42%;
+  margin-top: -100px;
 }
 
 .AttributeTravel {
-  width: 25%;
-  height: 8%;
-  float: right;
-  margin-top: -130px;
-  margin-right: 42%;
-}
-
-.AttributeHospital {
-  width: 25%;
-  height: 8%;
-  float: right;
-  margin-top: -100px;
-  margin-right: 42%;
-}
-
-.AttributeIllness {
-  width: 25%;
-  height: 8%;
-  float: right;
   margin-top: -50px;
-  margin-right: 42%;
-}
-
-.AttributeLife {
-  width: 25%;
-  height: 8%;
-  float: right;
-  margin-bottom: -30px;
-  margin-right: 42%;
 }
 
 .checkedAttributes {
-  width: 25%;
+  width: 35%;
   height: 8%;
   float: right;
   margin-top: -288px;
-  margin-right: 42%;
-  text-decoration:underline; 
+  margin-right: 37%;
+  text-decoration:underline;  
+  font-size: 20px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
 .insurerName {
@@ -1314,43 +1284,43 @@ export default {
 }
 
 .insurerLogo {
-width: 200px;
-height: 200px;
-margin-top: 2%;
-margin-left: 2%;
-background-image: url(../assets/bluecross.png);
-background-size:contain;
-border: 1px solid black;
+  width: 200px;
+  height: 200px;
+  margin-top: 2%;
+  margin-left: 2%;
+  background-image: url(../assets/bluecross.png);
+  background-size:contain;
+  border: 1px solid black;
 }
 
 .insurerLogo2 {
-width: 200px;
-height: 200px;
-margin-top: 2%;
-margin-left: 2%;
-background-image: url(../assets/sunlife.jpg);
-background-size:contain;
-border: 1px solid black;
+  width: 200px;
+  height: 200px;
+  margin-top: 2%;
+  margin-left: 2%;
+  background-image: url(../assets/sunlife.jpg);
+  background-size:contain;
+  border: 1px solid black;
 }
 
 .insurerLogo3 {
-width: 200px;
-height: 200px;
-margin-top: 2%;
-margin-left: 2%;
-background-image: url(../assets/CAA.png);
-background-size:contain;
-border: 1px solid black;
+  width: 200px;
+  height: 200px;
+  margin-top: 2%;
+  margin-left: 2%;
+  background-image: url(../assets/CAA.png);
+  background-size:contain;
+  border: 1px solid black;
 }
 
 .insurerLogo4 {
-width: 200px;
-height: 200px;
-margin-top: 2%;
-margin-left: 2%;
-background-image: url(../assets/surehealth.jpg);
-background-size:contain;
-border: 1px solid black;
+  width: 200px;
+  height: 200px;
+  margin-top: 2%;
+  margin-left: 2%;
+  background-image: url(../assets/surehealth.jpg);
+  background-size:contain;
+  border: 1px solid black;
 }
 
 .insurerDivs {
@@ -1361,7 +1331,7 @@ border: 1px solid black;
   margin-bottom: 2%;
   background-image: url(../assets/InsureButtonBG1.jpg);
   background-size: cover;
-  border-radius: 5vh;
+  border-radius: 8px;
   border: 1px solid black;
 }
 
@@ -1385,7 +1355,7 @@ border: 1px solid black;
   margin-top: 4%;
   background-image: url(../assets/InsureButtonBG1.jpg);
   background-size: cover;
-  border-radius: 5vh;
+  border-radius: 8px;
   border: 1px solid black;
 }
 
@@ -1451,7 +1421,19 @@ border: 1px solid black;
 }
 
 .HealthInsuranceH3{
-  margin-left: 2%;
+  margin-left: 15%;    
+  font-size: 18px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+.HealthInsuranceH2{  
+  font-size: 22px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+.HealthInsuranceH1{ 
+  font-size: 30px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
 .noInsurance {
@@ -1459,7 +1441,7 @@ border: 1px solid black;
 	width: 30px;
 	height: 30px;
   margin-top: 10px;
-  margin-left: 5%;
+  margin-left: 2%;
 	border: 2px solid #eef5df;
 	background-color: #ff5248;
 	border-radius: 50%;
@@ -1476,7 +1458,7 @@ border: 1px solid black;
 .noInsurance::before, .noInsurance::after {
 	position: absolute;
 	top: 45%;
-	left: 21%;
+	left: 20%;
 	width: 56%;
 	height: 15%;
 	content: "";
@@ -1537,7 +1519,7 @@ border: 1px solid black;
   }
 }
 
-.notselected::before, .notSelected::after {
+.notSelected::after {
 	position: absolute;
 	top: 45%;
 	left: 21%;
@@ -1548,7 +1530,8 @@ border: 1px solid black;
 	display: block;
 }
 
-.notSelected::before {
+.notSelected::before {  
+  background-color: white;
 	-ms-transform: rotate(-45deg);
 	-webkit-transform: rotate(-45deg);
 	transform: rotate(-45deg);
