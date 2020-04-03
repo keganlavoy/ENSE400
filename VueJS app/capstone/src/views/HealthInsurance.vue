@@ -1291,10 +1291,10 @@ export default {
 }
 
 .AttributePrescription, .AttributeDental, .AttributeStudent, .AttributeTravel, .AttributeHospital, .AttributeIllness, .AttributeLife {
-  width: 25%;
+  width: 30%;
   height: 8%;
   float: right;
-  margin-right: 42%;
+  margin-right: 40%;
    border: 1px solid black;
 }
 
