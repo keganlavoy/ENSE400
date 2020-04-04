@@ -103,7 +103,7 @@
       </div>
 
       <button type="button" class="button" id="shareExp" @click="$router.push(`/UserInputQuotes/${user_id}`)">Share your experience with {{insurer.insurer_name}} here!</button>
-      <button type="button" class="button" id="gotoInsurer" @click="$router.push(`/Dashboard/${user_id}`)">Go to {{insurer.insurer_name}}'s website!</button>
+      <a v-bind:href="insurer.insurer_url"><button type="button" class="button" id="gotoInsurer"> Go to {{insurer.insurer_name}}'s website! </button></a>
       
 
       <div class="legendRedXplaceholder">

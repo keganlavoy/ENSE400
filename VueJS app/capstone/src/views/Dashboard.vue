@@ -119,6 +119,9 @@
     <div>
       <ProfileButton class="ProfileButton" @click.native="$router.push(`/ProfilePage/${user_id}`)"/>
     </div>
+    <div>
+      <logoutButton class="logoutButton" @click.native="logout()"/>
+    </div>
 </div>
 
 
@@ -130,6 +133,7 @@
 import QuoteButton from '@/components/getQuotesButton.vue'
 import CommunityButton from '@/components/CommunityButton.vue'
 import ProfileButton from '@/components/ProfileButton.vue'
+import logoutButton from '@/components/logoutButton.vue'
 
 export default {
   name: 'home',
@@ -137,6 +141,7 @@ export default {
       QuoteButton,
       CommunityButton,
       ProfileButton,
+      logoutButton
   },
 
   data() {
@@ -146,6 +151,16 @@ export default {
       msg: '',
       hover: false,
       user_id: 0
+    }
+
+  },
+
+
+  methods: {
+
+    logout() {
+      this.user_id = 0
+      this.$router.push(`/`)
     }
 
   },

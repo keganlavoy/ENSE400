@@ -1,6 +1,6 @@
 <template>
     
-<div class="ProfileButton">
+<div class="logoutButton">
 
 </div>
 
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-      name: "ProfileButton",
+      name: "logoutButton",
         props: {
 
         sidenav: Boolean
@@ -24,24 +24,24 @@ export default {
 
 <style scoped>
 
-.ProfileButton {
+.logoutButton {
 position: fixed;
 top: 1.2%;
-right: 0.4%;
+left: 0.5%;
 z-index: 1;
 width: 6%;
 height: 11.9%;
-background-image: url(../assets/ProfileIcon.png), url(../assets/bannerLogoBG.png);
+background-image: url(../assets/logoutIcon.png), url(../assets/bannerLogoBG.png);
 background-size: cover;
 background-color: white;
 border-left: 2px solid black;
 cursor: pointer;
 }
 
-#Profile {
+#logout {
 width: 5%;
 height: 5%;
-background-image: url(../assets/ProfileIcon.png), url(../assets/bannerLogoBG.png);
+background-image: url(../assets/logoutIcon.png), url(../assets/bannerLogoBG.png);
 background-size: cover;
 background-color: white;
 float: right;

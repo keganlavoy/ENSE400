@@ -19,6 +19,7 @@
     </div>
 
     <div v-bind:class="{ noErrorSignUp: correctPass, errorSignUp: wrongPass }">password and confirm password dont match.</div>
+    <div v-bind:class="{ noErrorFields: noEmptyFields, errorFields: emptyFields }">One of the below fields is empty.</div>
         <!--Input boxes and buttons for signup Information-->
         <input type="text" class="input" name="userName" v-model="input.userName" placeholder="Username" />
         <br>
@@ -52,7 +53,9 @@ export default {
                 },
 
                 wrongPass: false,
-                correctPass: true
+                correctPass: true,
+                emptyFields: false,
+                noEmptyFields: true
             }
     },
 
@@ -67,6 +70,11 @@ export default {
         if(password != confirmPass) {
             this.wrongPass = true;
             this.correctPass = false;
+        }
+
+        else if(userName == "" || password == "" || confirmPass == "") {
+          this.emptyFields = true;
+          this.noEmptyFields = false;
         }
 
         else {
@@ -91,6 +99,15 @@ visibility: hidden;
 }
 
 .errorSignUp {
+  visibility: visible;
+  color: red;
+}
+
+.noErrorFields {
+visibility: hidden;
+}
+
+.errorFields {
   visibility: visible;
   color: red;
 }
