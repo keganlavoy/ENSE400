@@ -94,13 +94,17 @@ export default {
 
 <style>
 
-.noErrorSignUp {
-visibility: hidden;
+.noErrorSignUp {  
+  margin-top: 50px;
+  visibility: hidden;
 }
 
 .errorSignUp {
+  margin-top: 50px;
   visibility: visible;
   color: red;
+  font-size: 1.4vw;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .noErrorFields {
@@ -117,19 +121,17 @@ visibility: hidden;
 .welcomeSignUp{
   height: 20%;
   width: 60%;
-  margin-left: 20%;
-  
-  border-radius: 1vh; 
+  margin-left: 20%;  
 }
 
 .welcomeH1{
-  font-size: 2.0vw;
+  font-size: 2.2vw;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: black;
 }
 
 .welcomeSignUpParagraph{
-   font-size: 1.2vw;
+   font-size: 1.4vw;
    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    color: black;
 }

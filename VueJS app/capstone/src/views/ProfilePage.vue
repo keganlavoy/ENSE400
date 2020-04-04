@@ -164,34 +164,12 @@ export default {
 
 <style>
 
-.noErrorMonth {
-visibility: hidden;
-}
-
-.errorMonth {
+.errorYear, .errorMonth, .errorDay {
   visibility: visible;
   color: red;
 }
 
-.noErrorDay {
-visibility: hidden;
-}
-
-.errorDay {
-  visibility: visible;
-  color: red;
-}
-
-.noErrorYear {
-visibility: hidden;
-}
-
-.errorYear {
-  visibility: visible;
-  color: red;
-}
-
-.noSave {
+.noErrorYear, .noErrorMonth, .noErrorDay, .noSave {
 visibility: hidden;
 }
 
@@ -200,37 +178,28 @@ visibility: hidden;
   color: black;
 }
 
-
-#children {
-    width: 10%;
+#children, #postalCode {
+  width: 10%;
 }
 
-#city {
-    width: 15%;
-}
-
-#province {
-    width: 15%;
-}
-
-#postalCode {
-    width: 10%;
+#city, #province {
+  width: 15%;
 }
 
 #homeAddress {
-    width: 35%;
+  width: 35%;
 }
 
 #DOBmonth {
-width: 5%;
+  width: 5%;
 }
 
 #DOBday {
-width: 3%;
+  width: 3%;
 }
 
 #DOByear {
-width: 4%;
+  width: 4%;
 }
 
 .mainDivProfile {

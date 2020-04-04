@@ -282,11 +282,11 @@ margin-top: 3vh;
 }
 
 .right-quotes {
-float: right;
-width: 69%;
-height: 100%;
-margin-top: 5%;
-overflow: hidden;
+  float: right;
+  width: 69%;
+  height: 380px;
+  margin-top: 5%;
+  overflow: hidden;
 }
 
 .left-community {
@@ -329,7 +329,7 @@ overflow: hidden;
 
 .InsurancePicture {
   width: 450px;
-  height: 50%;
+  height: 250px;
   float: left;
   border-radius: 7px;
   background-image: url(../assets/selection.jpg);
@@ -347,10 +347,12 @@ overflow: hidden;
 
 .ComparePicture {
    width: 50%;
-   height: 50%;
-   float: right;
+   height: 250px;
+   float: left;
+   margin-left: 50%;
+   margin-top: -250px;
    border-radius: 7px;
-   background-image: url(../assets/sampleQuoteBluecross.jpg);
+   background-image: url(../assets/sampleQuoteBluecross1.jpg);
    background-size: cover;  
 }
 
@@ -360,24 +362,31 @@ overflow: hidden;
   }
 }
 
-@media screen and (max-width: 1680px){
+@media screen and (max-width: 1919px){
   .ComparePicture {
-    width: 45%;
-    height: 50%;
+    width: 59%;
+    margin-left: 42%;
   }
 }
 
-@media screen and (max-width: 1440px){
+@media screen and (max-width: 1599px){
   .ComparePicture {
-    width: 50%;
-    height: 50%;
+    width: 38%;
+    margin-left: 55%;
   }
 }
 
-@media screen and (min-width: 1880px){
+@media screen and (max-width: 1439px){
   .ComparePicture {
-    width: 60%;
-    height: 50%;
+    width: 40%;
+    margin-left: 55%;
+  }
+}
+
+@media screen and (min-width: 1920px){
+  .ComparePicture {
+    width: 45%;    
+    margin-left: 48%;
   }
 }
 
