@@ -6,6 +6,18 @@
     <div class="left-blue-UserQuotes"></div>
     <div class="right-blue-UserQuotes"></div>
     
+
+    <div>
+      <ul>
+        <li>Below you can enter in a personal insurance quote to share with the community and help provide a more accurate quote for others.</li>
+        <li>If you know the individual prices of each part of your quote, enter those prices in their respective boxes below.</li>
+        <li>if you only know your final quote price, simply enter that price in the total quote box.</li>
+        <li>If the type of insurance listed isn't part of your package, or you don't know the individual price, leave it as 0.</li>
+      </ul>
+    </div>
+
+
+
      <!--Dropdown for choosing the insurer-->
      <h3>Choose Insurer: <select name="Insurer" class="dropdown" v-model="input.Insurer">
              <option value="null" selected disabled hidden>Insurer</option>
