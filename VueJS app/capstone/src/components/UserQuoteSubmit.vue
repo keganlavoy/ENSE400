@@ -1,6 +1,5 @@
 <template>
 
-
     <div class="UserQuoteSubmit">
     
         <span>
@@ -9,9 +8,7 @@
     
     </div>    
 
-
 </template>
-
 
 <script>
 export default {
@@ -26,6 +23,7 @@ export default {
     }
 
 }
+
 </script>
 
 <style scoped>
@@ -33,7 +31,7 @@ export default {
 h1 {
   color: rgb(11, 11, 14);
   text-align: center;
-  margin-top: 1%;
+  margin-top: 8px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
 }

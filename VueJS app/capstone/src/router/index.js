@@ -10,18 +10,7 @@ const routes = [
     name: 'home',
     component: Home
   },
-
-  {
-    path: '/HealthInsurance/:user_id',
-    name: 'HealthInsurance',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/HealthInsurance.vue')
-  },
-
-
-  
+ 
   {
     path: '/SignUp',
     name: 'SignUp',
@@ -31,68 +20,52 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/SignUp.vue')
   },
 
-
   {
     path: '/Dashboard/:user_id',
     name: 'Dashboard',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Dashboard.vue')
+    component: () => import('../views/Dashboard.vue')
   },
 
   {
     path: '/ProfilePage/:user_id',
     name: 'ProfilePage',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/ProfilePage.vue')
+    component: () => import('../views/ProfilePage.vue')
   },
 
   {
     path: '/Forum/:user_id',
     name: 'Forum',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Forum.vue')
+    component: () => import('../views/Forum.vue')
   },
 
   {
     path: '/ForumAdd/:user_id',
     name: 'ForumAdd',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/ForumAdd.vue')
+    component: () => import('../views/ForumAdd.vue')
   },
 
   {
     path: '/ForumAddreply/:user_id/:post_id/:num_replies',
     name: 'ForumAddReply',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/ForumAddReply.vue')
+    component: () => import('../views/ForumAddReply.vue')
   },
 
   {
     path: '/ForumReplies/:user_id/:post_id',
     name: 'ForumReplies',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/ForumReplies.vue')
+    component: () => import('../views/ForumReplies.vue')
+  },
+
+  {
+    path: '/HealthInsurance/:user_id',
+    name: 'HealthInsurance',
+    component: () => import('../views/HealthInsurance.vue')
   },
 
   {
     path: '/UserInputQuotes/:user_id',
     name: 'UserInputQuotes',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/UserInputQuotes.vue')
+    component: () => import('../views/UserInputQuotes.vue')
   },
 ]
 

@@ -328,11 +328,11 @@ overflow: hidden;
 }
 
 .InsurancePicture {
-  width: 450px;
+  width: 460px;
   height: 250px;
   float: left;
   border-radius: 7px;
-  background-image: url(../assets/selection.jpg);
+  background-image: url(../assets/selection1.jpg);
   background-size: cover;  
 }
 
@@ -354,6 +354,12 @@ overflow: hidden;
    border-radius: 7px;
    background-image: url(../assets/sampleQuoteBluecross1.jpg);
    background-size: cover;  
+}
+
+@media screen and (max-width: 1365px){
+  .InsurancePicture {
+    height: 260px;
+  }
 }
 
 @media screen and (max-width: 1365px){

@@ -50,13 +50,12 @@
 
       <!--Instructions for the user that help them search for quotes-->
       <div>
+      <br><br>
+      <div class="MainHealthInsuranceH3">
         Choose the coverage you would like to search for above and click the <b>Search Insurance Brokers</b> button to get quotes.
         If you would like to search for different types of insurance, adjust your options above and and click the <b>Search Insurance Brokers</b>
         button again to receive your updated quotes.
       </div>
-
-
-
     </div>
 
     <!--These are repeating divs created by a v-for loop that display all of the insurance providers that we have in the insurers table. 
@@ -68,7 +67,6 @@
         website. All of the elements are displayed in the div by using the v-bind:class directive which allows you to dynamically set a CSS class to an 
         element based on the truth value of a variable.-->
     <div class="insurerDivs" v-bind:key="insurer.insurer_id" v-bind:index="index" v-for="(insurer, index) in insurers"> 
-
       <div v-bind:class="{insurerLogo: index == 0, insurerLogo2: index == 1, insurerLogo3: index == 2, insurerLogo4: index == 3}"></div>
       <div class="insurerName"><h1 class="HealthInsuranceH1">Insurer: {{insurer.insurer_name}}</h1></div>
       <div class="checkedAttributes">
@@ -103,7 +101,6 @@
         <h3 class="HealthInsuranceH3">Term Life Insurance</h3>        
       </div>
 
-
       <div class="OurQuoteText">
         <h2 class="HealthInsuranceH2"> Our Estimated Quote:</h2> 
       </div>
@@ -122,15 +119,13 @@
       <div class="PeopleQuotePriceAverage">
         <h2 class="HealthInsuranceH2">${{quoteSums[index].UserQuoteAverage}}</h2>
       </div>
-
       <button type="button" class="button" id="shareExp" @click="$router.push(`/UserInputQuotes/${user_id}`)">Share your experience with {{insurer.insurer_name}} here!</button>
       <a v-bind:href="insurer.insurer_url"><button type="button" class="button" id="gotoInsurer"> Go to {{insurer.insurer_name}}'s website! </button></a>
       
-
       <div class="legendRedXplaceholder">
         <div class="noInsurance"></div>
       </div>
-
+      
       <div class="legendRedX">
         <h4> - You selected this option, but we do not have access to the providers data for this type of insurance</h4>
       </div>
@@ -149,19 +144,13 @@
 
        <div class="legendGreyDash">
         <h4> - You did not select this coverage type to be searched</h4>
-      </div>
-     
+      </div>     
     </div>
     
     <div class="getQuotesFooter">
-
     </div>
-
   </div>
 </template>
-
-
-
 
 <script>
 
@@ -173,7 +162,6 @@ export default {
 
  name: 'HealthInsurance',
   components: {
-
     
   },
 
@@ -195,7 +183,6 @@ export default {
         hospitalCheck: false,
         illnessCheck: false,
         lifeCheck: false
-
       },
 
       /*The insurers array is where we store the results retrieved from the database on page load.
@@ -294,8 +281,6 @@ export default {
         },
       ],
 
-
-
       user_id: 0,
       msg: '',
       hover: false,
@@ -328,10 +313,8 @@ export default {
       blueCrossCount: 0,
       sunlifeCount: 0,
       caaCount: 0,
-      sureHealthCount: 0,
-      
+      sureHealthCount: 0,   
      
-
     }
 
   },
@@ -343,6 +326,7 @@ export default {
   
     /*This function retrieves the quote prices that we have gathered and puts the results in the
       insurers table.*/
+    
     axios.get(`http://162.253.11.179:3000/getInsurers`)
     .then((res) => {
     this.insurers = res.data;
@@ -380,6 +364,7 @@ export default {
       added to the quote price and a checkmark is displayed in the browser representing that we have that data. If we do not have 
       data, the price isn't updated and a red x is shown in the browser representing that we don't have data. */
     if(this.input.prescriptionCheck) {
+
       if(this.insurers[0].prescription_drugs != null) {
       this.bluecross_sum = this.bluecross_sum + this.insurers[0].prescription_drugs;
       this.insurerClassBinds[0].prescriptionNull = false;
@@ -417,8 +402,8 @@ export default {
 
 
 
-     /*Each input option is checked and the prices are updated accordingly.*/
-     if(this.input.dentalCheck) {
+    /*Each input option is checked and the prices are updated accordingly.*/
+    if(this.input.dentalCheck) {
       if(this.insurers[0].dental != null) {
       this.bluecross_sum = this.bluecross_sum + this.insurers[0].dental;
       this.insurerClassBinds[0].dentalNull = false;
@@ -426,7 +411,6 @@ export default {
       else {
         this.insurerClassBinds[0].dentalNull = true;
       }
-
 
       if(this.insurers[1].dental != null) {
       this.sunlife_sum = this.sunlife_sum + this.insurers[1].dental;
@@ -436,7 +420,6 @@ export default {
         this.insurerClassBinds[1].dentalNull = true;
       }
 
-
       if(this.insurers[2].dental != null) {
       this.CAA_sum = this.CAA_sum + this.insurers[2].dental;
       this.insurerClassBinds[2].dentalNull = false;
@@ -444,7 +427,6 @@ export default {
       else {
         this.insurerClassBinds[2].dentalNull = true;
       }
-
 
       if(this.insurers[3].dental != null) {
       this.sureHealth_sum = this.sureHealth_sum + this.insurers[3].dental;
@@ -455,10 +437,7 @@ export default {
       }
     }
 
-
-
-
-     if(this.input.studentCheck) {
+    if(this.input.studentCheck) {
       if(this.insurers[0].student_accident != null) {
       this.bluecross_sum = this.bluecross_sum + this.insurers[0].student_accident;
       this.insurerClassBinds[0].studentNull = false;
@@ -466,7 +445,6 @@ export default {
       else {
         this.insurerClassBinds[0].studentNull = true;
       }
-
 
       if(this.insurers[1].student_accident != null) {
       this.sunlife_sum = this.sunlife_sum + this.insurers[1].student_accident;
@@ -476,7 +454,6 @@ export default {
         this.insurerClassBinds[1].studentNull = true;
       }
 
-
       if(this.insurers[2].student_accident != null) {
       this.CAA_sum = this.CAA_sum + this.insurers[2].student_accident;
       this.insurerClassBinds[2].studentNull = false;
@@ -484,7 +461,6 @@ export default {
       else {
         this.insurerClassBinds[2].studentNull = true;
       }
-
 
       if(this.insurers[3].student_accident != null) {
       this.sureHealth_sum = this.sureHealth_sum + this.insurers[3].student_accident;
@@ -495,8 +471,6 @@ export default {
       }
     }
 
-
-
     if(this.input.travelCheck) {
       if(this.insurers[0].vip_travel != null) {
       this.bluecross_sum = this.bluecross_sum + this.insurers[0].vip_travel;
@@ -506,7 +480,6 @@ export default {
         this.insurerClassBinds[0].travelNull = true;
       }
 
-
       if(this.insurers[1].vip_travel != null) {
       this.sunlife_sum = this.sunlife_sum + this.insurers[1].vip_travel;
       this.insurerClassBinds[1].travelNull = false;
@@ -515,7 +488,6 @@ export default {
         this.insurerClassBinds[1].travelNull = true;
       }
 
-
       if(this.insurers[2].vip_travel != null) {
       this.CAA_sum = this.CAA_sum + this.insurers[2].vip_travel;
       this.insurerClassBinds[2].travelNull = false;
@@ -523,7 +495,6 @@ export default {
       else {
         this.insurerClassBinds[2].travelNull = true;
       }
-
 
       if(this.insurers[3].vip_travel != null) {
       this.sureHealth_sum = this.sureHealth_sum + this.insurers[3].vip_travel;
@@ -534,8 +505,7 @@ export default {
       }
     }
 
-
-     if(this.input.hospitalCheck) {
+    if(this.input.hospitalCheck) {
       if(this.insurers[0].hospital_cash != null) {
       this.bluecross_sum = this.bluecross_sum + this.insurers[0].hospital_cash;
       this.insurerClassBinds[0].hospitalNull = false;
@@ -543,7 +513,6 @@ export default {
       else {
         this.insurerClassBinds[0].hospitalNull = true;
       }
-
 
       if(this.insurers[1].hospital_cash != null) {
       this.sunlife_sum = this.sunlife_sum + this.insurers[1].hospital_cash;
@@ -553,7 +522,6 @@ export default {
         this.insurerClassBinds[1].hospitalNull = true;
       }
 
-
       if(this.insurers[2].hospital_cash != null) {
       this.CAA_sum = this.CAA_sum + this.insurers[2].hospital_cash;
       this.insurerClassBinds[2].hospitalNull = false;
@@ -561,7 +529,6 @@ export default {
       else {
         this.insurerClassBinds[2].hospitalNull = true;
       }
-
 
       if(this.insurers[3].hospital_cash != null) {
       this.sureHealth_sum = this.sureHealth_sum + this.insurers[3].hospital_cash;
@@ -572,8 +539,6 @@ export default {
       }
     }
 
-
-
     if(this.input.illnessCheck) {
       if(this.insurers[0].critical_illness != null) {
       this.bluecross_sum = this.bluecross_sum + this.insurers[0].critical_illness;
@@ -582,7 +547,6 @@ export default {
       else {
         this.insurerClassBinds[0].illnessNull = true;
       }
-
 
       if(this.insurers[1].critical_illness != null) {
       this.sunlife_sum = this.sunlife_sum + this.insurers[1].critical_illness;
@@ -610,8 +574,7 @@ export default {
       }
     }
 
-
-   if(this.input.lifeCheck) {
+    if(this.input.lifeCheck) {
       if(this.insurers[0].term_life_insurance != null) {
       this.bluecross_sum = this.bluecross_sum + this.insurers[0].term_life_insurance;
       this.insurerClassBinds[0].lifeNull = false;
@@ -627,7 +590,6 @@ export default {
       else {
         this.insurerClassBinds[1].lifeNull = true;
       }
-
 
       if(this.insurers[2].term_life_insurance != null) {
       this.CAA_sum = this.CAA_sum + this.insurers[2].term_life_insurance;
@@ -680,7 +642,6 @@ export default {
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2);
       this.bluecross_UserQuote_sum += parseFloat(tempAverage);
 
-  
       counter = 0;
       tempAverage = 0.0;
 
@@ -692,7 +653,6 @@ export default {
       }
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2);
       this.sunlife_UserQuote_sum += parseFloat(tempAverage);
-
 
       counter = 0
       tempAverage = 0
@@ -706,7 +666,6 @@ export default {
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.CAA_UserQuote_sum += parseFloat(tempAverage)
 
-
       counter = 0
       tempAverage = 0
 
@@ -718,20 +677,12 @@ export default {
       }
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.sureHealth_UserQuote_sum += parseFloat(tempAverage)
-
-    }
-    
-
-
+    } 
 
       tempAverage = 0.0
       counter = 0
 
-    
-
     if(this.input.dentalCheck) {
-
-
 
       for(let i = 0; i < this.blueCrossCount; i++) {
         if(this.user_quotes_blue_cross[i].dental != 0) {
@@ -741,8 +692,6 @@ export default {
       }
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.bluecross_UserQuote_sum += parseFloat(tempAverage)
-
-
 
       counter = 0
       tempAverage = 0
@@ -756,7 +705,6 @@ export default {
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.sunlife_UserQuote_sum += parseFloat(tempAverage)
 
-
       counter = 0
       tempAverage = 0
 
@@ -768,7 +716,6 @@ export default {
       }
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.CAA_UserQuote_sum += parseFloat(tempAverage)
-
 
       counter = 0
       tempAverage = 0
@@ -782,9 +729,6 @@ export default {
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.sureHealth_UserQuote_sum += parseFloat(tempAverage)
     }
-
-
-
 
     tempAverage = 0.0
     counter = 0
@@ -800,8 +744,6 @@ export default {
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.bluecross_UserQuote_sum += parseFloat(tempAverage)
 
-
-
       counter = 0
       tempAverage = 0
 
@@ -813,7 +755,6 @@ export default {
       }
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.sunlife_UserQuote_sum += parseFloat(tempAverage)
-
 
       counter = 0
       tempAverage = 0
@@ -827,7 +768,6 @@ export default {
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.CAA_UserQuote_sum += parseFloat(tempAverage)
 
-
       counter = 0
       tempAverage = 0
 
@@ -839,9 +779,7 @@ export default {
       }
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.sureHealth_UserQuote_sum += parseFloat(tempAverage)
-
     }
-
 
     tempAverage = 0.0
     counter = 0
@@ -857,8 +795,6 @@ export default {
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.bluecross_UserQuote_sum += parseFloat(tempAverage)
 
-
-
       counter = 0
       tempAverage = 0
 
@@ -870,7 +806,6 @@ export default {
       }
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.sunlife_UserQuote_sum += parseFloat(tempAverage)
-
 
       counter = 0
       tempAverage = 0
@@ -895,9 +830,7 @@ export default {
       }
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.sureHealth_UserQuote_sum += parseFloat(tempAverage)
-
     }
-
 
     tempAverage = 0.0
     counter = 0
@@ -912,8 +845,6 @@ export default {
       }
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.bluecross_UserQuote_sum += parseFloat(tempAverage)
-
-
 
       counter = 0
       tempAverage = 0
@@ -939,7 +870,6 @@ export default {
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.CAA_UserQuote_sum += parseFloat(tempAverage)
 
-
       counter = 0
       tempAverage = 0
 
@@ -951,9 +881,7 @@ export default {
       }
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.sureHealth_UserQuote_sum += parseFloat(tempAverage)
-
     }
-
 
     tempAverage = 0.0
     counter = 0
@@ -969,8 +897,6 @@ export default {
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.bluecross_UserQuote_sum += parseFloat(tempAverage)
 
-
-
       counter = 0
       tempAverage = 0
 
@@ -982,7 +908,6 @@ export default {
       }
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.sunlife_UserQuote_sum += parseFloat(tempAverage)
-
 
       counter = 0
       tempAverage = 0
@@ -996,7 +921,6 @@ export default {
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.CAA_UserQuote_sum += parseFloat(tempAverage)
 
-
       counter = 0
       tempAverage = 0
 
@@ -1008,9 +932,7 @@ export default {
       }
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.sureHealth_UserQuote_sum += parseFloat(tempAverage)
-
     }
-
 
     tempAverage = 0.0
     counter = 0
@@ -1026,8 +948,6 @@ export default {
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.bluecross_UserQuote_sum += parseFloat(tempAverage)
 
-
-
       counter = 0
       tempAverage = 0
 
@@ -1039,7 +959,6 @@ export default {
       }
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.sunlife_UserQuote_sum += parseFloat(tempAverage)
-
 
       counter = 0
       tempAverage = 0
@@ -1053,7 +972,6 @@ export default {
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.CAA_UserQuote_sum += parseFloat(tempAverage)
 
-
       counter = 0
       tempAverage = 0
 
@@ -1065,7 +983,6 @@ export default {
       }
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.sureHealth_UserQuote_sum += parseFloat(tempAverage)
-
     }
 
 
@@ -1074,11 +991,7 @@ export default {
     this.quoteSums[1].UserQuoteSelectedAverage = this.sunlife_UserQuote_sum.toFixed(2)
     this.quoteSums[2].UserQuoteSelectedAverage = this.CAA_UserQuote_sum.toFixed(2)
     this.quoteSums[3].UserQuoteSelectedAverage = this.sureHealth_UserQuote_sum.toFixed(2)
-
-  
     })
-
-
 
     .catch(err => {throw err;});
 
@@ -1121,7 +1034,6 @@ export default {
       this.quoteSums[0].UserQuoteAverage = this.bluecross_UserQuote_total
     })
     .catch(err => {throw err;});
-
 
 
     axios.get(`http://162.253.11.179:3000/getUserQuotesSunlife`)
@@ -1169,7 +1081,6 @@ export default {
     .catch(err => {throw err;});
 
 
-
     axios.get(`http://162.253.11.179:3000/getUserQuotesSureHealth`)
     .then(res => this.user_quotes_sure_health = res.data)
     .catch(err => {throw err;});
@@ -1191,16 +1102,17 @@ export default {
     })
     .catch(err => {throw err;});
 
-
-
-
   }
 
 }
 </script>
 
-
 <style scoped>
+
+.MainHealthInsuranceH3, .HealthInsuranceH3, .HealthInsuranceH2, .HealthInsuranceH1, .checkedAttributes,
+.legendRedX, .legendGreenCheck, .legendGreyDash, .selectCoverage, .coreHealth, .container {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
 
 .legendRedXplaceholder, .legendGreenCheckplaceholder, .legendGreyDashplaceholder {
   width: 3%;
@@ -1217,7 +1129,6 @@ export default {
   margin-top: 20px;
   margin-left: 2%;
   font-size: 16px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 @media screen and (max-width: 1366px){
@@ -1248,7 +1159,7 @@ export default {
   }
 }
 
-.PeopleQuotePriceAverage {
+.PeopleQuotePriceAverage, .PeopleQuotePrice, .OurQuotePrice {
   width: 8%;
   height: 8%;
   float: right;
@@ -1264,21 +1175,11 @@ export default {
 }
 
 .PeopleQuotePrice {
-  width: 8%;
-  height: 8%;
-  float: right;
-  margin-top: -290px;
-  margin-right: 3%;
-  text-align: left; 
+  margin-top: -290px; 
 }
 
 .OurQuotePrice {
-  width: 8%;
-  height: 8%;
-  float: right;
   margin-top: -360px;
-  margin-right: 3%;
-  text-align: left;  
 }
 
 @media screen and (max-width: 1365px){
@@ -1287,7 +1188,7 @@ export default {
   }
 }
 
-.OurQuoteText {
+.OurQuoteText, .PeopleQuoteText, .PeopleQuoteTextAverage {
   width: 25%;
   height: 8%;
   float: right;
@@ -1303,21 +1204,11 @@ export default {
 }
 
 .PeopleQuoteText {
-  width: 25%;
-  height: 8%;
-  float: right;
-  margin-top: -320px;
-  margin-right: 12%;
-  text-align: right;  
+  margin-top: -320px; 
 }
 
 .PeopleQuoteTextAverage {
-  width: 25%;
-  height: 8%;
-  float: right;
   margin-top: -220px;
-  margin-right: 12%;
-  text-align: right;  
 }
 
 @media screen and (max-width: 1365px){
@@ -1326,7 +1217,7 @@ export default {
   }
 }
 
-#shareExp {
+#shareExp, #gotoInsurer {
   float: right;
   margin-top: -100px;
   margin-right: 6%;
@@ -1334,10 +1225,7 @@ export default {
 }
 
 #gotoInsurer {
-  float: right;
   margin-top: -40px;
-  margin-right: 6%;
-  width: 30%;
 }
 
 @media screen and (max-width: 1365px){
@@ -1407,7 +1295,6 @@ export default {
   margin-right: 37%;
   text-decoration:underline;  
   font-size: 20px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
 .insurerName {
@@ -1416,44 +1303,29 @@ export default {
   margin-top: 2%;
 }
 
-.insurerLogo {
+.insurerLogo, .insurerLogo2, .insurerLogo3, .insurerLogo4 {
   width: 200px;
   height: 200px;
   margin-top: 2%;
   margin-left: 2%;
-  background-image: url(../assets/bluecross.png);
   background-size:contain;
   border: 1px solid black;
+}
+
+.insurerLogo {
+  background-image: url(../assets/bluecross.png);
 }
 
 .insurerLogo2 {
-  width: 200px;
-  height: 200px;
-  margin-top: 2%;
-  margin-left: 2%;
   background-image: url(../assets/sunlife.jpg);
-  background-size:contain;
-  border: 1px solid black;
 }
 
 .insurerLogo3 {
-  width: 200px;
-  height: 200px;
-  margin-top: 2%;
-  margin-left: 2%;
   background-image: url(../assets/CAA.png);
-  background-size:contain;
-  border: 1px solid black;
 }
 
 .insurerLogo4 {
-  width: 200px;
-  height: 200px;
-  margin-top: 2%;
-  margin-left: 2%;
   background-image: url(../assets/surehealth.jpg);
-  background-size:contain;
-  border: 1px solid black;
 }
 
 .insurerDivs {
@@ -1470,20 +1342,25 @@ export default {
 
 .coreHealth {
   left: 0%;
-  font-size: 26px;
+  font-size: 22px;
   text-align: center;
   margin-left: 5%;
+}
+
+@media screen and (min-width: 1366px){
+  .coreHealth{
+    font-size: 26px;
+  }
 }
 
 .selectCoverage {
   text-align: center;
   text-decoration: underline;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .center {
   width: 80%;
-  height: 650px;
+  height: 750px;
   margin-left: 12%;
   margin-top: 4%;
   background-image: url(../assets/InsureButtonBG1.jpg);
@@ -1553,20 +1430,25 @@ export default {
   transform: rotate(45deg);
 }
 
+.MainHealthInsuranceH3 {
+  font-size: 18px;
+}
+
 .HealthInsuranceH3{
   margin-left: 15%;    
   font-size: 18px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+.noInsurance + .HealthInsuranceH3{
+  margin-top: -30px;
 }
 
 .HealthInsuranceH2{  
   font-size: 22px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
 .HealthInsuranceH1{ 
   font-size: 30px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
 .noInsurance {
@@ -1696,4 +1578,3 @@ export default {
 }
 
 </style>
-

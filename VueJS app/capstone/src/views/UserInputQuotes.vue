@@ -1,25 +1,19 @@
 <template>
   <div class="mainDivUserQuotes">
     
-
     <!--Creates blue side bars-->
     <div class="left-blue-UserQuotes"></div>
     <div class="right-blue-UserQuotes"></div>
     
-
-    <div>
-      <ul>
-        <li>Below you can enter in a personal insurance quote to share with the community and help provide a more accurate quote for others.</li>
-        <li>If you know the individual prices of each part of your quote, enter those prices in their respective boxes below.</li>
-        <li>if you only know your final quote price, simply enter that price in the total quote box.</li>
-        <li>If the type of insurance listed isn't part of your package, or you don't know the individual price, leave it as 0.</li>
-      </ul>
+    <div id="instructions">
+      <p class="instructions">Below you can enter in a personal insurance quote to share with the community and help provide a more accurate quote for others.</p>
+      <p class="instructions">If you know the individual prices of each part of your quote, enter those prices in their respective boxes below.</p>
+      <p class="instructions">If you only know your final quote price, simply enter that price in the total quote box.</p>
+      <p class="instructions">If the type of insurance listed is not part of your package, or you do not know the individual price, leave it as 0.</p>
     </div>
 
-
-
      <!--Dropdown for choosing the insurer-->
-     <h3>Choose Insurer: <select name="Insurer" class="dropdown" v-model="input.Insurer">
+     <h3 class="quotePriceTitle">Choose Insurer: <select name="Insurer" class="dropdown" v-model="input.Insurer">
              <option value="null" selected disabled hidden>Insurer</option>
              <option value="blueCross">Blue Cross</option>
              <option value="sunlife">Sunlife</option>
@@ -37,8 +31,7 @@
             <h2 class="quotePrice">Critical Illness Quote Price: </h2>
             <h2 class="quotePrice">Term Life Insurance Quote Price: </h2>
             <h2 class="quotePrice">Total Quote Price: </h2>
-        </div>       
-
+        </div>   
 
       <!--Input boxes that have a step of 0.01 to represent prices-->
       <div class="QuoteBoxes">
@@ -52,18 +45,15 @@
         <input type="number" step="0.01" class="inputUserQuotes" id="totalQuote" name="totalQuote" v-model="input.totalQuote" placeholder="term life insurance price" />
         </div>
         
-
         <!--buttons for submitting quotes or going to home page-->
         <UserQuoteSubmit msg="Submit Quote" @click.native="submitQuote(input.Insurer, input.prescriptionDrugs, input.dental, input.studentAccident, input.VIPtravel,
                                                                                      input.hospitalCash, input.criticalIllness, input.termLifeInsurance, input.totalQuote)"/>
         <UserQuoteHome msg="Back to Home" @click.native="$router.push(`/Dashboard/${user_id}`)"/>
 
-
         <!--Error messages that are displayed if there are problems in the form-->
         <div v-bind:class="{ noErrorInsurer: isInsurer, errorInsurer: noInsurer }">You have not chosen an Insurer.</div>
         <div v-bind:class="{ noErrorEmpty: isData, errorEmpty: noData }">You have not entered any data.</div>
-        <div v-bind:class="{ noErrorNaN: isNan, errorNaN: noNan }">One of the fields is entered is not a number.</div>
-      
+        <div v-bind:class="{ noErrorNaN: isNan, errorNaN: noNan }">One of the fields is entered is not a number.</div>  
     </div>
 </template>
 
@@ -108,7 +98,6 @@
     },
 
     methods: {
-
 
         /*This function is executed when the submit quotes button is clicked. First it disables all error messages and guarantees the inputs are
           in floating point number notation. It checks to see if the insurer is blank, if all input fields are blank, or if any of the inputs are
@@ -196,10 +185,20 @@
 
 <style>
 
-.quotePrice{
+#instructions {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.instructions, .quotePriceTitle, .quotePrice, .errorInsurer, .errorEmpty, .errorNaN {
   font-size: 20px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: black;
+}
+
+.instructions {
+  font-size: 18px;
+}
+
+.quotePrice{
   text-align: left; 
 }
 
@@ -242,7 +241,7 @@
   text-align: left;    
 }
 
-.left-blue-UserQuotes {
+.left-blue-UserQuotes, .right-blue-UserQuotes {
   width: 18%;
   height: 100%;
   float: left;
@@ -250,16 +249,13 @@
 }
 
 .right-blue-UserQuotes {
-  width: 18%;
-  height: 100%;
   float: right;
-  background-color: rgb(234, 249, 255);
 }
 
 .mainDivUserQuotes {
   background-size: cover;
   background-color: white;
-  height: 700px;
+  height: 950px;
   width: 100%;
   overflow: auto;
   -ms-overflow-style: none;
@@ -271,40 +267,22 @@
   scrollbar-width: none;
 }
 
-.noErrorInsurer {
+.noErrorInsurer, .noErrorEmpty, .noErrorNaN {
 visibility: hidden;
 }
 
-.errorInsurer {
+.errorInsurer, .errorEmpty, .errorNaN {
   margin-top: 10px;
   visibility: visible;
   color: red;
-  font-size: 20px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.noErrorEmpty {
-visibility: hidden;
 }
 
 .errorEmpty {
   margin-top: -10px;
-  visibility: visible;
-  color: red;
-  font-size: 20px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.noErrorNaN {
-visibility: hidden;
 }
 
 .errorNaN {
   margin-top: -22px;
-  visibility: visible;
-  color: red;
-  font-size: 20px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 </style>
