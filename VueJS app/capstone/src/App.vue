@@ -45,26 +45,14 @@ text-align: center;
   position: -ms-page;
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
   height: 12%;
   width: 100%;
   background-image: url(assets/CareCompareBanner3.png);
   background-size: cover;
   overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  z-index: 0;  
+  z-index: 0;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #1e5fa0;  
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-
 
 /*This sets the size and color of the main div for all pages. 
   overflow is set to auto to allow scrolling if pages are bigger than 100%. 
@@ -87,7 +75,7 @@ text-align: center;
 
 
 /*left-blue and right-blue are the side blocks on the profile page*/
-.left-blue {
+.left-blue, .right-blue {
   width: 18%;
   height: 120%;
   float: left;
@@ -95,10 +83,7 @@ text-align: center;
 }
 
 .right-blue {
-  width: 18%;
-  height: 120%;
   float: right;
-  background-color: rgb(234, 249, 255);
 }
 
 /*input is the styling of our input boxes on all pages*/
@@ -115,7 +100,8 @@ text-align: center;
 }
 
 /*button is the styling for all standard buttons on all pages*/
-.button {
+.button, .dropdown {  
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f1f1f1;
   color: black;
   font-size: 16px;
@@ -125,7 +111,7 @@ text-align: center;
   border-radius: 7px;
 }
 
-.button:hover {
+.button:hover, .dropdown:hover {
   background-color: black;
   color: white;
 }
@@ -134,17 +120,7 @@ text-align: center;
 /*dropdown is the styling on all dropdown boxes on all pages*/
 .dropdown {
   background-color: white;
-  color: black;
   padding: 5px;
-  font-size: 16px;
-  outline: none;
-  cursor: pointer;
-  border-radius: 7px;
-}
-
-.dropdown:hover {
-  background-color: black;
-  color: white;
 }
 
 </style>

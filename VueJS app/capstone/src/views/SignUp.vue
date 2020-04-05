@@ -18,7 +18,7 @@
       </p>
     </div>
 
-    <div v-bind:class="{ noErrorSignUp: correctPass, errorSignUp: wrongPass }">password and confirm password dont match.</div>
+    <div v-bind:class="{ noErrorSignUp: correctPass, errorSignUp: wrongPass }"><b>Password</b> and <b>confirm password</b> dont match.</div>
     <div v-bind:class="{ noErrorFields: noEmptyFields, errorFields: emptyFields }">One of the below fields is empty.</div>
         <!--Input boxes and buttons for signup Information-->
         <input type="text" class="input" name="userName" v-model="input.userName" placeholder="Username" />
@@ -72,14 +72,26 @@ export default {
             this.correctPass = false;
         }
 
-        else if(userName == "" || password == "" || confirmPass == "") {
+        if(userName == "" || password == "" || confirmPass == "") {
           this.emptyFields = true;
           this.noEmptyFields = false;
         }
 
-        else {
+        if(userName != "" && password != "" && confirmPass != "") {
+          this.emptyFields = false;
+          this.noEmptyFields = true;
+        }
+
+        if(password == confirmPass) {
+            this.wrongPass = false;
+            this.correctPass = true;
+        }
+
+        if(userName != "" && password != "" && confirmPass != "" && password == confirmPass) {
           this.wrongPass = false;
           this.correctPass = true;
+          this.emptyFields = false;
+          this.noEmptyFields = true;
        
         axios.post(`http://162.253.11.179:3000/addUser/${userName}/${password}`)
         .then(res => this.input = res.data[0])
@@ -94,29 +106,21 @@ export default {
 
 <style>
 
-.noErrorSignUp {  
-  margin-top: 50px;
-  visibility: hidden;
-}
-
-.errorSignUp {
-  margin-top: 50px;
-  visibility: visible;
-  color: red;
-  font-size: 1.4vw;
+.errorSignUp, .errorFields, .welcomeH1, .welcomeSignUpParagraph {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.noErrorFields {
-visibility: hidden;
+.noErrorSignUp, .noErrorFields {  
+  margin-top: 40px;
+  visibility: hidden;
 }
 
-.errorFields {
+.errorSignUp, .errorFields {
+  margin-top: 40px;
   visibility: visible;
   color: red;
+  font-size: 1.4vw;
 }
-
-
 
 .welcomeSignUp{
   height: 20%;
@@ -126,14 +130,10 @@ visibility: hidden;
 
 .welcomeH1{
   font-size: 2.2vw;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: black;
 }
 
 .welcomeSignUpParagraph{
    font-size: 1.4vw;
-   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   color: black;
 }
 
 </style>

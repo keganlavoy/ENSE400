@@ -86,6 +86,10 @@ export default {
 <style>
 
 /*CSS to display or hide error message for user login*/
+.errorLogin, .welcomeH1, .welcomeParagraph {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .noErrorLogin {  
   margin-top: 50px;
   visibility: hidden;
@@ -96,7 +100,6 @@ export default {
   visibility: visible;
   color: red;
   font-size: 1.4vw;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .top-buffer {
@@ -112,14 +115,10 @@ export default {
 
 .welcomeH1{
   font-size: 2.2vw;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: black;
 }
 
 .welcomeParagraph{
    font-size: 1.4vw;
-   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   color: black;
 }
 
 </style>
