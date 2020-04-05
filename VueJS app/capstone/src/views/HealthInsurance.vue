@@ -43,8 +43,8 @@
       <br>
       <button type="button" class="button" @click="getInsurers()">Search Insurance Brokers</button>
       <button type="button" class="button" @click="$router.push(`/Dashboard/${user_id}`)">Back to dashboard</button>
-
-      <div>
+      <br><br>
+      <div class="MainHealthInsuranceH3">
         Choose the coverage you would like to search for above and click the <b>Search Insurance Brokers</b> button to get quotes.
         If you would like to search for different types of insurance, adjust your options above and and click the <b>Search Insurance Brokers</b>
         button again to receive your updated quotes.
@@ -1149,6 +1149,11 @@ export default {
 
 <style scoped>
 
+.MainHealthInsuranceH3, .HealthInsuranceH3, .HealthInsuranceH2, .HealthInsuranceH1, .checkedAttributes,
+.legendRedX, .legendGreenCheck, .legendGreyDash, .selectCoverage, .coreHealth, .container {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
 .legendRedXplaceholder, .legendGreenCheckplaceholder, .legendGreyDashplaceholder {
   width: 3%;
   height: 8%;
@@ -1164,7 +1169,6 @@ export default {
   margin-top: 20px;
   margin-left: 2%;
   font-size: 16px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 @media screen and (max-width: 1366px){
@@ -1195,7 +1199,7 @@ export default {
   }
 }
 
-.PeopleQuotePriceAverage {
+.PeopleQuotePriceAverage, .PeopleQuotePrice, .OurQuotePrice {
   width: 8%;
   height: 8%;
   float: right;
@@ -1211,21 +1215,11 @@ export default {
 }
 
 .PeopleQuotePrice {
-  width: 8%;
-  height: 8%;
-  float: right;
-  margin-top: -290px;
-  margin-right: 3%;
-  text-align: left; 
+  margin-top: -290px; 
 }
 
 .OurQuotePrice {
-  width: 8%;
-  height: 8%;
-  float: right;
   margin-top: -360px;
-  margin-right: 3%;
-  text-align: left;  
 }
 
 @media screen and (max-width: 1365px){
@@ -1234,7 +1228,7 @@ export default {
   }
 }
 
-.OurQuoteText {
+.OurQuoteText, .PeopleQuoteText, .PeopleQuoteTextAverage {
   width: 25%;
   height: 8%;
   float: right;
@@ -1250,21 +1244,11 @@ export default {
 }
 
 .PeopleQuoteText {
-  width: 25%;
-  height: 8%;
-  float: right;
-  margin-top: -320px;
-  margin-right: 12%;
-  text-align: right;  
+  margin-top: -320px; 
 }
 
 .PeopleQuoteTextAverage {
-  width: 25%;
-  height: 8%;
-  float: right;
   margin-top: -220px;
-  margin-right: 12%;
-  text-align: right;  
 }
 
 @media screen and (max-width: 1365px){
@@ -1273,7 +1257,7 @@ export default {
   }
 }
 
-#shareExp {
+#shareExp, #gotoInsurer {
   float: right;
   margin-top: -100px;
   margin-right: 6%;
@@ -1281,10 +1265,7 @@ export default {
 }
 
 #gotoInsurer {
-  float: right;
   margin-top: -40px;
-  margin-right: 6%;
-  width: 30%;
 }
 
 @media screen and (max-width: 1365px){
@@ -1354,7 +1335,6 @@ export default {
   margin-right: 37%;
   text-decoration:underline;  
   font-size: 20px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
 .insurerName {
@@ -1363,44 +1343,29 @@ export default {
   margin-top: 2%;
 }
 
-.insurerLogo {
+.insurerLogo, .insurerLogo2, .insurerLogo3, .insurerLogo4 {
   width: 200px;
   height: 200px;
   margin-top: 2%;
   margin-left: 2%;
-  background-image: url(../assets/bluecross.png);
   background-size:contain;
   border: 1px solid black;
+}
+
+.insurerLogo {
+  background-image: url(../assets/bluecross.png);
 }
 
 .insurerLogo2 {
-  width: 200px;
-  height: 200px;
-  margin-top: 2%;
-  margin-left: 2%;
   background-image: url(../assets/sunlife.jpg);
-  background-size:contain;
-  border: 1px solid black;
 }
 
 .insurerLogo3 {
-  width: 200px;
-  height: 200px;
-  margin-top: 2%;
-  margin-left: 2%;
   background-image: url(../assets/CAA.png);
-  background-size:contain;
-  border: 1px solid black;
 }
 
 .insurerLogo4 {
-  width: 200px;
-  height: 200px;
-  margin-top: 2%;
-  margin-left: 2%;
   background-image: url(../assets/surehealth.jpg);
-  background-size:contain;
-  border: 1px solid black;
 }
 
 .insurerDivs {
@@ -1417,20 +1382,25 @@ export default {
 
 .coreHealth {
   left: 0%;
-  font-size: 26px;
+  font-size: 22px;
   text-align: center;
   margin-left: 5%;
+}
+
+@media screen and (min-width: 1366px){
+  .coreHealth{
+    font-size: 26px;
+  }
 }
 
 .selectCoverage {
   text-align: center;
   text-decoration: underline;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .center {
   width: 80%;
-  height: 650px;
+  height: 750px;
   margin-left: 12%;
   margin-top: 4%;
   background-image: url(../assets/InsureButtonBG1.jpg);
@@ -1500,20 +1470,20 @@ export default {
   transform: rotate(45deg);
 }
 
+.MainHealthInsuranceH3 {
+  font-size: 18px;
+}
 .HealthInsuranceH3{
   margin-left: 15%;    
   font-size: 18px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
 .HealthInsuranceH2{  
   font-size: 22px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
 .HealthInsuranceH1{ 
   font-size: 30px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
 .noInsurance {
