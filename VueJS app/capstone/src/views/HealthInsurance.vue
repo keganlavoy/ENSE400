@@ -330,6 +330,7 @@ export default {
     this.sureHealth_UserQuote_sum = this.sureHealth_UserQuote_sum + this.insurers[3].core_health;
 
 
+
     if(this.input.prescriptionCheck) {
       if(this.insurers[0].prescription_drugs != null) {
       this.bluecross_sum = this.bluecross_sum + this.insurers[0].prescription_drugs;
@@ -363,12 +364,6 @@ export default {
         this.insurerClassBinds[3].prescriptionNull = true;
       }
     }
-
-
-
-
-
-
 
 
 
@@ -408,7 +403,6 @@ export default {
         this.insurerClassBinds[3].dentalNull = true;
       }
     }
-
 
 
 
@@ -599,17 +593,12 @@ export default {
         this.insurerClassBinds[3].lifeNull = true;
       }
     }
- 
-
 
 
     this.quoteSums[0].OurQuoteSum = this.bluecross_sum.toFixed(2);
     this.quoteSums[1].OurQuoteSum = this.sunlife_sum.toFixed(2);
     this.quoteSums[2].OurQuoteSum = this.CAA_sum.toFixed(2);
     this.quoteSums[3].OurQuoteSum = this.sureHealth_sum.toFixed(2);
-
-
-
 
 
     var tempAverage = 0.0;
@@ -672,15 +661,10 @@ export default {
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2)
       this.sureHealth_UserQuote_sum += parseFloat(tempAverage)
 
-    }
-    
-
-
+    } 
 
       tempAverage = 0.0
       counter = 0
-
-    
 
     if(this.input.dentalCheck) {
 
@@ -1049,9 +1033,6 @@ export default {
     .then(res => this.user_quotes_blue_cross = res.data)
     .catch(err => {throw err;});
 
-
-
-
     axios.get(`http://162.253.11.179:3000/getUserQuotesBlueCrossCount`)
     .then((res) => {
       this.blueCrossCount = res.data[0].countValue
@@ -1068,6 +1049,7 @@ export default {
       this.quoteSums[0].UserQuoteAverage = this.bluecross_UserQuote_total
     })
     .catch(err => {throw err;});
+
 
 
 
@@ -1091,6 +1073,8 @@ export default {
       this.quoteSums[1].UserQuoteAverage = this.sunlife_UserQuote_total
     })
     .catch(err => {throw err;});
+
+
 
 
     axios.get(`http://162.253.11.179:3000/getUserQuotesCAA`)
@@ -1117,6 +1101,8 @@ export default {
 
 
 
+
+
     axios.get(`http://162.253.11.179:3000/getUserQuotesSureHealth`)
     .then(res => this.user_quotes_sure_health = res.data)
     .catch(err => {throw err;});
@@ -1137,8 +1123,6 @@ export default {
       this.quoteSums[3].UserQuoteAverage = this.sureHealth_UserQuote_total
     })
     .catch(err => {throw err;});
-
-
 
 
   }
@@ -1473,9 +1457,14 @@ export default {
 .MainHealthInsuranceH3 {
   font-size: 18px;
 }
+
 .HealthInsuranceH3{
   margin-left: 15%;    
   font-size: 18px;
+}
+
+.noInsurance + .HealthInsuranceH3{
+  margin-top: -30px;
 }
 
 .HealthInsuranceH2{  
