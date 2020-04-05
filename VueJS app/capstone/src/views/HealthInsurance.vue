@@ -43,6 +43,15 @@
       <br>
       <button type="button" class="button" @click="getInsurers()">Search Insurance Brokers</button>
       <button type="button" class="button" @click="$router.push(`/Dashboard/${user_id}`)">Back to dashboard</button>
+
+      <div>
+        Choose the coverage you would like to search for above and click the <b>Search Insurance Brokers</b> button to get quotes.
+        If you would like to search for different types of insurance, adjust your options above and and click the <b>Search Insurance Brokers</b>
+        button again to receive your updated quotes.
+      </div>
+
+
+
     </div>
 
 
