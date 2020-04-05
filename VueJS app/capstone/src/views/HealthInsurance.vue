@@ -1,6 +1,8 @@
 <template>
   <div class="mainDivHealth">
    
+    <!--This is the initial div that you can see that contains all of the insurance options available for the user to choose from.
+        It also contains some user instructions at the bottom to help direct the user when choosing their insurance plan.-->
     <div class="center">
       <h1 class="selectCoverage">Select Coverage</h1>
     
@@ -41,9 +43,12 @@
         <span class="checkmark"></span>
       </label>
       <br>
+
+      <!--Buttons used to either query the database for quotes or to go back to the dashboard.-->
       <button type="button" class="button" @click="getInsurers()">Search Insurance Brokers</button>
       <button type="button" class="button" @click="$router.push(`/Dashboard/${user_id}`)">Back to dashboard</button>
 
+      <!--Instructions for the user that help them search for quotes-->
       <div>
         Choose the coverage you would like to search for above and click the <b>Search Insurance Brokers</b> button to get quotes.
         If you would like to search for different types of insurance, adjust your options above and and click the <b>Search Insurance Brokers</b>
@@ -54,7 +59,14 @@
 
     </div>
 
-
+    <!--These are repeating divs created by a v-for loop that display all of the insurance providers that we have in the insurers table. 
+        It displays the insurers logo, the insurers name, the coverage the user selected and whether or not we have data from 
+        that insurance provider. It also displays three quotes: The first quote is calculated using the data we have in our insurer table and
+        the options the user selected, the second quote is calculated using user provided quotes for that insurer and the options the user selected,
+        and the third quote is calculated by simply taking the average total quote prices of all user supplied quotes for that insurer. Two buttons are also
+        created: The first button takes the user to the page that allows them to input their own quote and the second is a direct link to the insurer's 
+        website. All of the elements are displayed in the div by using the v-bind:class directive which allows you to dynamically set a CSS class to an 
+        element based on the truth value of a variable.-->
     <div class="insurerDivs" v-bind:key="insurer.insurer_id" v-bind:index="index" v-for="(insurer, index) in insurers"> 
 
       <div v-bind:class="{insurerLogo: index == 0, insurerLogo2: index == 1, insurerLogo3: index == 2, insurerLogo4: index == 3}"></div>
@@ -153,8 +165,7 @@
 
 <script>
 
-//import shareQuoteButton from '@/components/shareQuote.vue'
-//import externalButton from '@/components/external.vue'
+
 import axios from 'axios'
 
 export default {
@@ -169,6 +180,12 @@ export default {
   data() {
     
     return {
+
+
+      /*The input object stores which checkboxes that the user has selected. For example if the user checks 
+        Dental and VIP Travel for their desired insurance coverage, dentalCheck and travelCheck will turn to 
+        true which allows us to dynamically set classes to elements in the brwoser as well as calculate the proper
+        prices for the quotes.*/
       input: {
 
         prescriptionCheck: false,
@@ -181,12 +198,24 @@ export default {
 
       },
 
+      /*The insurers array is where we store the results retrieved from the database on page load.
+        this array holds the data that we inputted into the database, this does not include any user 
+        inputted quotes. The prices in this array are used to calculate our quote price as well as display
+        some elements unique to the different insurers. */
       insurers: [],
+
+      /*The user quotes arrays below are used to store all of the quotes provided by the users for the 
+        individual insurance providers that we have available. These only store prices and are userd to 
+        calculate the other two quote prices displayed to the user.*/
       user_quotes_blue_cross: [],
       user_quotes_sunlife: [],
       user_quotes_caa: [],
       user_quotes_sure_health: [],
 
+
+      /*The quoteSums array is used to hold the final prices of the three quotes that are calculated. 
+        These prices are updated when the database is queried and then is displayed in the browser by
+        using the index of the v-for loop explained above.*/
       quoteSums: [
 
         {
@@ -215,6 +244,11 @@ export default {
       ],
 
 
+      /*InsurerClassBinds is an array that displays to the user whether or not we have price data for a particular
+        type of insurance for a particular insurer. When we query our database to retrieve the data we have for insurance 
+        prices, if a resulting price is 0 or null, we interpret that as us not having data for that particular insurer, otherwise
+        we have data and that determines which symbol is displayed to the user on the get quotes page after they choose their
+        desired insureance */
       insurerClassBinds: [
 
         {
@@ -266,22 +300,31 @@ export default {
       msg: '',
       hover: false,
 
+      /*These are placeholders for the final quote prices for our quotes that get
+        transfered into the quoteSums array */
       bluecross_sum: 0.0,
       sunlife_sum: 0.0,
       CAA_sum: 0.0,
       sureHealth_sum: 0.0,
 
+      /*These are placeholders for the final quote prices for user quotes with selected 
+        user inputs that get transfered into the quoteSums array */
       bluecross_UserQuote_sum: 0.0,
       sunlife_UserQuote_sum: 0.0,
       CAA_UserQuote_sum: 0.0,
       sureHealth_UserQuote_sum: 0.0,
 
 
+      /*these are palceholders for the final quote prices for user quotes total averages
+        that get transfered into the quoteSums array */
       bluecross_UserQuote_total: 0.0,
       sunlife_UserQuote_total: 0.0,
       CAA_UserQuote_total: 0.0,
       sureHealth_UserQuote_total: 0.0,
 
+
+      /*These hold the amount of rows within each user quote table and are used in the for loops in 
+        some functions to calculate the user quotes without going out of bounds within the array*/
       blueCrossCount: 0,
       sunlifeCount: 0,
       caaCount: 0,
@@ -297,15 +340,16 @@ export default {
 
     getInsurers() {
 
-    
-    
   
-  
-
+    /*This function retrieves the quote prices that we have gathered and puts the results in the
+      insurers table.*/
     axios.get(`http://162.253.11.179:3000/getInsurers`)
     .then((res) => {
     this.insurers = res.data;
 
+
+    /*These lines simply reset the quote prices whenever the function is called so that the new prices
+      can be recalculated independently of the previous prices. */
     this.bluecross_sum = 0.0;
     this.sunlife_sum = 0.0;
     this.CAA_sum = 0.0;
@@ -317,7 +361,8 @@ export default {
     this.sureHealth_UserQuote_sum = 0.0;
 
 
-
+    /*These lines add our inputted core health prices to the quotes because they are included within all
+      packages.*/
     this.bluecross_sum = this.bluecross_sum + this.insurers[0].core_health;
     this.sunlife_sum = this.sunlife_sum + this.insurers[1].core_health;
     this.CAA_sum = this.CAA_sum + this.insurers[2].core_health;
@@ -330,6 +375,10 @@ export default {
     this.sureHealth_UserQuote_sum = this.sureHealth_UserQuote_sum + this.insurers[3].core_health;
 
 
+    /*These if statements first check if the user has selected this type of insurance to search for. If the user has chosen it,
+      it then determines if we have any data for that type of insurance in our database for each insurer. If we do have data it is 
+      added to the quote price and a checkmark is displayed in the browser representing that we have that data. If we do not have 
+      data, the price isn't updated and a red x is shown in the browser representing that we don't have data. */
     if(this.input.prescriptionCheck) {
       if(this.insurers[0].prescription_drugs != null) {
       this.bluecross_sum = this.bluecross_sum + this.insurers[0].prescription_drugs;
@@ -368,10 +417,7 @@ export default {
 
 
 
-
-
-
-
+     /*Each input option is checked and the prices are updated accordingly.*/
      if(this.input.dentalCheck) {
       if(this.insurers[0].dental != null) {
       this.bluecross_sum = this.bluecross_sum + this.insurers[0].dental;
@@ -602,7 +648,8 @@ export default {
  
 
 
-
+    /*This rounds the final calculated price to 2 decimal places and inserts the final 
+      calculated quotes for our quotes into the quoteSums array. */
     this.quoteSums[0].OurQuoteSum = this.bluecross_sum.toFixed(2);
     this.quoteSums[1].OurQuoteSum = this.sunlife_sum.toFixed(2);
     this.quoteSums[2].OurQuoteSum = this.CAA_sum.toFixed(2);
@@ -611,7 +658,12 @@ export default {
 
 
 
-
+    /*This is the start of the calculations for the user quotes. It once again checks the user inputs.
+      If the user selected the type of insurance to be searched, each table in the database that was retrieved
+      is looped through. If the price in a row of the table is 0, that means that the user didn't have that
+      insurance included in their user submitted quote and isn't processed. If the price is anything other than
+      0, it is added to a temporary average and a counter is updated by 1 so that an average can be calculated later.
+      All of the individual insurance type's averages are then added together at the end to give the final price.*/
     var tempAverage = 0.0;
     var counter = 0;
 
@@ -621,8 +673,7 @@ export default {
         if(this.user_quotes_blue_cross[i].prescription_drugs != 0) {
           tempAverage += this.user_quotes_blue_cross[i].prescription_drugs;
           counter++;
-          /* eslint-disable no-console */
-          console.log(tempAverage)
+
         }
       }
 
@@ -634,13 +685,9 @@ export default {
       tempAverage = 0.0;
 
       for(let i = 0; i < this.sunlifeCount; i++) {
-      /* eslint-disable no-console */
-      console.log(this.sunlifeCount)
         if(this.user_quotes_sunlife[i].prescription_drugs != 0) {
           tempAverage += this.user_quotes_sunlife[i].prescription_drugs;
           counter++;
-          /* eslint-disable no-console */
-          console.log(tempAverage)
         }
       }
       tempAverage = (tempAverage / counter.toFixed(1)).toFixed(2);
@@ -1021,6 +1068,8 @@ export default {
 
     }
 
+
+    /*This transfers the calculated user quotes into the quoteSums array */
     this.quoteSums[0].UserQuoteSelectedAverage = this.bluecross_UserQuote_sum.toFixed(2)
     this.quoteSums[1].UserQuoteSelectedAverage = this.sunlife_UserQuote_sum.toFixed(2)
     this.quoteSums[2].UserQuoteSelectedAverage = this.CAA_UserQuote_sum.toFixed(2)
@@ -1044,14 +1093,18 @@ export default {
     var i = 0;
    
     
-
+    /*On page load the database is queried to get the number of rows for each table as well as 
+      all of the user uote data for each table.*/
     axios.get(`http://162.253.11.179:3000/getUserQuotesBlueCross`)
     .then(res => this.user_quotes_blue_cross = res.data)
     .catch(err => {throw err;});
 
 
 
-
+    /*The total average quote price is also calculated here because it does not change based on what the 
+      user selects, it is simply the average quote price from that insurer and it does not change until new quotes
+      are added to the system. Therefore, we can calculate the total average once on page load instead of everytime
+      the search insurance brokers button is clicked.*/
     axios.get(`http://162.253.11.179:3000/getUserQuotesBlueCrossCount`)
     .then((res) => {
       this.blueCrossCount = res.data[0].countValue
