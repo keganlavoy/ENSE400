@@ -34,10 +34,9 @@ export default {
 <style>
 
 #app {
-height: 100%;
-text-align: center;
+  height: 88%;
+  text-align: center;
 }
-
 
 /*the positions here are set to sticky for multiple browsers
   z index is set so that other components can appear on top of it*/
@@ -45,8 +44,9 @@ text-align: center;
   position: -ms-page;
   position: -webkit-sticky;
   position: sticky;
-  height: 12%;
+  height: 14%;
   width: 100%;
+  margin-top: -10px;
   background-image: url(assets/CareCompareBanner3.png);
   background-size: cover;
   overflow: hidden;
@@ -72,7 +72,6 @@ text-align: center;
   display: none;
   scrollbar-width: none;
 }
-
 
 /*left-blue and right-blue are the side blocks on the profile page*/
 .left-blue, .right-blue {
@@ -115,7 +114,6 @@ text-align: center;
   background-color: black;
   color: white;
 }
-
 
 /*dropdown is the styling on all dropdown boxes on all pages*/
 .dropdown {
