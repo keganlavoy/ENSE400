@@ -57,7 +57,7 @@
         button again to receive your updated quotes.
       </div>
     </div>
-
+    </div>
     <!--These are repeating divs created by a v-for loop that display all of the insurance providers that we have in the insurers table. 
         It displays the insurers logo, the insurers name, the coverage the user selected and whether or not we have data from 
         that insurance provider. It also displays three quotes: The first quote is calculated using the data we have in our insurer table and
@@ -147,8 +147,7 @@
       </div>     
     </div>
     
-    <div class="getQuotesFooter">
-    </div>
+    <div class="getQuotesFooter"></div>
   </div>
 </template>
 
