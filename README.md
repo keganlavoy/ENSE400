@@ -44,6 +44,6 @@ This is where the majority of our source code can be found.
 
 This is where source code can be found that contributes to all other pages.
 
-## Main.js
+### Main.js
 
 This is the intial setup of our application javascript
