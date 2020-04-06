@@ -28,15 +28,15 @@ Find all of our code can be found under **VueJS app/ capstone/ src**
 
 This is where all of the images used on *Care Compare SK* can be found.
 
-### Components
+### Components Folder
 
 This is where the code for all of our components such as buttons can be found.
 
-### Router
+### Router Folder
 
 This is where all the code for our paths and routing are.
 
-### Views
+### Views Folder
 
 This is where the majority of our source code can be found.
 
