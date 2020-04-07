@@ -16,7 +16,7 @@
      <h3 class="quotePriceTitle">Choose Insurer: <select name="Insurer" class="dropdown" v-model="input.Insurer">
              <option value="null" selected disabled hidden>Insurer</option>
              <option value="blueCross">Blue Cross</option>
-             <option value="sunlife">Sunlife</option>
+             <option value="sunlife">Sun Life</option>
              <option value="CAA">CAA</option>
              <option value="sureHealth">Sure Health</option>
             </select></h3>
