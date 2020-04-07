@@ -1006,7 +1006,7 @@ export default {
    
     
     /*On page load the database is queried to get the number of rows for each table as well as 
-      all of the user uote data for each table.*/
+      all of the user quote data for each table.*/
     axios.get(`http://162.253.11.179:3000/getUserQuotesBlueCross`)
     .then(res => this.user_quotes_blue_cross = res.data)
     .catch(err => {throw err;});
