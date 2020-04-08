@@ -6,7 +6,7 @@
     <div class="center">
       <h1 class="selectCoverage">Select Coverage</h1>
     
-      <h3 class="coreHealth"> Core Health Benefits (These are automatically included in all packages)</h3>
+      <h3 class="coreHealth"> Core Health Benefits (These are automatically included in all packages)*</h3>
       <br>
       <label class="container" for="prescriptionDrugs">Prescription Drugs
         <input type="checkbox" id="prescriptionDrugs" value="prescriptionDrugs" v-model="input.prescriptionCheck">
@@ -102,16 +102,16 @@
       </div>
 
       <div class="OurQuoteText">
-        <h2 class="HealthInsuranceH2"> Our Estimated Quote:</h2> 
+        <h2 class="HealthInsuranceH2"> Our estimated quote:</h2> 
       </div>
       <div class="PeopleQuoteText">
-        <h2 class="HealthInsuranceH2">Average Estimate using selected features from the Community:</h2>
+        <h2 class="HealthInsuranceH2">Average estimate using selected coverage from the community:</h2>
       </div>
        <div class="PeopleQuoteTextAverage">
-        <h2 class="HealthInsuranceH2">Average Estimate Quote from the Community:</h2>
+        <h2 class="HealthInsuranceH2">Average estimate using all coverage options from the community:</h2>
       </div>
       <div class="OurQuotePrice">
-        <h2 class="HealthInsuranceH2">${{quoteSums[index].OurQuoteSum}}</h2>
+        <h2 class="HealthInsuranceH2">${{quoteSums[index].OurQuoteSum}}*</h2>
       </div>
       <div class="PeopleQuotePrice">
         <h2 class="HealthInsuranceH2">${{quoteSums[index].UserQuoteSelectedAverage}}</h2>
@@ -1183,7 +1183,7 @@ export default {
 
 @media screen and (max-width: 1365px){
   .OurQuotePrice{
-  margin-top: -370px;
+  margin-top: -380px;
   }
 }
 
@@ -1444,6 +1444,12 @@ export default {
 
 .HealthInsuranceH2{  
   font-size: 22px;
+}
+
+@media screen and (max-width: 1365px){
+  .HealthInsuranceH2 {
+    font-size: 18px;
+  }
 }
 
 .HealthInsuranceH1{ 
