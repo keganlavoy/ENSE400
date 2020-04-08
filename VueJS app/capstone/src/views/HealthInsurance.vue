@@ -1359,7 +1359,7 @@ export default {
 
 .center {
   width: 80%;
-  height: 750px;
+  height: 760px;
   margin-left: 12%;
   margin-top: 4%;
   background-image: url(../assets/InsureButtonBG1.jpg);
