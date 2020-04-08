@@ -16,7 +16,7 @@
      <h3 class="quotePriceTitle">Choose Insurer: <select name="Insurer" class="dropdown" v-model="input.Insurer">
              <option value="null" selected disabled hidden>Insurer</option>
              <option value="blueCross">Blue Cross</option>
-             <option value="sunlife">Sunlife</option>
+             <option value="sunlife">Sun Life</option>
              <option value="CAA">CAA</option>
              <option value="sureHealth">Sure Health</option>
             </select></h3>
@@ -46,7 +46,7 @@
         </div>
         
         <!--buttons for submitting quotes or going to home page-->
-        <UserQuoteSubmit msg="Submit Quote" @click.native="submitQuote(input.Insurer, input.prescriptionDrugs, input.dental, input.studentAccident, input.VIPtravel,
+        <UserQuoteSubmit msg="Submit Quote" value="QuoteSave" @click.native="submitQuote(input.Insurer, input.prescriptionDrugs, input.dental, input.studentAccident, input.VIPtravel,
                                                                                      input.hospitalCash, input.criticalIllness, input.termLifeInsurance, input.totalQuote)"/>
         <UserQuoteHome msg="Back to Home" @click.native="$router.push(`/Dashboard/${user_id}`)"/>
 
@@ -54,7 +54,7 @@
         <div v-bind:class="{ noErrorInsurer: isInsurer, errorInsurer: noInsurer }">You have not chosen an Insurer.</div>
         <div v-bind:class="{ noErrorEmpty: isData, errorEmpty: noData }">You have not entered any data.</div>
         <div v-bind:class="{ noErrorNaN: isNan, errorNaN: noNan }">One of the fields is entered is not a number.</div>  
-        <div v-bind:class="{ noQuoteSave: invalidQuoteSave, QuoteSave: validQuoteSave }">Your quote has been saved successfully, thank you for your feedback!</div>
+        <div v-bind:class="{ noQuoteSave: invalidQuoteSave, QuoteSave: validQuoteSave }">Your information has been saved successfully.</div>
     </div>
 </template>
 
@@ -154,32 +154,33 @@
         axios.post(`http://162.253.11.179:3000/submitQuoteBlueCross/${prescriptionDrugs}/${dental}/${studentAccident}/${VIPtravel}/${hospitalCash}/${criticalIllness}/${termLifeInsurance}/${totalQuote}`)
         .then(res => this.input = res.data[0])
         .catch(err => {throw err;});
-        
+        this.invalidQuoteSave = false;
+        this.validQuoteSave = true;
         }
 
         if(Insurer == "sunlife"){
         axios.post(`http://162.253.11.179:3000/submitQuoteSunlife/${prescriptionDrugs}/${dental}/${studentAccident}/${VIPtravel}/${hospitalCash}/${criticalIllness}/${termLifeInsurance}/${totalQuote}`)
         .then(res => this.input = res.data[0])
         .catch(err => {throw err;});
-        
+        this.invalidQuoteSave = false;
+        this.validQuoteSave = true;
         }
 
         if(Insurer == "CAA") {
         axios.post(`http://162.253.11.179:3000/submitQuoteCAA/${prescriptionDrugs}/${dental}/${studentAccident}/${VIPtravel}/${hospitalCash}/${criticalIllness}/${termLifeInsurance}/${totalQuote}`)
         .then(res => this.input = res.data[0])
         .catch(err => {throw err;});
-        
+        this.invalidQuoteSave = false;
+        this.validQuoteSave = true;
         }
 
         if(Insurer == "sureHealth"){
         axios.post(`http://162.253.11.179:3000/submitQuoteSureHealth/${prescriptionDrugs}/${dental}/${studentAccident}/${VIPtravel}/${hospitalCash}/${criticalIllness}/${termLifeInsurance}/${totalQuote}`)
         .then(res => this.input = res.data[0])
         .catch(err => {throw err;});
-        
-        } 
-        
         this.invalidQuoteSave = false;
         this.validQuoteSave = true;
+        }        
         }
         },
     },
@@ -205,7 +206,7 @@ visibility: hidden;
   margin-top: 5%;
   margin-bottom: 5%;
 }
-.instructions, .quotePriceTitle, .quotePrice, .errorInsurer, .errorEmpty, .errorNaN {
+.instructions, .quotePriceTitle, .quotePrice, .errorInsurer, .errorEmpty, .errorNaN, .QuoteSave {
   font-size: 20px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -283,7 +284,7 @@ visibility: hidden;
   scrollbar-width: none;
 }
 
-.noErrorInsurer, .noErrorEmpty, .noErrorNaN {
+.noErrorInsurer, .noErrorEmpty, .noErrorNaN, .noQuoteSave {
 visibility: hidden;
 }
 
@@ -291,6 +292,11 @@ visibility: hidden;
   margin-top: 10px;
   visibility: visible;
   color: red;
+}
+
+.QuoteSave {
+  visibility: visible;
+  color: black;
 }
 
 .errorEmpty {

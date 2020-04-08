@@ -12,14 +12,8 @@
         <input type="text" class="input" name="firstName" v-model="input.firstName" placeholder="First Name" />
         <input type="text" class="input" name="lastName" v-model="input.lastName" placeholder="Last Name" />
         <br>
-
-
-        <div v-bind:class="{ noErrorMonth: validMonth, errorMonth: invalidMonth }">The month entered is invalid.</div>
-        <div v-bind:class="{ noErrorDay: validDay, errorDay: invalidDay }">The day entered is invalid.</div>
-        <div v-bind:class="{ noErrorYear: validYear, errorYear: invalidYear }">The year entered is invalid.</div>
-
-        
-        <h4>Date of birth (MM/DD/YYYY):
+      
+        <h4 class="profilePageH4">Date of birth (MM/DD/YYYY):
             <input type="number" step="1" class="input" id="DOBmonth" name="DOBmonth" v-model="input.DOBmonth" placeholder="Month" />
             <input type="number" step="1" class="input" id="DOBday" name="DOBday" v-model="input.DOBday" placeholder="Day" />
             <input type="number" step="1" class="input" id="DOByear" name="DOByear" v-model="input.DOByear" placeholder="Year" />
@@ -41,13 +35,17 @@
         <br><br>
         <select name="maritalStatus" class="dropdown" v-model="input.maritalStatus">
              <option value="null" selected disabled hidden>Marital Status</option>
-             <option value="Not married">Not married</option>
+             <option value="Not married">Single</option>
              <option value="married">Married</option>
              <option value="common Law">Common Law</option>
         </select>
         <input type="number" step="1" class="input" id="children" name="children" v-model="input.children" placeholder="How many children?" />
         <br><br>
+        <div v-bind:class="{ noErrorMonth: validMonth, errorMonth: invalidMonth }">The month entered is invalid.</div>
+        <div v-bind:class="{ noErrorDay: validDay, errorDay: invalidDay }">The day entered is invalid.</div>
+        <div v-bind:class="{ noErrorYear: validYear, errorYear: invalidYear }">The year entered is invalid.</div>
         <div v-bind:class="{ noSave: invalidSave, Save: validSave }">Your information has been saved successfully.</div>
+        <br>
         <!--When this save button is clicked it will execute the function that saves the user entered data into the database-->
         <input type="submit" value="Save" class="button" @click="updateUser(user_id, input.firstName, input.lastName, input.DOBmonth, input.DOBday, input.DOByear, input.gender,
                                                                 input.homeAddress, input.city, input.province, input.postalCode, input.email, input.phoneNum,
@@ -123,19 +121,31 @@ export default {
             this.invalidMonth = true;
             this.validMonth = false;
         }
+        else {
+          this.invalidMonth = false;
+          this.validMonth = true;
+        }
 
-        else if((DOBday < 1 && isNaN(DOBday) == false) || (DOBmonth > 31 && isNaN(DOBday) == false)) {
+        if((DOBday < 1 && isNaN(DOBday) == false) || (DOBmonth > 31 && isNaN(DOBday) == false)) {
             this.invalidDay = true;
             this.validDay = false;
         }
+        else {
+          this.invalidDay = false;
+          this.validDay = true;
+        }
 
-        else if((DOByear < 1900 && isNaN(DOByear) == false) || (DOBmonth > 2020 && isNaN(DOByear) == false)) {
+        if((DOByear < 1900 && isNaN(DOByear) == false) || (DOBmonth > 2020 && isNaN(DOByear) == false)) {
             this.invalidYear = true;
             this.validYear = false;
         }
+        else {
+          this.invalidYear = false;
+          this.validYear = true;
+        }
 
         //This function will update the users data in the database and tell them that their information has been updated successfully
-        else {
+        if(this.validMonth == true && this.validDay == true && this.validYear == true) {
         axios.post(`http://162.253.11.179:3000/updateUser/${user_id}/${firstName}/${lastName}/${DOBmonth}/${DOBday}/${DOByear}/${gender}/${homeAddress}/${city}/${province}/${postalCode}/${email}/${phoneNum}/${maritalStatus}/${children}`)
         .then(res => this.input = res.data[0])
         .catch(err => {throw err;});
@@ -167,6 +177,7 @@ export default {
 .errorYear, .errorMonth, .errorDay {
   visibility: visible;
   color: red;
+  font-size: 18px;
 }
 
 .noErrorYear, .noErrorMonth, .noErrorDay, .noSave {
@@ -176,6 +187,12 @@ visibility: hidden;
 .Save {
   visibility: visible;
   color: black;
+  font-size: 18px;
+
+}
+
+.profilePageH4, .Save, .errorYear, .errorMonth, .errorDay {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #children, #postalCode {

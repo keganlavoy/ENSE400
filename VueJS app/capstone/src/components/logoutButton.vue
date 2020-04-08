@@ -31,7 +31,7 @@ export default {
   z-index: 1;
   width: 6%;
   height: 12%;
-  background-image: url(../assets/logoutIcon.png), url(../assets/bannerLogoBG.png);
+  background-image: url(../assets/logoutIcon.png);
   background-size: cover;
   border-right: 2px solid black;
   cursor: pointer;
