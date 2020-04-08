@@ -54,6 +54,7 @@
         <div v-bind:class="{ noErrorInsurer: isInsurer, errorInsurer: noInsurer }">You have not chosen an Insurer.</div>
         <div v-bind:class="{ noErrorEmpty: isData, errorEmpty: noData }">You have not entered any data.</div>
         <div v-bind:class="{ noErrorNaN: isNan, errorNaN: noNan }">One of the fields is entered is not a number.</div>  
+        <div v-bind:class="{ noQuoteSave: invalidQuoteSave, QuoteSave: validQuoteSave }">Your quote has been saved successfully, thank you for your feedback!</div>
     </div>
 </template>
 
@@ -93,7 +94,9 @@
                 noErrorCheck: false,
                 isErrorCheck: true,
                 noNan: false,
-                isNan: true
+                isNan: true,
+                invalidQuoteSave: true,
+                validQuoteSave: false
             }
     },
 
@@ -151,29 +154,32 @@
         axios.post(`http://162.253.11.179:3000/submitQuoteBlueCross/${prescriptionDrugs}/${dental}/${studentAccident}/${VIPtravel}/${hospitalCash}/${criticalIllness}/${termLifeInsurance}/${totalQuote}`)
         .then(res => this.input = res.data[0])
         .catch(err => {throw err;});
-        this.$router.push(`/Dashboard/${this.user_id}`)
+        
         }
 
         if(Insurer == "sunlife"){
         axios.post(`http://162.253.11.179:3000/submitQuoteSunlife/${prescriptionDrugs}/${dental}/${studentAccident}/${VIPtravel}/${hospitalCash}/${criticalIllness}/${termLifeInsurance}/${totalQuote}`)
         .then(res => this.input = res.data[0])
         .catch(err => {throw err;});
-        this.$router.push(`/Dashboard/${this.user_id}`)
+        
         }
 
         if(Insurer == "CAA") {
         axios.post(`http://162.253.11.179:3000/submitQuoteCAA/${prescriptionDrugs}/${dental}/${studentAccident}/${VIPtravel}/${hospitalCash}/${criticalIllness}/${termLifeInsurance}/${totalQuote}`)
         .then(res => this.input = res.data[0])
         .catch(err => {throw err;});
-        this.$router.push(`/Dashboard/${this.user_id}`)
+        
         }
 
         if(Insurer == "sureHealth"){
         axios.post(`http://162.253.11.179:3000/submitQuoteSureHealth/${prescriptionDrugs}/${dental}/${studentAccident}/${VIPtravel}/${hospitalCash}/${criticalIllness}/${termLifeInsurance}/${totalQuote}`)
         .then(res => this.input = res.data[0])
         .catch(err => {throw err;});
-        this.$router.push(`/Dashboard/${this.user_id}`)
-        }        
+        
+        } 
+        
+        this.invalidQuoteSave = false;
+        this.validQuoteSave = true;
         }
         },
     },
@@ -184,6 +190,16 @@
 </script>
 
 <style>
+
+.noQuoteSave {
+visibility: hidden;
+}
+
+.QuoteSave {
+  visibility: visible;
+  color: black;
+}
+
 
 #instructions {
   margin-top: 5%;
