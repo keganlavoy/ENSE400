@@ -212,12 +212,11 @@ visibility: hidden;
   color: black;
 }
 
-
 #instructions {
   margin-top: 5%;
   margin-bottom: 5%;
 }
-.instructions, .quotePriceTitle, .quotePrice, .errorInsurer, .errorEmpty, .errorNaN, .QuoteSave {
+.instructions, .quotePriceTitle, .quotePrice, .errorInsurer, .errorEmpty, .errorNaN, .QuoteSave, .TotalAccept {
   font-size: 20px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -283,7 +282,7 @@ visibility: hidden;
 .mainDivUserQuotes {
   background-size: cover;
   background-color: white;
-  height: 950px;
+  height: 1000px;
   width: 100%;
   overflow: auto;
   -ms-overflow-style: none;
@@ -319,7 +318,7 @@ visibility: hidden;
 }
 
 .TotalAccept {
-  margin-top: -30px;
+  margin-top: -34px;
 }
 
 </style>
