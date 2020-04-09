@@ -9,6 +9,7 @@
       <p class="instructions">Below you can enter in a personal insurance quote to share with the community and help provide a more accurate quote for others.</p>
       <p class="instructions">If you know the individual prices of each part of your quote, enter those prices in their respective boxes below.</p>
       <p class="instructions">If you only know your final quote price, simply enter that price in the total quote box.</p>
+      <p class="instructions">If you know only some individual prices of your quote along with your total quote, you can enter both the individual prices nd total quote together.</p>
       <p class="instructions">If the type of insurance listed is not part of your package, or you do not know the individual price, leave it as 0.</p>
     </div>
 
@@ -53,7 +54,8 @@
         <!--Error messages that are displayed if there are problems in the form-->
         <div v-bind:class="{ noErrorInsurer: isInsurer, errorInsurer: noInsurer }">You have not chosen an Insurer.</div>
         <div v-bind:class="{ noErrorEmpty: isData, errorEmpty: noData }">You have not entered any data.</div>
-        <div v-bind:class="{ noErrorNaN: isNan, errorNaN: noNan }">One of the fields is entered is not a number.</div>  
+        <div v-bind:class="{ noErrorNaN: isNan, errorNaN: noNan }">One of the fields is entered is not a number.</div>
+        <div v-bind:class="{ noTotalAccept: invalidTotal, TotalAccept: validTotal }">The total quote entered is less than the combined prices of individual quotes.</div>  
         <div v-bind:class="{ noQuoteSave: invalidQuoteSave, QuoteSave: validQuoteSave }">Your information has been saved successfully.</div>
     </div>
 </template>
@@ -96,7 +98,9 @@
                 noNan: false,
                 isNan: true,
                 invalidQuoteSave: true,
-                validQuoteSave: false
+                validQuoteSave: false,
+                invalidTotal: true,
+                validTotal: false
             }
     },
 
@@ -118,6 +122,8 @@
         this.isErrorCheck = true;
         this.noNan = false;
         this.isNan = true;
+        this.invalidTotal = true;
+        this.validTotal = false;
 
         prescriptionDrugs = parseFloat(prescriptionDrugs);
         dental = parseFloat(dental);
@@ -131,6 +137,11 @@
         if(Insurer == "Insurer" || Insurer == "" || Insurer == "null") {
             this.noInsurer = true;
             this.isInsurer = false;
+        }
+
+        else if(totalQuote != 0 && totalQuote < (prescriptionDrugs + dental + studentAccident + VIPtravel + hospitalCash + criticalIllness + termLifeInsurance)) {
+          this.invalidTotal = false;
+          this.validTotal = true;
         }
 
         else if(prescriptionDrugs == 0 && dental == 0 && studentAccident == 0 && VIPtravel == 0 && hospitalCash == 0 && criticalIllness == 0 && termLifeInsurance == 0 && totalQuote == 0) {
@@ -284,11 +295,11 @@ visibility: hidden;
   scrollbar-width: none;
 }
 
-.noErrorInsurer, .noErrorEmpty, .noErrorNaN, .noQuoteSave {
+.noErrorInsurer, .noErrorEmpty, .noErrorNaN, .noQuoteSave, .noTotalAccept {
 visibility: hidden;
 }
 
-.errorInsurer, .errorEmpty, .errorNaN {
+.errorInsurer, .errorEmpty, .errorNaN, .TotalAccept {
   margin-top: 10px;
   visibility: visible;
   color: red;
@@ -305,6 +316,10 @@ visibility: hidden;
 
 .errorNaN {
   margin-top: -22px;
+}
+
+.TotalAccept {
+  margin-top: -30px;
 }
 
 </style>
