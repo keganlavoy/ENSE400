@@ -407,9 +407,6 @@ export default {
   background-color: white;
 }
 
-.mainDiv {
-  height: auto;
-}
 
 
 </style>
