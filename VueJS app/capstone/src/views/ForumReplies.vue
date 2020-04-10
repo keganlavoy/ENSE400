@@ -6,7 +6,7 @@
     
     <!--Title for furum Replies page-->
     <div class="center-community-ForumReplies">
-       <button type="button" class="forumRepliesButton" @click="$router.push(`/Forum/${user_id}`)">Back to home</button>
+       <button type="button" class="forumRepliesButton" @click="$router.push(`/Forum/${user_id}`)">Back to forum</button>
         <h2 class="ForumReplies-h1">Replies Forum</h2>
     </div>
 
