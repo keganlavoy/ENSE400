@@ -126,7 +126,7 @@ export default {
           this.validMonth = true;
         }
 
-        if((DOBday < 1 && isNaN(DOBday) == false) || (DOBmonth > 31 && isNaN(DOBday) == false)) {
+        if((DOBday < 1 && isNaN(DOBday) == false) || (DOBday > 31 && isNaN(DOBday) == false)) {
             this.invalidDay = true;
             this.validDay = false;
         }
@@ -135,7 +135,7 @@ export default {
           this.validDay = true;
         }
 
-        if((DOByear < 1900 && isNaN(DOByear) == false) || (DOBmonth > 2020 && isNaN(DOByear) == false)) {
+        if((DOByear < 1900 && isNaN(DOByear) == false) || (DOByear > 2020 && isNaN(DOByear) == false)) {
             this.invalidYear = true;
             this.validYear = false;
         }
