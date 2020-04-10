@@ -7,9 +7,9 @@
     
     <div id="instructions">
       <p class="instructions">Below you can enter in a personal insurance quote to share with the community and help provide a more accurate quote for others.</p>
-      <p class="instructions">If you know the individual prices of each part of your quote, enter those prices in their respective boxes below.</p>
+      <p class="instructions">If you know the individual prices of your selected coverage, enter those prices in their respective boxes below.</p>
       <p class="instructions">If you only know your final quote price, simply enter that price in the total quote box.</p>
-      <p class="instructions">If you know only some individual prices of your quote along with your total quote, you can enter both the individual prices nd total quote together.</p>
+      <p class="instructions">If you know only some individual prices of your quotes along with your total quote, you can enter both the individual prices and total quote together.</p>
       <p class="instructions">If the type of insurance listed is not part of your package, or you do not know the individual price, leave it as 0.</p>
     </div>
 
@@ -307,6 +307,7 @@ visibility: hidden;
 .QuoteSave {
   visibility: visible;
   color: black;
+  margin-top: -50px;
 }
 
 .errorEmpty {
